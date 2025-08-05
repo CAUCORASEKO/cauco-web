@@ -1,3 +1,4 @@
+/* Reset básico */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -10,8 +11,12 @@ body {
   color: #e0e0e0;
   line-height: 1.6;
   padding: 20px;
+
+  max-width: 960px;
+  margin: 0 auto;
 }
 
+/* Header y navegación */
 header {
   display: flex;
   justify-content: space-between;
@@ -38,6 +43,7 @@ nav a:hover,
   color: #00ffc3;
 }
 
+/* Sección principal */
 .hero {
   text-align: center;
   padding: 80px 20px;
@@ -51,12 +57,14 @@ nav a:hover,
   cursor: pointer;
 }
 
+/* Secciones generales */
 #about,
 #projects,
 #contact {
   margin: 60px 0;
 }
 
+/* Proyectos */
 .project-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -68,6 +76,12 @@ nav a:hover,
   padding: 20px;
   border-radius: 10px;
   background-color: #161616;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 255, 195, 0.1);
 }
 
 .project-card h3 {
@@ -80,10 +94,28 @@ nav a:hover,
   text-decoration: none;
 }
 
+/* Footer */
 footer {
   text-align: center;
   margin-top: 60px;
   padding: 20px 0;
   font-size: 0.9rem;
-  color: #777;
+  color: #888;
+}
+
+/* Responsividad */
+@media (min-width: 768px) {
+  .project-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .project-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .hero h1 {
+    font-size: 3rem;
+  }
 }
