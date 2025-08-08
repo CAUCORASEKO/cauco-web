@@ -41,11 +41,68 @@
     </div>
   </section>
 
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>Email: <a href="mailto:claudio.fernando.valenzuela@gmail.com">claudio.fernando.valenzuela@gmail.com</a></p>
-    <p>X/Twitter: <a href="https://twitter.com/Mandacoin_X" target="_blank">@Mandacoin_X</a></p>
-  </section>
+<section id="contact">
+  <h2>📮 Request a Project Quote</h2>
+  <form id="contact-form">
+    <label for="type">Project Type</label>
+    <select name="type" id="type" required>
+      <option value="">Select an option</option>
+      <option value="Website">🌐 Website</option>
+      <option value="Mobile App">📱 Mobile App</option>
+      <option value="Custom Software">💻 Custom Software</option>
+      <option value="Consulting">🧠 Tech Consulting</option>
+      <option value="Other">🔧 Other</option>
+    </select>
+
+    <label for="email">Your Email</label>
+    <input type="email" name="email" id="email" required placeholder="you@example.com" autocomplete="email">
+
+    <label for="message">Message</label>
+    <textarea name="message" id="message" required placeholder="Tell me more about your project..."></textarea>
+
+    <button type="submit">Send Request</button>
+  </form>
+
+  <p class="alt-contact">
+    Or reach me on <a href="https://x.com/Manda_Coin" target="_blank">@Manda_Coin</a>
+  </p>
+</section>
+
+<script>
+  const form = document.getElementById('contact-form');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const data = {
+      type: form.type.value,
+      email: form.email.value,
+      message: form.message.value
+    };
+
+    try {
+      const response = await fetch('http://localhost:3001/contact', {  // Cambia la URL si haces deploy
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      });
+
+      if (response.ok) {
+        alert('Request sent successfully!');
+        form.reset();
+      } else {
+        alert('Failed to send request. Please try again later.');
+      }
+    } catch (error) {
+      alert('Error sending request: ' + error.message);
+    }
+  });
+</script>
+
+
+
 
   <footer>
     <p>© 2025 CAUCO – All rights reserved</p>
