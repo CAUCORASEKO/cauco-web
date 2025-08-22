@@ -192,3 +192,195 @@ footer {
   color: #00ffc3;
   text-decoration: none;
 }
+
+/* === Project Demo Pages === */
+
+/* Contenedor principal de la página */
+.project-page {
+  font-family: 'Share Tech Mono', monospace;
+  background: #0a0a0a;
+  color: #f4f4f4;
+  line-height: 1.6;
+  padding: 2rem;
+  margin-left: auto;    /* Empuja todo al lado derecho */
+  margin-right: auto;      /* Garantiza que quede pegado al borde derecho */
+  max-width: 1000px;    /* Mantiene el ancho original */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Wrapper general para limitar ancho de contenido */
+.project-page > * {
+  max-width: 1000px;                           /* Máximo ancho para que no se estire demasiado en pantallas grandes */
+  width: 90%;                                  /* Ancho relativo para mantener responsive */
+  margin: 0 auto;                              /* Centra horizontalmente */
+  text-align: center;                           /* Centra texto dentro de cada sección */
+}
+
+/* === Header === */
+.demo-header {
+  padding: 4rem 2rem;                          /* Espacio interno superior/inferior y lateral */
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364); /* Gradiente de fondo */
+  color: #fff;
+}
+
+.demo-header h1 {
+  font-size: 2.5rem;                           /* Tamaño grande para el título */
+  margin-bottom: 0.5rem;
+}
+
+.demo-header p {
+  font-size: 1.2rem;
+  opacity: 0.9;                                /* Texto ligeramente transparente */
+}
+
+/* Botón de volver atrás */
+.back-btn {
+  display: inline-block;
+  margin-top: 1.5rem;                          /* Separación del texto superior */
+  padding: 0.5rem 1rem;
+  background: #111;
+  color: #00ffcc;
+  text-decoration: none;
+  border-radius: 6px;                          /* Bordes redondeados */
+  transition: all 0.3s ease;                   /* Suaviza cambios al hover */
+}
+
+.back-btn:hover {
+  background: #00ffcc;                         /* Cambia fondo al pasar mouse */
+  color: #111;                                 /* Cambia texto */
+}
+
+/* === Showcase: imagen + descripción === */
+.demo-showcase {
+  display: flex;                               /* Flexbox para alinear imagen y texto */
+  flex-wrap: wrap;                             /* Permite que se muevan abajo en pantallas pequeñas */
+  justify-content: center;                      /* Centra horizontalmente */
+  align-items: stretch;                         /* Hace que imagen y descripción tengan misma altura */
+  gap: 2rem;                                   /* Separación entre columnas */
+  padding: 3rem 2rem;                          /* Espacio interno superior/inferior y lateral */
+}
+
+/* Imagen y descripción dentro del showcase */
+.demo-image, .demo-description {
+  flex: 1 1 400px;     /* Increased minimum width from 300px */
+  max-width: 500px;
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0,255,204,0.3);
+  transition: transform 0.3s ease;
+}
+
+.demo-image:hover {
+  transform: scale(1.03);                       /* Efecto zoom al pasar mouse */
+}
+
+.demo-description h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.demo-description ul {
+  list-style: none;                             /* Sin bullets */
+  padding: 0;
+  margin: 0 0 1rem 0;                           /* Separación inferior */
+}
+
+.demo-description li {
+  margin: 0.5rem 0;                             /* Separación entre items */
+  font-size: 1.1rem;
+}
+
+/* === Botón CTA === */
+.cta-btn {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 0.75rem 1.5rem;
+  background: #00ffcc;
+  color: #111;
+  font-weight: bold;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.cta-btn:hover {
+  background: #111;
+  color: #00ffcc;
+  border: 1px solid #00ffcc;
+}
+
+/* === Features Section === */
+.demo-features {
+  background: #111;
+  padding: 4rem 2rem;
+}
+
+.demo-features h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.feature-grid {
+  display: grid;                                /* Usamos grid para tarjetas de features */
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Responsive */
+  gap: 2rem;
+  justify-items: center;                        /* Centra cada card */
+}
+
+.feature {
+  background: #1a1a1a;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  text-align: center;
+}
+
+.feature h3 {
+  margin-bottom: 0.5rem;
+  color: #00ffcc;
+}
+
+/* === Call to Action === */
+.demo-cta {
+  padding: 4rem 2rem;
+  background: linear-gradient(135deg, #2c5364, #203a43, #0f2027);
+}
+
+/* === Footer === */
+footer {
+  max-width: 1000px;     /* Igual que .project-page */
+  width: 70%;            /* Ajusta al tamaño relativo */
+  margin: 0 auto;        /* Centra horizontalmente el contenedor */
+  background: #000;
+  font-size: 1.0rem;
+  color: #888;
+  position: relative;    /* Permite mover el texto internamente */
+  padding: 1rem 2rem;    /* Espacio interno general */
+}
+
+footer p {
+  text-align: center;      /* Controla alineación solo del texto */
+  position: relative;    /* Permite mover individualmente */
+  left: 10 px;            /* Desplaza horizontalmente */
+  top: 10px;             /* Desplaza verticalmente */
+}
+
+
+/* === Animaciones suaves al cargar === */
+.demo-showcase, .demo-features, .demo-cta {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUp 0.8s forwards;
+}
+
+.demo-showcase { animation-delay: 0.2s; }
+.demo-features { animation-delay: 0.4s; }
+.demo-cta { animation-delay: 0.6s; }
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
