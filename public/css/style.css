@@ -342,10 +342,22 @@ footer {
 }
 
 /* === Call to Action === */
+/* === Call to Action === */
 .demo-cta {
   padding: 4rem 2rem;
   background: linear-gradient(135deg, #2c5364, #203a43, #0f2027);
+
+  /* 👇 Opciones de movimiento */
+  position: relative;   /* Necesario para desplazar */
+  left: 50px;           /* mueve a la derecha */
+  /* right: 40px;       mueve a la izquierda */
+  /* top: 20px;         baja el bloque */
+  /* bottom: 20px;      sube el bloque */
+  
+  /* O con transform (más elegante) */
+  /* transform: translateX(40px); */
 }
+
 
 /* === Footer === */
 footer {
