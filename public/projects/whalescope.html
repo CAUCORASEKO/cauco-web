@@ -1,547 +1,253 @@
-<!-- whalescope.html -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>WhaleScope - Portfolio Demo</title>
-
-<!-- Chart.js CDN -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WhaleScope – Demo</title>
+<link rel="stylesheet" href="../css/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
 <style>
-  body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #0f172a;
-    color: #e0e7ff;
-    margin: 0;
-    padding: 0;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-  }
-
-  header {
-    background: #1e293b;
-    padding: 15px 30px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-
-    
-  }
-
-  header button {
-    background: #334155;
-    border: none;
-    color: #e0e7ff;
-    font-weight: 600;
-    padding: 8px 14px;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-
-  header button:hover, header button.active {
-    background: #2563eb;
-  }
-
-  main {
-    flex: 1;
-    padding: 20px 30px;
-    max-width: 1100px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
-  }
-
-  section {
-    background: #1e293b;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 0 8px rgb(37 99 235 / 0.6);
-  }
-
-  h2 {
-    margin-top: 0;
-    margin-bottom: 15px;
-    font-weight: 700;
-    color: #93c5fd;
-  }
-
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 15px;
-  }
-
-  th, td {
-    padding: 8px 10px;
-    border-bottom: 1px solid #334155;
-    text-align: left;
-  }
-
-  th {
-    background: #2563eb;
-    font-weight: 700;
-  }
-
-  .percent-positive {
-    color: #22c55e; /* green */
-  }
-
-  .percent-negative {
-    color: #ef4444; /* red */
-  }
-
-  canvas {
-    background: #0f172a;
-    border-radius: 6px;
-  }
-
-  .footer {
-    background: #1e293b;
-    text-align: center;
-    padding: 15px 0;
-    font-size: 14px;
-    color: #94a3b8;
-  }
-
-  /* Additional style for dominance controls */
-  #dominance-controls {
-    margin-bottom: 15px;
-  }
-
-  #dominance-controls select {
-    padding: 6px 10px;
-    border-radius: 6px;
-    border: none;
-    background: #334155;
-    color: #e0e7ff;
-    font-weight: 600;
-    cursor: pointer;
-  }
+/* Botones de activos dentro de demo-description */
+.asset-btn {
+  background: #111;
+  color: #00ffc3;
+  border: 1px solid #00ffc3;
+  padding: 6px 12px;
+  margin: 4px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.2s ease;
+}
+.asset-btn.active, .asset-btn:hover {
+  background: #00ffc3;
+  color: #111;
+}
+.demo-description h3 { margin-top: 1rem; }
+.demo-showcase canvas { margin-top: 20px; border-radius: 6px; }
+#section-dominance { margin-top: 20px; }
+#dominance-controls select {
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: none;
+  background: #1a1a1a;
+  color: #00ffc3;
+  font-weight: bold;
+  cursor: pointer;
+}
 </style>
-
 </head>
-<body>
+<body class="project-page">
 
-<header>
-  <!-- Botón back to Portfolio -->
-  <button id="btn-back" title="Volver al portafolio" style="font-weight:bold; font-size:16px; padding: 8px 12px; background:#2563eb; border:none; border-radius:6px; cursor:pointer;">
-    ← Portfolio
-  </button>
-
-  <!-- Otros botones -->
-  <button id="btn-btc" class="active">Bitcoin (BTC)</button>
-  <button id="btn-blackrock">BlackRock</button>
-  <button id="btn-lido">Lido</button>
-  <button id="btn-dominance">Crypto Dominance</button>
-  <button id="btn-eth">Ethereum (ETH)</button>
+<!-- Header -->
+<header class="demo-header">
+  <h1>🐋 WhaleScope</h1>
+  <p>Desktop app for crypto market research using real-time whale transaction analysis.</p>
+  <a class="back-btn" href="../index.html">← Back to Portfolio</a>
 </header>
 
-<script>
-  document.getElementById('btn-back').addEventListener('click', () => {
-    window.location.href = '../index.html';
+<!-- Showcase -->
+<section class="demo-showcase">
+  <div class="demo-description">
+    <h2>Interactive Analytics</h2>
+    <p>Select assets below to explore market data, charts, and crypto dominance analysis.</p>
 
-  });
-</script>
-
-
-
-<main>
-  <!-- General Info -->
-  <section id="section-info">
-    <h2>General Information</h2>
-    <div id="general-info">
-      Loading data...
+    <div id="asset-buttons">
+      <button class="asset-btn active" data-asset="btc">BTC</button>
+      <button class="asset-btn" data-asset="eth">ETH</button>
+      <button class="asset-btn" data-asset="lido">Lido</button>
+      <button class="asset-btn" data-asset="blackrock">BlackRock</button>
+      <button class="asset-btn" data-asset="dominance">Crypto Dominance</button>
     </div>
-  </section>
 
-  <!-- Charts -->
-  <section id="section-charts">
-    <h2>Charts</h2>
+    <div id="section-info">
+      <h3>General Information</h3>
+      <div id="general-info">Loading data...</div>
+    </div>
+  </div>
+
+  <div class="demo-image" style="flex:1 1 500px;">
     <canvas id="priceChart" height="200"></canvas>
-    <canvas id="feeChart" height="200" style="margin-top:30px;"></canvas>
-  </section>
+    <canvas id="feeChart" height="200"></canvas>
 
-  <!-- Crypto Dominance Polar Chart Section -->
-  <section id="section-dominance" style="display:none;">
-    <h2>Relative Crypto Dominance Polar Chart</h2>
-    <div id="dominance-controls">
-      Period: 
-      <select id="dominance-period-select">
-        <option value="hourly">Hourly</option>
-        <option value="daily" selected>Daily</option>
-        <option value="weekly">Weekly</option>
-        <option value="monthly">Monthly</option>
-        <option value="yearly">Yearly</option>
-      </select>
+    <section id="section-dominance" style="display:none;">
+      <h3>Crypto Dominance Polar Chart</h3>
+      <div id="dominance-controls">
+        Period:
+        <select id="dominance-period-select">
+          <option value="hourly">Hourly</option>
+          <option value="daily" selected>Daily</option>
+          <option value="weekly">Weekly</option>
+          <option value="monthly">Monthly</option>
+          <option value="yearly">Yearly</option>
+        </select>
+      </div>
+      <canvas id="dominancePolarChart" height="300"></canvas>
+      <p style="font-size: 14px; color:#ccc;">Dominance = Volatility × Traded Volume</p>
+    </section>
+  </div>
+</section>
+
+<!-- Features -->
+<section class="demo-features">
+  <h2>Core Features</h2>
+  <div class="feature-grid">
+    <div class="feature">
+      <h3>📊 Real-time Charts</h3>
+      <p>Visualize price and fee data instantly.</p>
     </div>
-    <canvas id="dominancePolarChart" height="400"></canvas>
-    <p style="font-size: 14px; color: #94a3b8; margin-top: 10px;">
-      Dominance = Volatility (radius) x Traded Volume (arc length)
-    </p>
-  </section>
-</main>
+    <div class="feature">
+      <h3>⚡ Fast Analysis</h3>
+      <p>Interactive dashboard for whale transactions and market insights.</p>
+    </div>
+    <div class="feature">
+      <h3>🔒 Secure</h3>
+      <p>Desktop application keeps data safe and local.</p>
+    </div>
+    <div class="feature">
+      <h3>🛠️ Customizable</h3>
+      <p>Switch assets and view dominance metrics dynamically.</p>
+    </div>
+  </div>
+</section>
 
-<div class="footer">
-  WhaleScope Demo - Sample Data &copy; 2025
-</div>
+<!-- Call to Action -->
+<section id="contact" class="demo-cta">
+  <h2>Interested in WhaleScope?</h2>
+  <p>Request a demo or custom solution for crypto market analysis.</p>
+  <a href="../index.html#contact" class="cta-btn">📮 Get Started</a>
+</section>
+
+<!-- Footer -->
+<footer>
+  <p>© 2025 CAUCO – WhaleScope Demo</p>
+</footer>
 
 <script>
-  // Sample data for assets (similar as before, English version)
-  const dataBTC = {
-    markets: {
-      price: 28000,
-      percent_change_24h: -1.2,
-      market_cap: 520000000000,
-      volume_24h: 28000000000,
-      last_updated: "2025-08-06T07:00:00"
-    },
-    fees: {
-      dates: ["2025-07-31", "2025-08-01", "2025-08-02"],
-      values: [120000, 130000, 125000]
-    },
-    price_history: {
-      dates: ["2025-07-31", "2025-08-01", "2025-08-02"],
-      close: [28200, 27900, 28000]
-    },
-    analysis: "Bitcoin showing slight downtrend over 24h."
-  };
+// Sample data
+const dataBTC = { markets:{price:28000,percent_change_24h:-1.2,market_cap:520000000000,volume_24h:28000000000,last_updated:"2025-08-06T07:00:00"}, fees:{dates:["2025-07-31","2025-08-01","2025-08-02"],values:[120000,130000,125000]}, price_history:{dates:["2025-07-31","2025-08-01","2025-08-02"],close:[28200,27900,28000]}, analysis:"Bitcoin showing slight downtrend over 24h."};
+const dataBlackRock = { markets:{price:210,percent_change_24h:0.5,market_cap:10000000000,volume_24h:500000000,last_updated:"2025-08-06T07:00:00"}, fees:{dates:["2025-07-31","2025-08-01","2025-08-02"],values:[40000,42000,41000]}, price_history:{dates:["2025-07-31","2025-08-01","2025-08-02"],close:[205,208,210]}, analysis:"BlackRock showing stability with slight gains."};
+const dataLido = { markets:{price:2.4,percent_change_24h:2.0,market_cap:600000000,volume_24h:80000000,last_updated:"2025-08-06T07:00:00"}, fees:{dates:["2025-07-31","2025-08-01","2025-08-02"],values:[8000,9000,8500]}, price_history:{dates:["2025-07-31","2025-08-01","2025-08-02"],close:[2.3,2.4,2.4]}, analysis:"Lido with moderate positive growth."};
+const dataETH = { markets:{price:3634.58,percent_change_24h:1.947,market_cap:0,volume_24h:1935479720.5837,last_updated:"2025-08-05T16:24:46.766894"}, fees:{dates:["2025-07-06","2025-07-07","2025-07-08"],values:[193547.97,193547.97,193547.97]}, price_history:{dates:["2025-07-06","2025-07-07","2025-07-08"],close:[2570.35,2542.29,2615.25]}, analysis:"Ethereum steady positive momentum."};
 
-  const dataBlackRock = {
-    markets: {
-      price: 210,
-      percent_change_24h: 0.5,
-      market_cap: 10000000000,
-      volume_24h: 500000000,
-      last_updated: "2025-08-06T07:00:00"
-    },
-    fees: {
-      dates: ["2025-07-31", "2025-08-01", "2025-08-02"],
-      values: [40000, 42000, 41000]
-    },
-    price_history: {
-      dates: ["2025-07-31", "2025-08-01", "2025-08-02"],
-      close: [205, 208, 210]
-    },
-    analysis: "BlackRock showing stability with slight gains."
-  };
+const dominanceSamples = {
+  hourly:[{ticker:"BTC",volume:60,volatility:15,color:"#f7931a"},{ticker:"ETH",volume:50,volatility:10,color:"#627eea"},{ticker:"BNB",volume:40,volatility:12,color:"#f0b90b"},{ticker:"SOL",volume:25,volatility:20,color:"#00ffa3"},{ticker:"ADA",volume:20,volatility:18,color:"#0033ad"},{ticker:"DOGE",volume:15,volatility:30,color:"#c2a633"},{ticker:"XRP",volume:10,volatility:25,color:"#346aa9"}],
+  daily:[{ticker:"BTC",volume:65,volatility:18,color:"#f7931a"},{ticker:"ETH",volume:55,volatility:13,color:"#627eea"},{ticker:"BNB",volume:38,volatility:15,color:"#f0b90b"},{ticker:"SOL",volume:27,volatility:22,color:"#00ffa3"},{ticker:"ADA",volume:18,volatility:20,color:"#0033ad"},{ticker:"DOGE",volume:14,volatility:28,color:"#c2a633"},{ticker:"XRP",volume:12,volatility:26,color:"#346aa9"}],
+  weekly:[{ticker:"BTC",volume:70,volatility:20,color:"#f7931a"},{ticker:"ETH",volume:58,volatility:15,color:"#627eea"},{ticker:"BNB",volume:35,volatility:18,color:"#f0b90b"},{ticker:"SOL",volume:30,volatility:25,color:"#00ffa3"},{ticker:"ADA",volume:16,volatility:22,color:"#0033ad"},{ticker:"DOGE",volume:13,volatility:30,color:"#c2a633"},{ticker:"XRP",volume:14,volatility:28,color:"#346aa9"}],
+  monthly:[{ticker:"BTC",volume:80,volatility:22,color:"#f7931a"},{ticker:"ETH",volume:60,volatility:18,color:"#627eea"},{ticker:"BNB",volume:30,volatility:20,color:"#f0b90b"},{ticker:"SOL",volume:35,volatility:27,color:"#00ffa3"},{ticker:"ADA",volume:15,volatility:24,color:"#0033ad"},{ticker:"DOGE",volume:12,volatility:32,color:"#c2a633"},{ticker:"XRP",volume:16,volatility:30,color:"#346aa9"}],
+  yearly:[{ticker:"BTC",volume:90,volatility:25,color:"#f7931a"},{ticker:"ETH",volume:65,volatility:20,color:"#627eea"},{ticker:"BNB",volume:25,volatility:25,color:"#f0b90b"},{ticker:"SOL",volume:40,volatility:30,color:"#00ffa3"},{ticker:"ADA",volume:12,volatility:26,color:"#0033ad"},{ticker:"DOGE",volume:10,volatility:35,color:"#c2a633"},{ticker:"XRP",volume:18,volatility:33,color:"#346aa9"}]
+};
 
-  const dataLido = {
-    markets: {
-      price: 2.4,
-      percent_change_24h: 2.0,
-      market_cap: 600000000,
-      volume_24h: 80000000,
-      last_updated: "2025-08-06T07:00:00"
-    },
-    fees: {
-      dates: ["2025-07-31", "2025-08-01", "2025-08-02"],
-      values: [8000, 9000, 8500]
-    },
-    price_history: {
-      dates: ["2025-07-31", "2025-08-01", "2025-08-02"],
-      close: [2.3, 2.4, 2.4]
-    },
-    analysis: "Lido with moderate positive growth."
-  };
+let priceChartInstance, feeChartInstance, dominanceChart;
 
-  // Ethereum data same as you gave, in English
-  const dataETH = {
-    markets: {
-      price: 3634.58,
-      percent_change_24h: 1.947,
-      market_cap: 0,
-      volume_24h: 1935479720.5837138,
-      last_updated: "2025-08-05T16:24:46.766894"
-    },
-    fees: {
-      dates: [
-        "2025-07-06","2025-07-07","2025-07-08","2025-07-09","2025-07-10",
-        "2025-07-11","2025-07-12","2025-07-13","2025-07-14","2025-07-15",
-        "2025-07-16","2025-07-17","2025-07-18","2025-07-19","2025-07-20",
-        "2025-07-21","2025-07-22","2025-07-23","2025-07-24","2025-07-25",
-        "2025-07-26","2025-07-27","2025-07-28","2025-07-29","2025-07-30",
-        "2025-07-31","2025-08-01","2025-08-02","2025-08-03","2025-08-04"
-      ],
-      values: Array(30).fill(193547.97)
-    },
-    price_history: {
-      dates: [
-        "2025-07-06", "2025-07-07", "2025-07-08", "2025-07-09", "2025-07-10",
-        "2025-07-11", "2025-07-12", "2025-07-13", "2025-07-14", "2025-07-15",
-        "2025-07-16", "2025-07-17", "2025-07-18", "2025-07-19", "2025-07-20",
-        "2025-07-21", "2025-07-22", "2025-07-23", "2025-07-24", "2025-07-25",
-        "2025-07-26", "2025-07-27", "2025-07-28", "2025-07-29", "2025-07-30",
-        "2025-07-31", "2025-08-01", "2025-08-02", "2025-08-03", "2025-08-04"
-      ],
-      close: [
-        2570.35, 2542.29, 2615.25, 2768.74, 2951.29,
-        2958.22, 2943.28, 2972.03, 3013.62, 3137.89,
-        3371.35, 3476.87, 3546.92, 3650.53, 3568.53,
-        3584.87, 3750.12, 3721.91, 3734.33, 3720.37,
-        3640.61, 3711.81, 3611.09, 3526.86, 3470.55,
-        3528.36, 3483.32, 3564.92, 3631.24, 3634.58
-      ]
-    },
-    analysis: "Ethereum steady positive momentum."
-  };
+// Helpers
+function formatNumber(num){
+  if(num>=1e9)return (num/1e9).toFixed(2)+" B";
+  if(num>=1e6)return (num/1e6).toFixed(2)+" M";
+  if(num>=1e3)return (num/1e3).toFixed(2)+" K";
+  return num.toFixed(2);
+}
 
-  // Helper to format big numbers nicely
-  function formatNumber(num) {
-    if (num >= 1e9) return (num / 1e9).toFixed(2) + " B";
-    if (num >= 1e6) return (num / 1e6).toFixed(2) + " M";
-    if (num >= 1e3) return (num / 1e3).toFixed(2) + " K";
-    return num.toFixed(2);
-  }
+function updateGeneralInfo(data){
+  const m=data.markets;
+  if(!m.price){document.getElementById("general-info").innerHTML="<i>Market data not available</i>"; return;}
+  const percentClass = m.percent_change_24h>=0?"percent-positive":"percent-negative";
+  const lastUpdated = new Date(m.last_updated).toLocaleString();
+  document.getElementById("general-info").innerHTML=`
+    <table>
+      <tr><th>Price</th><td>$${m.price.toLocaleString()}</td></tr>
+      <tr><th>24h Change</th><td class="${percentClass}">${m.percent_change_24h.toFixed(2)}%</td></tr>
+      <tr><th>Market Cap</th><td>${formatNumber(m.market_cap)}</td></tr>
+      <tr><th>24h Volume</th><td>${formatNumber(m.volume_24h)}</td></tr>
+      <tr><th>Last Updated</th><td>${lastUpdated}</td></tr>
+    </table>
+    <p><strong>Analysis:</strong> ${data.analysis||"Not available."}</p>
+  `;
+}
 
-  // Update general info panel
-  function updateGeneralInfo(data) {
-    const m = data.markets;
-    if(!m.price) {
-      document.getElementById("general-info").innerHTML = "<i>Market data not available</i>";
-      return;
-    }
-    const percentClass = m.percent_change_24h >= 0 ? "percent-positive" : "percent-negative";
-    const lastUpdated = new Date(m.last_updated).toLocaleString();
+function updateCharts(data){
+  const ctxPrice = document.getElementById('priceChart').getContext('2d');
+  const ctxFee = document.getElementById('feeChart').getContext('2d');
+  if(priceChartInstance) priceChartInstance.destroy();
+  if(feeChartInstance) feeChartInstance.destroy();
 
-    document.getElementById("general-info").innerHTML = `
-      <table>
-        <tr><th>Price</th><td>$${m.price.toLocaleString()}</td></tr>
-        <tr><th>24h Change</th><td class="${percentClass}">${m.percent_change_24h.toFixed(2)}%</td></tr>
-        <tr><th>Market Cap</th><td>${formatNumber(m.market_cap)}</td></tr>
-        <tr><th>24h Volume</th><td>${formatNumber(m.volume_24h)}</td></tr>
-        <tr><th>Last Updated</th><td>${lastUpdated}</td></tr>
-      </table>
-      <p><strong>Analysis:</strong> ${data.analysis || "Not available."}</p>
-    `;
-  }
-
-  let priceChartInstance, feeChartInstance;
-
-  // Update price and fees charts
-  function updateCharts(data) {
-    const ctxPrice = document.getElementById('priceChart').getContext('2d');
-    const ctxFee = document.getElementById('feeChart').getContext('2d');
-
-    if(priceChartInstance) priceChartInstance.destroy();
-    if(feeChartInstance) feeChartInstance.destroy();
-
-    priceChartInstance = new Chart(ctxPrice, {
-      type: 'line',
-      data: {
-        labels: data.price_history.dates,
-        datasets: [{
-          label: 'Closing Price (USD)',
-          data: data.price_history.close,
-          borderColor: '#2563eb',
-          backgroundColor: 'rgba(37, 99, 235, 0.3)',
-          fill: true,
-          tension: 0.3,
-          pointRadius: 3
-        }]
-      },
-      options: {
-        responsive: true,
-        scales: { y: { beginAtZero: false } },
-        plugins: { legend: { labels: {color: '#e0e7ff'} } }
-      }
-    });
-
-    feeChartInstance = new Chart(ctxFee, {
-      type: 'bar',
-      data: {
-        labels: data.fees.dates,
-        datasets: [{
-          label: 'Fees Collected',
-          data: data.fees.values,
-          backgroundColor: '#22c55e'
-        }]
-      },
-      options: {
-        responsive: true,
-        scales: { y: { beginAtZero: true } },
-        plugins: { legend: { labels: {color: '#e0e7ff'} } }
-      }
-    });
-  }
-
-  // Sample dominance data (dummy, should be replaced by real)
-  // Volatility affects radius, volume affects arc length (area)
-  // We'll simulate 7 cryptos
-  const dominanceSamples = {
-    hourly: [
-      {ticker:"BTC", volume: 60, volatility: 15, color:"#f7931a"},
-      {ticker:"ETH", volume: 50, volatility: 10, color:"#627eea"},
-      {ticker:"BNB", volume: 40, volatility: 12, color:"#f0b90b"},
-      {ticker:"SOL", volume: 25, volatility: 20, color:"#00ffa3"},
-      {ticker:"ADA", volume: 20, volatility: 18, color:"#0033ad"},
-      {ticker:"DOGE", volume: 15, volatility: 30, color:"#c2a633"},
-      {ticker:"XRP", volume: 10, volatility: 25, color:"#346aa9"}
-    ],
-    daily: [
-      {ticker:"BTC", volume: 65, volatility: 18, color:"#f7931a"},
-      {ticker:"ETH", volume: 55, volatility: 13, color:"#627eea"},
-      {ticker:"BNB", volume: 38, volatility: 15, color:"#f0b90b"},
-      {ticker:"SOL", volume: 27, volatility: 22, color:"#00ffa3"},
-      {ticker:"ADA", volume: 18, volatility: 20, color:"#0033ad"},
-      {ticker:"DOGE", volume: 14, volatility: 28, color:"#c2a633"},
-      {ticker:"XRP", volume: 12, volatility: 26, color:"#346aa9"}
-    ],
-    weekly: [
-      {ticker:"BTC", volume: 70, volatility: 20, color:"#f7931a"},
-      {ticker:"ETH", volume: 58, volatility: 15, color:"#627eea"},
-      {ticker:"BNB", volume: 35, volatility: 18, color:"#f0b90b"},
-      {ticker:"SOL", volume: 30, volatility: 25, color:"#00ffa3"},
-      {ticker:"ADA", volume: 16, volatility: 22, color:"#0033ad"},
-      {ticker:"DOGE", volume: 13, volatility: 30, color:"#c2a633"},
-      {ticker:"XRP", volume: 14, volatility: 28, color:"#346aa9"}
-    ],
-    monthly: [
-      {ticker:"BTC", volume: 80, volatility: 22, color:"#f7931a"},
-      {ticker:"ETH", volume: 60, volatility: 18, color:"#627eea"},
-      {ticker:"BNB", volume: 30, volatility: 20, color:"#f0b90b"},
-      {ticker:"SOL", volume: 35, volatility: 27, color:"#00ffa3"},
-      {ticker:"ADA", volume: 15, volatility: 24, color:"#0033ad"},
-      {ticker:"DOGE", volume: 12, volatility: 32, color:"#c2a633"},
-      {ticker:"XRP", volume: 16, volatility: 30, color:"#346aa9"}
-    ],
-    yearly: [
-      {ticker:"BTC", volume: 90, volatility: 25, color:"#f7931a"},
-      {ticker:"ETH", volume: 65, volatility: 20, color:"#627eea"},
-      {ticker:"BNB", volume: 25, volatility: 25, color:"#f0b90b"},
-      {ticker:"SOL", volume: 40, volatility: 30, color:"#00ffa3"},
-      {ticker:"ADA", volume: 12, volatility: 26, color:"#0033ad"},
-      {ticker:"DOGE", volume: 10, volatility: 35, color:"#c2a633"},
-      {ticker:"XRP", volume: 18, volatility: 33, color:"#346aa9"}
-    ]
-  };
-
-  let dominanceChart;
-
-  // Function to draw polar area chart representing dominance
-  // We simulate dominance = volume * volatility, but to get radius and arc length,
-  // polar area chart slices arc length depends on value, radius is uniform in Chart.js
-  // So we simulate radius by modifying data values with volatility (scaled) and show radius via labels and colors
-
-  function updateDominanceChart(period) {
-    const dataPoints = dominanceSamples[period];
-    if (!dataPoints) return;
-
-    // Compute "dominance" as volume * volatility
-    // But Chart.js polar area slices depend on value = dominance here
-    const values = dataPoints.map(d => d.volume * d.volatility);
-
-    // We'll use colors for each slice
-    const colors = dataPoints.map(d => d.color);
-
-    if(dominanceChart) dominanceChart.destroy();
-
-    const ctx = document.getElementById('dominancePolarChart').getContext('2d');
-    dominanceChart = new Chart(ctx, {
-      type: 'polarArea',
-      data: {
-        labels: dataPoints.map(d => `${d.ticker} (${d.volatility} vol)`),
-        datasets: [{
-          label: 'Relative Dominance',
-          data: values,
-          backgroundColor: colors,
-          borderColor: '#0f172a',
-          borderWidth: 2
-        }]
-      },
-      options: {
-        responsive: true,
-        plugins: {
-          legend: {
-            position: 'right',
-            labels: {color: '#e0e7ff'}
-          },
-          tooltip: {
-            callbacks: {
-              label: context => {
-                const idx = context.dataIndex;
-                const dp = dataPoints[idx];
-                return `${dp.ticker}: Volume ${dp.volume}, Volatility ${dp.volatility}`;
-              }
-            }
-          }
-        },
-        scales: {
-          r: {
-            ticks: {
-              color: '#94a3b8',
-              backdropColor: '#1e293b'
-            },
-            pointLabels: {
-              color: '#93c5fd',
-              font: {weight: 'bold', size: 14}
-            }
-          }
-        }
-      }
-    });
-  }
-
-  // UI & Interaction handling
-  function setActiveAsset(assetName) {
-    document.querySelectorAll('header button').forEach(btn => {
-      btn.classList.toggle('active', btn.id === `btn-${assetName}`);
-    });
-
-    const sections = {
-      info: document.getElementById('section-info'),
-      charts: document.getElementById('section-charts'),
-      dominance: document.getElementById('section-dominance')
-    };
-
-    if (assetName === 'dominance') {
-      sections.info.style.display = 'none';
-      sections.charts.style.display = 'none';
-      sections.dominance.style.display = 'block';
-      // Update dominance chart for default period 'daily'
-      updateDominanceChart(document.getElementById('dominance-period-select').value);
-    } else {
-      sections.info.style.display = 'block';
-      sections.charts.style.display = 'block';
-      sections.dominance.style.display = 'none';
-
-      let data;
-      switch(assetName) {
-        case 'btc': data = dataBTC; break;
-        case 'blackrock': data = dataBlackRock; break;
-        case 'lido': data = dataLido; break;
-        case 'eth': data = dataETH; break;
-        default: data = null;
-      }
-
-      if(data) {
-        updateGeneralInfo(data);
-        updateCharts(data);
-      }
-    }
-  }
-
-  // Listeners
-  document.getElementById('btn-btc').addEventListener('click', () => setActiveAsset('btc'));
-  document.getElementById('btn-blackrock').addEventListener('click', () => setActiveAsset('blackrock'));
-  document.getElementById('btn-lido').addEventListener('click', () => setActiveAsset('lido'));
-  document.getElementById('btn-dominance').addEventListener('click', () => setActiveAsset('dominance'));
-  document.getElementById('btn-eth').addEventListener('click', () => setActiveAsset('eth'));
-
-  document.getElementById('dominance-period-select').addEventListener('change', (e) => {
-    updateDominanceChart(e.target.value);
+  priceChartInstance = new Chart(ctxPrice,{
+    type:'line',
+    data:{labels:data.price_history.dates,datasets:[{label:'Closing Price (USD)',data:data.price_history.close,borderColor:'#2563eb',backgroundColor:'rgba(37,99,235,0.3)',fill:true,tension:0.3,pointRadius:3}]},
+    options:{responsive:true,scales:{y:{beginAtZero:false}},plugins:{legend:{labels:{color:'#e0e7ff'}}}}
   });
 
-  // Initialize with BTC
-  setActiveAsset('btc');
+  feeChartInstance = new Chart(ctxFee,{
+    type:'bar',
+    data:{labels:data.fees.dates,datasets:[{label:'Fees Collected',data:data.fees.values,backgroundColor:'#22c55e'}]},
+    options:{responsive:true,scales:{y:{beginAtZero:true}},plugins:{legend:{labels:{color:'#e0e7ff'}}}}
+  });
+}
 
+function updateDominanceChart(period){
+  const dataPoints = dominanceSamples[period]; if(!dataPoints) return;
+  const values = dataPoints.map(d=>d.volume*d.volatility);
+  const colors = dataPoints.map(d=>d.color);
+  if(dominanceChart) dominanceChart.destroy();
+  const ctx = document.getElementById('dominancePolarChart').getContext('2d');
+  dominanceChart = new Chart(ctx,{
+    type:'polarArea',
+    data:{labels:dataPoints.map(d=>`${d.ticker} (${d.volatility} vol)`),datasets:[{label:'Relative Dominance',data:values,backgroundColor:colors,borderColor:'#111',borderWidth:2}]},
+    options:{responsive:true,plugins:{legend:{position:'right',labels:{color:'#e0e7ff'}},tooltip:{callbacks:{label:ctx=>{const dp=dataPoints[ctx.dataIndex]; return `${dp.ticker}: Volume ${dp.volume}, Volatility ${dp.volatility}`;}}}},scales:{r:{ticks:{color:'#ccc',backdropColor:'#111'},pointLabels:{color:'#93c5fd',font:{weight:'bold',size:14}}}}}
+  });
+}
+
+function setActiveAsset(asset){
+  document.querySelectorAll('.asset-btn').forEach(btn=>btn.classList.toggle('active',btn.dataset.asset===asset));
+
+  const info = document.getElementById('section-info');
+  const priceCanvas = document.getElementById('priceChart');
+  const feeCanvas = document.getElementById('feeChart');
+  const dom = document.getElementById('section-dominance');
+
+  if(asset==='dominance'){
+    info.style.display='none';
+    priceCanvas.style.display='none';
+    feeCanvas.style.display='none';
+    dom.style.display='block';
+    
+    // Espera para que el canvas sea visible
+    setTimeout(()=>{
+      updateDominanceChart(document.getElementById('dominance-period-select').value);
+    },50);
+
+  } else {
+    info.style.display='block';
+    priceCanvas.style.display='block';
+    feeCanvas.style.display='block';
+    dom.style.display='none';
+
+    let data;
+    switch(asset){
+      case 'btc': data=dataBTC; break;
+      case 'eth': data=dataETH; break;
+      case 'lido': data=dataLido; break;
+      case 'blackrock': data=dataBlackRock; break;
+      default: data=null;
+    }
+    if(data){
+      updateGeneralInfo(data);
+      updateCharts(data);
+    }
+  }
+}
+
+
+// Event listeners
+document.querySelectorAll('.asset-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>setActiveAsset(btn.dataset.asset));
+});
+document.getElementById('dominance-period-select').addEventListener('change',e=>updateDominanceChart(e.target.value));
+
+// Inicializar
+setActiveAsset('btc');
 </script>
 
 </body>
 </html>
-
