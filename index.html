@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CAUCO – Portfolio</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header>
+    <div class="logo">CAUCO</div>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1 id="glitch-title">Creative Developer & Designer</h1>
+    <p>Building digital experiences that are minimal, powerful, and expressive.</p>
+  </section>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <p>I’m Claudio, a creative developer based in Finland. I combine design and code to build visually impactful digital experiences. Currently working on WhaleScope, a predictive alert system for crypto markets.</p>
+  </section>
+
+  <section id="projects">
+  <h2>Projects</h2>
+  <div class="project-grid">
+    <div class="project-card">
+      <h3>WhaleScope</h3>
+      <p>Desktop app for crypto market research using real-time whale transaction analysis.</p>
+      <a href="projects/whalescope.html">Demo →</a>
+    </div>
+
+    <div class="project-card">
+      <h3>Portfolio Website</h3>
+      <p>Responsive personal portfolio website built with modern web technologies.</p>
+      <a href="projects/portfolio.html">Demo →</a>
+    </div>
+
+    <div class="project-card">
+      <h3>Mobile Shop App</h3>
+      <p>Mobile application for e-commerce, designed for seamless shopping experience.</p>
+      <a href="projects/mobileshop.html">Demo →</a>
+    </div>
+
+    <div class="project-card">
+      <h3>Custom Analytics Tool</h3>
+      <p>Web-based tool for custom data visualization and business analytics.</p>
+      <a href="projects/analytics.html">Demo →</a>
+    </div>
+  </div>
+</section>
+
+
+<section id="contact">
+  <h2>📮 Request a Project Quote</h2>
+  <form id="contact-form">
+    <label for="type">Project Type</label>
+    <select name="type" id="type" required>
+      <option value="">Select an option</option>
+      <option value="Website">🌐 Website</option>
+      <option value="Mobile App">📱 Mobile App</option>
+      <option value="Custom Software">💻 Custom Software</option>
+      <option value="Consulting">🧠 Tech Consulting</option>
+      <option value="Other">🔧 Other</option>
+    </select>
+
+    <label for="email">Your Email</label>
+    <input type="email" name="email" id="email" required placeholder="you@example.com" autocomplete="email">
+
+    <label for="message">Message</label>
+    <textarea name="message" id="message" required placeholder="Tell me more about your project..."></textarea>
+
+    <button type="submit">Send Request</button>
+  </form>
+
+  <p class="alt-contact">
+    Or reach me on <a href="https://x.com/Manda_Coin" target="_blank">@Manda_Coin</a>
+  </p>
+</section>
+
+<script>
+  const form = document.getElementById('contact-form');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch('sendmail.php', {
+        method: 'POST',
+        body: formData
+      });
+
+      if (response.ok) {
+        alert('Message sent successfully ✅');
+        form.reset();
+      } else {
+        alert('❌ There was a problem sending your message.');
+      }
+    } catch (error) {
+      alert('⚠️ Error: ' + error.message);
+    }
+  });
+</script>
+
+
+
+
+  <footer>
+    <p>© 2025 CAUCO – All rights reserved</p>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
