@@ -4,6 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>CAUCO – Portfolio</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon.png">
+  <link rel="icon" type="image/x-icon" href="img/favicon.ico">
   <link rel="stylesheet" href="css/style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
@@ -16,6 +18,12 @@
       <a href="#about">About</a>
       <a href="#projects">Projects</a>
       <a href="#contact">Contact</a>
+      <!-- Selector de idioma -->
+      <select id="language-switcher">
+        <option value="en" selected>English</option>
+        <option value="fi">Suomi</option>
+        <option value="sv">Svenska</option>
+      </select>
     </nav>
   </header>
 
@@ -30,95 +38,106 @@
   </section>
 
   <section id="projects">
-  <h2>Projects</h2>
-  <div class="project-grid">
-    <div class="project-card">
-      <h3>WhaleScope</h3>
-      <p>Desktop app for crypto market research using real-time whale transaction analysis.</p>
-      <a href="projects/whalescope.html">Demo →</a>
+    <h2>Projects</h2>
+    <div class="project-grid">
+      <div class="project-card">
+        <h3>WhaleScope</h3>
+        <p>Desktop app for crypto market research using real-time whale transaction analysis.</p>
+        <a href="projects/whalescope.html">Demo →</a>
+      </div>
+
+      <div class="project-card">
+        <h3>Portfolio Website</h3>
+        <p>Responsive personal portfolio website built with modern web technologies.</p>
+        <a href="projects/portfolio.html">Demo →</a>
+      </div>
+
+      <div class="project-card">
+        <h3>Mobile Shop App</h3>
+        <p>Mobile application for e-commerce, designed for seamless shopping experience.</p>
+        <a href="projects/mobileshop.html">Demo →</a>
+      </div>
+
+      <div class="project-card">
+        <h3>Custom Analytics Tool</h3>
+        <p>Web-based tool for custom data visualization and business analytics.</p>
+        <a href="projects/analytics.html">Demo →</a>
+      </div>
     </div>
+  </section>
 
-    <div class="project-card">
-      <h3>Portfolio Website</h3>
-      <p>Responsive personal portfolio website built with modern web technologies.</p>
-      <a href="projects/portfolio.html">Demo →</a>
-    </div>
+  <section id="contact">
+    <h2>📮 Request a Project Quote</h2>
+    <form id="contact-form" action="sendmail.php" method="POST">
+      <label for="type">Project Type</label>
+      <select name="type" id="type" required>
+        <option value="">Select an option</option>
+        <option value="Website">🌐 Website</option>
+        <option value="Mobile App">📱 Mobile App</option>
+        <option value="Custom Software">💻 Custom Software</option>
+        <option value="Consulting">🧠 Tech Consulting</option>
+        <option value="Other">🔧 Other</option>
+      </select>
 
-    <div class="project-card">
-      <h3>Mobile Shop App</h3>
-      <p>Mobile application for e-commerce, designed for seamless shopping experience.</p>
-      <a href="projects/mobileshop.html">Demo →</a>
-    </div>
+      <label for="email">Your Email</label>
+      <input type="email" name="email" id="email" required placeholder="you@example.com" autocomplete="email">
 
-    <div class="project-card">
-      <h3>Custom Analytics Tool</h3>
-      <p>Web-based tool for custom data visualization and business analytics.</p>
-      <a href="projects/analytics.html">Demo →</a>
-    </div>
-  </div>
-</section>
+      <label for="message">Message</label>
+      <textarea name="message" id="message" required placeholder="Tell me more about your project..."></textarea>
 
+      <button type="submit">Send Request</button>
+    </form>
 
-<section id="contact">
-  <h2>📮 Request a Project Quote</h2>
-  <form id="contact-form">
-    <label for="type">Project Type</label>
-    <select name="type" id="type" required>
-      <option value="">Select an option</option>
-      <option value="Website">🌐 Website</option>
-      <option value="Mobile App">📱 Mobile App</option>
-      <option value="Custom Software">💻 Custom Software</option>
-      <option value="Consulting">🧠 Tech Consulting</option>
-      <option value="Other">🔧 Other</option>
-    </select>
-
-    <label for="email">Your Email</label>
-    <input type="email" name="email" id="email" required placeholder="you@example.com" autocomplete="email">
-
-    <label for="message">Message</label>
-    <textarea name="message" id="message" required placeholder="Tell me more about your project..."></textarea>
-
-    <button type="submit">Send Request</button>
-  </form>
-
-  <p class="alt-contact">
-    Or reach me on <a href="https://x.com/Manda_Coin" target="_blank">@Manda_Coin</a>
-  </p>
-</section>
-
-<script>
-  const form = document.getElementById('contact-form');
-
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-
-    const formData = new FormData(form);
-
-    try {
-      const response = await fetch('sendmail.php', {
-        method: 'POST',
-        body: formData
-      });
-
-      if (response.ok) {
-        alert('Message sent successfully ✅');
-        form.reset();
-      } else {
-        alert('❌ There was a problem sending your message.');
-      }
-    } catch (error) {
-      alert('⚠️ Error: ' + error.message);
-    }
-  });
-</script>
-
-
-
+    <p class="alt-contact">
+      Or reach me on <a href="https://www.linkedin.com/in/multimedia3d/" target="_blank">@CAUCO</a>
+    </p>
+  </section>
 
   <footer>
     <p>© 2025 CAUCO – All rights reserved</p>
   </footer>
 
+  <script>
+    // === FORM SUBMIT HANDLER ===
+    const form = document.getElementById('contact-form');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const formData = new FormData(form);
+
+      try {
+        const response = await fetch('sendmail.php', {
+          method: 'POST',
+          body: formData
+        });
+
+        if (response.ok) {
+          alert('Message sent successfully ✅');
+          form.reset();
+        } else {
+          alert('❌ There was a problem sending your message.');
+        }
+      } catch (error) {
+        alert('⚠️ Error: ' + error.message);
+      }
+    });
+
+    // === LANGUAGE SWITCHER ===
+    const langSelect = document.getElementById('language-switcher');
+    langSelect.addEventListener('change', () => {
+      const selected = langSelect.value;
+      if (selected === 'en') window.location.href = 'index.html';
+      if (selected === 'fi') window.location.href = 'index-fi.html';
+      if (selected === 'sv') window.location.href = 'index-sv.html';
+    });
+  </script>
+
   <script src="js/script.js"></script>
+
+<div style="text-align:center; padding: 24px; font-size: 14px;">
+  <a href="privacy-policy.html">Privacy Policy</a>
+</div>
+
 </body>
 </html>
