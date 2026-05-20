@@ -120,7 +120,6 @@ footer {
   }
 }
 
-
 /* Contact form */
 #contact {
   margin: 60px 0;
@@ -194,85 +193,110 @@ footer {
 }
 
 /* === Project Demo Pages === */
-
-/* Contenedor principal de la página */
 .project-page {
   font-family: 'Share Tech Mono', monospace;
   background: #0a0a0a;
   color: #f4f4f4;
   line-height: 1.6;
   padding: 2rem;
-  margin-left: auto;    /* Empuja todo al lado derecho */
-  margin-right: auto;      /* Garantiza que quede pegado al borde derecho */
-  max-width: 1000px;    /* Mantiene el ancho original */
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1000px;
   display: flex;
   flex-direction: column;
 }
 
-/* Wrapper general para limitar ancho de contenido */
 .project-page > * {
-  max-width: 1000px;                           /* Máximo ancho para que no se estire demasiado en pantallas grandes */
-  width: 90%;                                  /* Ancho relativo para mantener responsive */
-  margin: 0 auto;                              /* Centra horizontalmente */
-  text-align: center;                           /* Centra texto dentro de cada sección */
+  max-width: 1000px;
+  width: 90%;
+  margin: 0 auto;
+  text-align: center;
 }
 
 /* === Header === */
 .demo-header {
-  padding: 4rem 2rem;                          /* Espacio interno superior/inferior y lateral */
-  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364); /* Gradiente de fondo */
+  padding: 4rem 2rem;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
   color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 .demo-header h1 {
-  font-size: 2.5rem;                           /* Tamaño grande para el título */
+  font-size: 2.5rem;
   margin-bottom: 0.5rem;
 }
 
 .demo-header p {
   font-size: 1.2rem;
-  opacity: 0.9;                                /* Texto ligeramente transparente */
+  opacity: 0.9;
+  max-width: 400px;
 }
 
-/* Botón de volver atrás */
 .back-btn {
   display: inline-block;
-  margin-top: 1.5rem;                          /* Separación del texto superior */
+  margin-top: 1.5rem;
   padding: 0.5rem 1rem;
   background: #111;
   color: #00ffcc;
   text-decoration: none;
-  border-radius: 6px;                          /* Bordes redondeados */
-  transition: all 0.3s ease;                   /* Suaviza cambios al hover */
+  border-radius: 6px;
+  transition: all 0.3s ease;
 }
 
 .back-btn:hover {
-  background: #00ffcc;                         /* Cambia fondo al pasar mouse */
-  color: #111;                                 /* Cambia texto */
+  background: #00ffcc;
+  color: #111;
 }
 
-/* === Showcase: imagen + descripción === */
+/* Fix responsive header en móviles */
+@media (max-width: 768px) {
+  .demo-header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .demo-header h1 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+
+  .demo-header p {
+    font-size: 1rem;
+    max-width: 90%;
+    margin: 0 auto 1rem;
+    word-wrap: break-word;
+  }
+
+  .back-btn {
+    margin-top: 1rem;
+  }
+}
+
+/* Showcase */
 .demo-showcase {
-  display: flex;                               /* Flexbox para alinear imagen y texto */
-  flex-wrap: wrap;                             /* Permite que se muevan abajo en pantallas pequeñas */
-  justify-content: center;                      /* Centra horizontalmente */
-  align-items: stretch;                         /* Hace que imagen y descripción tengan misma altura */
-  gap: 2rem;                                   /* Separación entre columnas */
-  padding: 3rem 2rem;                          /* Espacio interno superior/inferior y lateral */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
+  gap: 2rem;
+  padding: 3rem 2rem;
 }
 
-/* Imagen y descripción dentro del showcase */
-.demo-image, .demo-description {
-  flex: 1 1 400px;     /* Increased minimum width from 300px */
+.demo-image,
+.demo-description {
+  flex: 1 1 400px;
   max-width: 500px;
   width: 100%;
   border-radius: 12px;
-  box-shadow: 0 0 20px rgba(0,255,204,0.3);
+  box-shadow: 0 0 20px rgba(0, 255, 204, 0.3);
   transition: transform 0.3s ease;
 }
 
 .demo-image:hover {
-  transform: scale(1.03);                       /* Efecto zoom al pasar mouse */
+  transform: scale(1.03);
 }
 
 .demo-description h2 {
@@ -280,37 +304,7 @@ footer {
   margin-bottom: 1rem;
 }
 
-.demo-description ul {
-  list-style: none;                             /* Sin bullets */
-  padding: 0;
-  margin: 0 0 1rem 0;                           /* Separación inferior */
-}
-
-.demo-description li {
-  margin: 0.5rem 0;                             /* Separación entre items */
-  font-size: 1.1rem;
-}
-
-/* === Botón CTA === */
-.cta-btn {
-  display: inline-block;
-  margin-top: 1.5rem;
-  padding: 0.75rem 1.5rem;
-  background: #00ffcc;
-  color: #111;
-  font-weight: bold;
-  border-radius: 8px;
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
-
-.cta-btn:hover {
-  background: #111;
-  color: #00ffcc;
-  border: 1px solid #00ffcc;
-}
-
-/* === Features Section === */
+/* Features Section */
 .demo-features {
   background: #111;
   padding: 4rem 2rem;
@@ -322,17 +316,17 @@ footer {
 }
 
 .feature-grid {
-  display: grid;                                /* Usamos grid para tarjetas de features */
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Responsive */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 2rem;
-  justify-items: center;                        /* Centra cada card */
+  justify-items: center;
 }
 
 .feature {
   background: #1a1a1a;
   padding: 1.5rem;
   border-radius: 12px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   text-align: center;
 }
 
@@ -341,46 +335,16 @@ footer {
   color: #00ffcc;
 }
 
-/* === Call to Action === */
-/* === Call to Action === */
+/* Call to Action */
 .demo-cta {
   padding: 4rem 2rem;
   background: linear-gradient(135deg, #2c5364, #203a43, #0f2027);
-
-  /* 👇 Opciones de movimiento */
-  position: relative;   /* Necesario para desplazar */
-  left: 50px;           /* mueve a la derecha */
-  /* right: 40px;       mueve a la izquierda */
-  /* top: 20px;         baja el bloque */
-  /* bottom: 20px;      sube el bloque */
-  
-  /* O con transform (más elegante) */
-  /* transform: translateX(40px); */
 }
 
-
-/* === Footer === */
-footer {
-  max-width: 1000px;     /* Igual que .project-page */
-  width: 70%;            /* Ajusta al tamaño relativo */
-  margin: 0 auto;        /* Centra horizontalmente el contenedor */
-  background: #000;
-  font-size: 1.0rem;
-  color: #888;
-  position: relative;    /* Permite mover el texto internamente */
-  padding: 1rem 2rem;    /* Espacio interno general */
-}
-
-footer p {
-  text-align: center;      /* Controla alineación solo del texto */
-  position: relative;    /* Permite mover individualmente */
-  left: 10 px;            /* Desplaza horizontalmente */
-  top: 10px;             /* Desplaza verticalmente */
-}
-
-
-/* === Animaciones suaves al cargar === */
-.demo-showcase, .demo-features, .demo-cta {
+/* Animaciones suaves */
+.demo-showcase,
+.demo-features,
+.demo-cta {
   opacity: 0;
   transform: translateY(30px);
   animation: fadeUp 0.8s forwards;
@@ -394,5 +358,37 @@ footer p {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+/* Fix específico para móviles en vertical (pantallas pequeñas) */
+@media (max-width: 480px) {
+  .demo-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 2rem 1rem;  /* menos padding */
+  }
+
+  .demo-header h1 {
+    font-size: 1.6rem;   /* más pequeño en vertical */
+    margin-bottom: 1rem;
+  }
+
+  .demo-header p {
+    font-size: 0.95rem;
+    max-width: 90%;      /* que no se extienda demasiado */
+    line-height: 1.4;
+    margin-bottom: 1rem;
+    word-break: break-word; /* corta si una palabra es larga */
+  }
+
+  .back-btn {
+    width: 100%;          /* ocupa todo el ancho en vertical */
+    max-width: 220px;     /* pero con límite */
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 0.95rem;
+    padding: 0.6rem 1rem;
   }
 }

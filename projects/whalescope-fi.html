@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fi">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,7 +10,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <style>
-/* Botones de activos dentro de demo-description */
 .asset-btn {
   background: #111;
   color: #00ffc3;
@@ -45,27 +44,27 @@
 <!-- Header -->
 <header class="demo-header">
   <h1>🐋 WhaleScope</h1>
-  <p>Desktop app for crypto market research using real-time whale transaction analysis.</p>
-  <a class="back-btn" href="../index.html">← Back to Portfolio</a>
+  <p>Pöytäkonesovellus kryptomarkkinoiden tutkimukseen reaaliaikaisen valaiden transaktioanalyysin avulla.</p>
+  <a class="back-btn" href="../index-fi.html">← Takaisin Portfolioon</a>
 </header>
 
 <!-- Showcase -->
 <section class="demo-showcase">
   <div class="demo-description">
-    <h2>Interactive Analytics</h2>
-    <p>Select assets below to explore market data, charts, and crypto dominance analysis.</p>
+    <h2>Interaktiivinen Analytiikka</h2>
+    <p>Valitse alta omaisuus tutkiaksesi markkinadataa, kaavioita ja kryptovaluuttojen dominanssia.</p>
 
     <div id="asset-buttons">
       <button class="asset-btn active" data-asset="btc">BTC</button>
       <button class="asset-btn" data-asset="eth">ETH</button>
       <button class="asset-btn" data-asset="lido">Lido</button>
       <button class="asset-btn" data-asset="blackrock">BlackRock</button>
-      <button class="asset-btn" data-asset="dominance">Crypto Dominance</button>
+      <button class="asset-btn" data-asset="dominance">Krypto-dominanssi</button>
     </div>
 
     <div id="section-info">
-      <h3>General Information</h3>
-      <div id="general-info">Loading data...</div>
+      <h3>Yleiset Tiedot</h3>
+      <div id="general-info">Ladataan dataa...</div>
     </div>
   </div>
 
@@ -74,64 +73,64 @@
     <canvas id="feeChart" height="200"></canvas>
 
     <section id="section-dominance" style="display:none;">
-      <h3>Crypto Dominance Polar Chart</h3>
+      <h3>Krypto-dominanssi Polar-kaavio</h3>
       <div id="dominance-controls">
-        Period:
+        Aikajakso:
         <select id="dominance-period-select">
-          <option value="hourly">Hourly</option>
-          <option value="daily" selected>Daily</option>
-          <option value="weekly">Weekly</option>
-          <option value="monthly">Monthly</option>
-          <option value="yearly">Yearly</option>
+          <option value="hourly">Tunneittain</option>
+          <option value="daily" selected>Päivittäin</option>
+          <option value="weekly">Viikoittain</option>
+          <option value="monthly">Kuukausittain</option>
+          <option value="yearly">Vuosittain</option>
         </select>
       </div>
       <canvas id="dominancePolarChart" height="300"></canvas>
-      <p style="font-size: 14px; color:#ccc;">Dominance = Volatility × Traded Volume</p>
+      <p style="font-size: 14px; color:#ccc;">Dominanssi = Volatiliteetti × Kaupankäyntivolyymi</p>
     </section>
   </div>
 </section>
 
 <!-- Features -->
 <section class="demo-features">
-  <h2>Core Features</h2>
+  <h2>Tärkeimmät Ominaisuudet</h2>
   <div class="feature-grid">
     <div class="feature">
-      <h3>📊 Real-time Charts</h3>
-      <p>Visualize price and fee data instantly.</p>
+      <h3>📊 Reaaliaikaiset Kaaviot</h3>
+      <p>Visualisoi hinta- ja maksutiedot välittömästi.</p>
     </div>
     <div class="feature">
-      <h3>⚡ Fast Analysis</h3>
-      <p>Interactive dashboard for whale transactions and market insights.</p>
+      <h3>⚡ Nopea Analyysi</h3>
+      <p>Interaktiivinen hallintapaneeli valaiden transaktioiden ja markkinanäkemysten tutkimiseen.</p>
     </div>
     <div class="feature">
-      <h3>🔒 Secure</h3>
-      <p>Desktop application keeps data safe and local.</p>
+      <h3>🔒 Turvallinen</h3>
+      <p>Pöytäkonesovellus säilyttää datan turvallisesti paikallisesti.</p>
     </div>
     <div class="feature">
-      <h3>🛠️ Customizable</h3>
-      <p>Switch assets and view dominance metrics dynamically.</p>
+      <h3>🛠️ Mukautettava</h3>
+      <p>Vaihda omaisuutta ja tarkastele dominanssimittareita dynaamisesti.</p>
     </div>
   </div>
 </section>
 
 <!-- Call to Action -->
 <section id="contact" class="demo-cta">
-  <h2>Interested in WhaleScope?</h2>
-  <p>Request a demo or custom solution for crypto market analysis.</p>
-  <a href="../index.html#contact" class="cta-btn">📮 Get Started</a>
+  <h2>Kiinnostunut WhaleScope:sta?</h2>
+  <p>Pyydä demo tai räätälöity ratkaisu kryptomarkkina-analyysiin.</p>
+  <a href="../index-fi.html#contact" class="cta-btn">📮 Aloita</a>
 </section>
 
 <!-- Footer -->
 <footer>
-  <p>© 2025 CAUCO – All rights reserved</p>
+  <p>© 2025 CAUCO – Kaikki oikeudet pidätetään</p>
 </footer>
 
 <script>
 // Sample data
-const dataBTC = { markets:{price:28000,percent_change_24h:-1.2,market_cap:520000000000,volume_24h:28000000000,last_updated:"2025-08-06T07:00:00"}, fees:{dates:["2025-07-31","2025-08-01","2025-08-02"],values:[120000,130000,125000]}, price_history:{dates:["2025-07-31","2025-08-01","2025-08-02"],close:[28200,27900,28000]}, analysis:"Bitcoin showing slight downtrend over 24h."};
-const dataBlackRock = { markets:{price:210,percent_change_24h:0.5,market_cap:10000000000,volume_24h:500000000,last_updated:"2025-08-06T07:00:00"}, fees:{dates:["2025-07-31","2025-08-01","2025-08-02"],values:[40000,42000,41000]}, price_history:{dates:["2025-07-31","2025-08-01","2025-08-02"],close:[205,208,210]}, analysis:"BlackRock showing stability with slight gains."};
-const dataLido = { markets:{price:2.4,percent_change_24h:2.0,market_cap:600000000,volume_24h:80000000,last_updated:"2025-08-06T07:00:00"}, fees:{dates:["2025-07-31","2025-08-01","2025-08-02"],values:[8000,9000,8500]}, price_history:{dates:["2025-07-31","2025-08-01","2025-08-02"],close:[2.3,2.4,2.4]}, analysis:"Lido with moderate positive growth."};
-const dataETH = { markets:{price:3634.58,percent_change_24h:1.947,market_cap:0,volume_24h:1935479720.5837,last_updated:"2025-08-05T16:24:46.766894"}, fees:{dates:["2025-07-06","2025-07-07","2025-07-08"],values:[193547.97,193547.97,193547.97]}, price_history:{dates:["2025-07-06","2025-07-07","2025-07-08"],close:[2570.35,2542.29,2615.25]}, analysis:"Ethereum steady positive momentum."};
+const dataBTC = { markets:{price:28000,percent_change_24h:-1.2,market_cap:520000000000,volume_24h:28000000000,last_updated:"2025-08-06T07:00:00"}, fees:{dates:["2025-07-31","2025-08-01","2025-08-02"],values:[120000,130000,125000]}, price_history:{dates:["2025-07-31","2025-08-01","2025-08-02"],close:[28200,27900,28000]}, analysis:"Bitcoin osoittaa lievää laskutrendiä viimeisen 24 tunnin aikana."};
+const dataBlackRock = { markets:{price:210,percent_change_24h:0.5,market_cap:10000000000,volume_24h:500000000,last_updated:"2025-08-06T07:00:00"}, fees:{dates:["2025-07-31","2025-08-01","2025-08-02"],values:[40000,42000,41000]}, price_history:{dates:["2025-07-31","2025-08-01","2025-08-02"],close:[205,208,210]}, analysis:"BlackRock näyttää vakaalta pienellä nousulla."};
+const dataLido = { markets:{price:2.4,percent_change_24h:2.0,market_cap:600000000,volume_24h:80000000,last_updated:"2025-08-06T07:00:00"}, fees:{dates:["2025-07-31","2025-08-01","2025-08-02"],values:[8000,9000,8500]}, price_history:{dates:["2025-07-31","2025-08-01","2025-08-02"],close:[2.3,2.4,2.4]}, analysis:"Lido kasvaa maltillisesti positiiviseen suuntaan."};
+const dataETH = { markets:{price:3634.58,percent_change_24h:1.947,market_cap:0,volume_24h:1935479720.5837,last_updated:"2025-08-05T16:24:46.766894"}, fees:{dates:["2025-07-06","2025-07-07","2025-07-08"],values:[193547.97,193547.97,193547.97]}, price_history:{dates:["2025-07-06","2025-07-07","2025-07-08"],close:[2570.35,2542.29,2615.25]}, analysis:"Ethereum jatkaa vakaata positiivista kehitystä."};
 
 const dominanceSamples = {
   hourly:[{ticker:"BTC",volume:60,volatility:15,color:"#f7931a"},{ticker:"ETH",volume:50,volatility:10,color:"#627eea"},{ticker:"BNB",volume:40,volatility:12,color:"#f0b90b"},{ticker:"SOL",volume:25,volatility:20,color:"#00ffa3"},{ticker:"ADA",volume:20,volatility:18,color:"#0033ad"},{ticker:"DOGE",volume:15,volatility:30,color:"#c2a633"},{ticker:"XRP",volume:10,volatility:25,color:"#346aa9"}],
@@ -143,7 +142,6 @@ const dominanceSamples = {
 
 let priceChartInstance, feeChartInstance, dominanceChart;
 
-// Helpers
 function formatNumber(num){
   if(num>=1e9)return (num/1e9).toFixed(2)+" B";
   if(num>=1e6)return (num/1e6).toFixed(2)+" M";
@@ -153,18 +151,18 @@ function formatNumber(num){
 
 function updateGeneralInfo(data){
   const m=data.markets;
-  if(!m.price){document.getElementById("general-info").innerHTML="<i>Market data not available</i>"; return;}
+  if(!m.price){document.getElementById("general-info").innerHTML="<i>Markkinadata ei saatavilla</i>"; return;}
   const percentClass = m.percent_change_24h>=0?"percent-positive":"percent-negative";
   const lastUpdated = new Date(m.last_updated).toLocaleString();
   document.getElementById("general-info").innerHTML=`
     <table>
-      <tr><th>Price</th><td>$${m.price.toLocaleString()}</td></tr>
-      <tr><th>24h Change</th><td class="${percentClass}">${m.percent_change_24h.toFixed(2)}%</td></tr>
-      <tr><th>Market Cap</th><td>${formatNumber(m.market_cap)}</td></tr>
-      <tr><th>24h Volume</th><td>${formatNumber(m.volume_24h)}</td></tr>
-      <tr><th>Last Updated</th><td>${lastUpdated}</td></tr>
+      <tr><th>Hinta</th><td>$${m.price.toLocaleString()}</td></tr>
+      <tr><th>24h Muutos</th><td class="${percentClass}">${m.percent_change_24h.toFixed(2)}%</td></tr>
+      <tr><th>Markkina-arvo</th><td>${formatNumber(m.market_cap)}</td></tr>
+      <tr><th>24h Volyymi</th><td>${formatNumber(m.volume_24h)}</td></tr>
+      <tr><th>Päivitetty</th><td>${lastUpdated}</td></tr>
     </table>
-    <p><strong>Analysis:</strong> ${data.analysis||"Not available."}</p>
+    <p><strong>Analyysi:</strong> ${data.analysis||"Ei saatavilla."}</p>
   `;
 }
 
@@ -176,13 +174,13 @@ function updateCharts(data){
 
   priceChartInstance = new Chart(ctxPrice,{
     type:'line',
-    data:{labels:data.price_history.dates,datasets:[{label:'Closing Price (USD)',data:data.price_history.close,borderColor:'#2563eb',backgroundColor:'rgba(37,99,235,0.3)',fill:true,tension:0.3,pointRadius:3}]},
+    data:{labels:data.price_history.dates,datasets:[{label:'Sulkemishinta (USD)',data:data.price_history.close,borderColor:'#2563eb',backgroundColor:'rgba(37,99,235,0.3)',fill:true,tension:0.3,pointRadius:3}]},
     options:{responsive:true,scales:{y:{beginAtZero:false}},plugins:{legend:{labels:{color:'#e0e7ff'}}}}
   });
 
   feeChartInstance = new Chart(ctxFee,{
     type:'bar',
-    data:{labels:data.fees.dates,datasets:[{label:'Fees Collected',data:data.fees.values,backgroundColor:'#22c55e'}]},
+    data:{labels:data.fees.dates,datasets:[{label:'Kerätyt maksut',data:data.fees.values,backgroundColor:'#22c55e'}]},
     options:{responsive:true,scales:{y:{beginAtZero:true}},plugins:{legend:{labels:{color:'#e0e7ff'}}}}
   });
 }
@@ -197,8 +195,6 @@ function updateDominanceChart(period){
   if(dominanceChart) dominanceChart.destroy();
 
   const ctx = document.getElementById('dominancePolarChart').getContext('2d');
-
-  // Detecta si la pantalla es estrecha (ej. móvil vertical)
   const isMobile = window.innerWidth < 600;
 
   dominanceChart = new Chart(ctx,{
@@ -206,7 +202,7 @@ function updateDominanceChart(period){
     data:{
       labels:dataPoints.map(d=>`${d.ticker} (${d.volatility} vol)`),
       datasets:[{
-        label:'Relative Dominance',
+        label:'Suhteellinen Dominanssi',
         data:values,
         backgroundColor:colors,
         borderColor:'#111',
@@ -218,16 +214,13 @@ function updateDominanceChart(period){
       plugins:{
         legend:{
           position: isMobile ? 'bottom' : 'right',
-          labels:{
-            color:'#e0e7ff',
-            font:{ size: isMobile ? 10 : 14 }
-          }
+          labels:{ color:'#e0e7ff', font:{ size: isMobile ? 10 : 14 } }
         },
         tooltip:{
           callbacks:{
             label:ctx=>{
               const dp=dataPoints[ctx.dataIndex]; 
-              return `${dp.ticker}: Volume ${dp.volume}, Volatility ${dp.volatility}`;
+              return `${dp.ticker}: Volyymi ${dp.volume}, Volatiliteetti ${dp.volatility}`;
             }
           }
         }
@@ -255,17 +248,12 @@ function setActiveAsset(asset){
     priceCanvas.style.display='none';
     feeCanvas.style.display='none';
     dom.style.display='block';
-    
-    setTimeout(()=>{
-      updateDominanceChart(document.getElementById('dominance-period-select').value);
-    },50);
-
+    setTimeout(()=>{ updateDominanceChart(document.getElementById('dominance-period-select').value); },50);
   } else {
     info.style.display='block';
     priceCanvas.style.display='block';
     feeCanvas.style.display='block';
     dom.style.display='none';
-
     let data;
     switch(asset){
       case 'btc': data=dataBTC; break;
@@ -274,27 +262,21 @@ function setActiveAsset(asset){
       case 'blackrock': data=dataBlackRock; break;
       default: data=null;
     }
-    if(data){
-      updateGeneralInfo(data);
-      updateCharts(data);
-    }
+    if(data){ updateGeneralInfo(data); updateCharts(data); }
   }
 }
 
-// Event listeners
 document.querySelectorAll('.asset-btn').forEach(btn=>{
   btn.addEventListener('click',()=>setActiveAsset(btn.dataset.asset));
 });
 document.getElementById('dominance-period-select').addEventListener('change',e=>updateDominanceChart(e.target.value));
 
-// 👇 Nuevo listener: redibuja el gráfico al rotar la pantalla
 window.addEventListener('resize', () => {
   if(document.getElementById('section-dominance').style.display !== 'none'){
     updateDominanceChart(document.getElementById('dominance-period-select').value);
   }
 });
 
-// Inicializar
 setActiveAsset('btc');
 </script>
 
