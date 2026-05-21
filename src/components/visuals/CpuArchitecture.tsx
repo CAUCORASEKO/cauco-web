@@ -26,8 +26,9 @@ export function CpuArchitecture() {
   const reduceMotion = useReducedMotion();
 
   return (
-    <div className="relative mx-auto aspect-square w-full max-w-[520px] overflow-hidden rounded-lg border border-white/10 bg-slate-950/70 p-4 shadow-panel backdrop-blur">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(91,141,239,0.18),transparent_54%)]" />
+    <div className="group relative mx-auto aspect-square w-full max-w-[520px] overflow-hidden rounded-lg border border-white/10 bg-slate-950/70 p-4 shadow-panel backdrop-blur transition-shadow duration-700 hover:shadow-[0_0_48px_rgba(96,165,250,0.14)]">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(91,141,239,0.18),transparent_54%)] transition-opacity duration-700 group-hover:opacity-100" />
+      <div className="pointer-events-none absolute left-1/2 top-1/2 h-28 w-28 -translate-x-1/2 -translate-y-1/2 rounded-full border border-primary/35 opacity-0 blur-[1px] transition-opacity duration-700 group-hover:animate-ping group-hover:opacity-25 motion-reduce:group-hover:animate-none" />
       <svg
         viewBox="0 0 340 340"
         role="img"
@@ -54,24 +55,31 @@ export function CpuArchitecture() {
           </filter>
         </defs>
 
-        <rect
-          x="112"
-          y="112"
-          width="116"
-          height="116"
-          rx="14"
-          fill="rgba(8, 16, 32, 0.92)"
-          stroke="rgba(255,255,255,0.18)"
-        />
-        <rect
-          x="132"
-          y="132"
-          width="76"
-          height="76"
-          rx="10"
-          fill="rgba(12, 26, 48, 0.88)"
-          stroke="rgba(110,168,255,0.44)"
-        />
+        <g
+          className="origin-center transition-transform duration-700 ease-out motion-reduce:transition-none group-hover:scale-[1.025]"
+          style={{ transformBox: "fill-box" }}
+        >
+          <rect
+            x="112"
+            y="112"
+            width="116"
+            height="116"
+            rx="14"
+            fill="rgba(8, 16, 32, 0.92)"
+            stroke="rgba(255,255,255,0.18)"
+            className="transition-[filter,stroke] duration-700 group-hover:stroke-white/30"
+          />
+          <rect
+            x="132"
+            y="132"
+            width="76"
+            height="76"
+            rx="10"
+            fill="rgba(12, 26, 48, 0.88)"
+            stroke="rgba(110,168,255,0.44)"
+            className="transition-[filter,stroke] duration-700 group-hover:stroke-blue-300 group-hover:drop-shadow-[0_0_18px_rgba(96,165,250,0.34)]"
+          />
+        </g>
 
         {Array.from({ length: 8 }).map((_, index) => {
           const offset = 124 + index * 12;
@@ -92,6 +100,7 @@ export function CpuArchitecture() {
               fill="none"
               stroke="rgba(255,255,255,0.12)"
               strokeWidth="1.5"
+              className="transition-[stroke,opacity] duration-700 group-hover:opacity-90"
             />
             <motion.path
               d={path}
@@ -112,8 +121,34 @@ export function CpuArchitecture() {
                 ease: "easeInOut",
               }}
             />
+            <path
+              d={path}
+              fill="none"
+              stroke="rgba(147,197,253,0.72)"
+              strokeLinecap="round"
+              strokeWidth="2"
+              className="opacity-0 transition-opacity duration-700 group-hover:opacity-70 motion-reduce:transition-none"
+            />
           </g>
         ))}
+
+        <circle
+          cx="170"
+          cy="170"
+          r="42"
+          fill="none"
+          stroke="rgba(147,197,253,0.34)"
+          strokeWidth="1"
+          className="origin-center opacity-0 transition-opacity duration-700 group-hover:animate-pulse group-hover:opacity-100 motion-reduce:group-hover:animate-none"
+          style={{ transformBox: "fill-box" }}
+        />
+        <circle
+          cx="170"
+          cy="170"
+          r="31"
+          fill="rgba(96,165,250,0.16)"
+          className="opacity-0 blur-sm transition-opacity duration-700 group-hover:opacity-100"
+        />
 
         <motion.circle
           cx="170"
@@ -123,6 +158,7 @@ export function CpuArchitecture() {
           stroke="#9bd4c6"
           strokeOpacity="0.72"
           filter="url(#soft-glow)"
+          className="transition-[filter,stroke-opacity] duration-700 group-hover:stroke-opacity-100"
           animate={reduceMotion ? undefined : { r: [22, 27, 22], opacity: [0.62, 1, 0.62] }}
           transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
         />
@@ -135,8 +171,12 @@ export function CpuArchitecture() {
           CAUCO
         </text>
 
-        {nodes.map((node) => (
-          <g key={node.label}>
+        {nodes.map((node, index) => (
+          <g
+            key={node.label}
+            className="origin-center transition-transform duration-500 ease-out motion-reduce:transition-none group-hover:-translate-y-1 group-hover:scale-[1.025]"
+            style={{ transformBox: "fill-box", transitionDelay: `${index * 35}ms` }}
+          >
             <rect
               x={node.x - 31}
               y={node.y - 18}
@@ -145,8 +185,16 @@ export function CpuArchitecture() {
               rx="8"
               fill="rgba(8, 16, 32, 0.86)"
               stroke="rgba(255,255,255,0.16)"
+              className="transition-[stroke] duration-500 group-hover:stroke-blue-300/45"
             />
-            <circle cx={node.x - 20} cy={node.y} r="3" fill="#9bd4c6" />
+            <circle
+              cx={node.x - 20}
+              cy={node.y}
+              r="3"
+              fill="#9bd4c6"
+              className="transition-[filter] duration-500"
+              style={{ filter: "drop-shadow(0 0 4px rgba(155, 212, 198, 0.35))" }}
+            />
             <text
               x={node.x + 6}
               y={node.y + 4}

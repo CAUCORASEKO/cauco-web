@@ -2,6 +2,10 @@ import { Linkedin, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
+const CONTACT_EMAIL = "claudio@aisosu.fi";
+const LINKEDIN_URL = "https://www.linkedin.com/in/multimedia3d/";
+const EMAIL_SUBJECT = "Project inquiry from CAUCO portfolio";
+
 export function ContactSection() {
   return (
     <section id="contact" className="py-20">
@@ -19,15 +23,19 @@ export function ContactSection() {
               </p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <Button asChild>
-                  <a href="mailto:contact@cauco.fi">
+                  <a
+                    href={`mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(
+                      EMAIL_SUBJECT,
+                    )}`}
+                  >
                     <Mail className="h-4 w-4" /> Email CAUCO
                   </a>
                 </Button>
                 <Button asChild variant="outline">
                   <a
-                    href="https://www.linkedin.com/in/multimedia3d/"
+                    href={LINKEDIN_URL}
                     target="_blank"
-                    rel="noreferrer"
+                    rel="noreferrer noopener"
                   >
                     <Linkedin className="h-4 w-4" /> LinkedIn
                   </a>
