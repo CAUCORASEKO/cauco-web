@@ -1,136 +1,18 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fi">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>CAUCO – Portfolio</title>
-  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon.png">
-  <link rel="icon" type="image/x-icon" href="img/favicon.ico">
-  <link rel="stylesheet" href="css/style.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
-</head>
-<body>
-
-  <header>
-    <div class="logo">CAUCO</div>
-    <nav>
-      <a href="#about">Tietoa</a>
-      <a href="#projects">Projektit</a>
-      <a href="#contact">Yhteys</a>
-      <select id="language-switcher" onchange="switchLanguage(this.value)">
-        <option value="index.html">🇬🇧 English</option>
-        <option value="index-fi.html" selected>🇫🇮 Suomi</option>
-        <option value="index-sv.html">🇸🇪 Svenska</option>
-      </select>
-    </nav>
-  </header>
-
-  <section class="hero">
-    <h1 id="glitch-title">Luova Kehittäjä & Suunnittelija</h1>
-    <p>Rakennan digitaalisia kokemuksia, jotka ovat minimalistisia, tehokkaita ja ilmaisuvoimaisia.</p>
-  </section>
-
-  <section id="about">
-    <h2>Tietoa minusta</h2>
-    <p>Olen Claudio, luova kehittäjä, joka asuu Suomessa. Yhdistän suunnittelun ja koodin rakentaakseni visuaalisesti vaikuttavia digitaalisia kokemuksia. Työskentelen parhaillaan WhaleScope-projektin parissa, joka on ennustava hälytysjärjestelmä kryptomarkkinoille.</p>
-  </section>
-
-  <section id="projects">
-    <h2>Projektit</h2>
-    <div class="project-grid">
-      <div class="project-card">
-        <h3>WhaleScope</h3>
-        <p>Pöytäkonesovellus kryptomarkkinatutkimukseen käyttäen reaaliaikaista valastransaktioanalyysiä.</p>
-        <a href="projects/whalescope-fi.html">Demo →</a>
-      </div>
-
-      <div class="project-card">
-        <h3>Portfolio-sivusto</h3>
-        <p>Responsiivinen henkilökohtainen portfoliosivusto, rakennettu moderneilla web-teknologioilla.</p>
-        <a href="projects/portfolio-fi.html">Demo →</a>
-      </div>
-
-      <div class="project-card">
-        <h3>Mobiilikauppasovellus</h3>
-        <p>Mobiilisovellus verkkokaupalle, suunniteltu saumattomaan ostokokemukseen.</p>
-        <a href="projects/mobileshop-fi.html">Demo →</a>
-      </div>
-
-      <div class="project-card">
-        <h3>Räätälöity analytiikkatyökalu</h3>
-        <p>Verkkopohjainen työkalu datan visualisointiin ja liiketoiminta-analytiikkaan.</p>
-        <a href="projects/analytics-fi.html">Demo →</a>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact">
-    <h2>📮 Pyydä projektitarjous</h2>
-    <form id="contact-form">
-      <label for="type">Projektin tyyppi</label>
-      <select name="type" id="type" required>
-        <option value="">Valitse vaihtoehto</option>
-        <option value="Website">🌐 Verkkosivusto</option>
-        <option value="Mobile App">📱 Mobiilisovellus</option>
-        <option value="Custom Software">💻 Räätälöity ohjelmisto</option>
-        <option value="Consulting">🧠 Teknologiakonsultointi</option>
-        <option value="Other">🔧 Muu</option>
-      </select>
-
-      <label for="email">Sähköpostisi</label>
-      <input type="email" name="email" id="email" required placeholder="sinä@esimerkki.com" autocomplete="email">
-
-      <label for="message">Viesti</label>
-      <textarea name="message" id="message" required placeholder="Kerro lisää projektistasi..."></textarea>
-
-      <button type="submit">Lähetä pyyntö</button>
-    </form>
-
-    <p class="alt-contact">
-      Tai tavoitat minut <a href="https://www.linkedin.com/in/multimedia3d/" target="_blank">@CAUCO</a>
-    </p>
-  </section>
-
-  <footer>
-    <p>© 2025 CAUCO – Kaikki oikeudet pidätetään</p>
-  </footer>
-
-  <script>
-    const form = document.getElementById('contact-form');
-
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-
-      const formData = new FormData(form);
-
-      try {
-        const response = await fetch('/sendmail.php', {
-          method: 'POST',
-          body: formData
-        });
-
-        if (response.ok) {
-          alert('Viesti lähetetty onnistuneesti ✅');
-          form.reset();
-        } else {
-          alert('❌ Viestin lähettämisessä oli ongelma.');
-        }
-      } catch (error) {
-        alert('⚠️ Virhe: ' + error.message);
-      }
-    });
-
-    function switchLanguage(lang) {
-      window.location.href = lang;
-    }
-  </script>
-
-  <script src="js/script.js"></script>
-
-<div style="text-align:center; padding: 24px; font-size: 14px;">
-  <a href="privacy-policy.html">Privacy Policy</a>
-</div>
-
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Claudio Valenzuela / CAUCO suunnittelee ja rakentaa käytännönläheisiä AI-pohjaisia ohjelmistojärjestelmiä finanssialalle, vaatimustenmukaisuuteen, kehittäjätyönkulkuihin ja institutionaalisiin prosesseihin."
+    />
+    <title>Claudio Valenzuela / CAUCO - Ohjelmistoarkkitehti & AI-järjestelmien rakentaja</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon.png" />
+    <link rel="icon" type="image/x-icon" href="/img/favicon.ico" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
 </html>

@@ -1,22 +1,25 @@
 import { ArrowUpRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { projects } from "@/data/projects";
+import type { SiteContent } from "@/i18n/content";
 
-export function FeaturedSystems() {
+type FeaturedSystemsProps = {
+  content: SiteContent["featuredSystems"];
+};
+
+export function FeaturedSystems({ content }: FeaturedSystemsProps) {
   return (
     <section id="systems" className="py-20">
       <div className="container">
         <div className="mb-10 max-w-2xl">
-          <p className="section-kicker">Featured Systems</p>
-          <h2 className="section-title">Applied software for high-trust workflows.</h2>
+          <p className="section-kicker">{content.kicker}</p>
+          <h2 className="section-title">{content.title}</h2>
           <p className="section-copy">
-            Selected systems and prototypes focused on practical automation,
-            deterministic review flows, reporting and usable technical interfaces.
+            {content.copy}
           </p>
         </div>
         <div className="grid gap-4 md:grid-cols-2">
-          {projects.map((project, index) => (
+          {content.projects.map((project, index) => (
             <Card
               key={project.name}
               className={index === 0 ? "md:col-span-2" : undefined}
