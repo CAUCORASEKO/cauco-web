@@ -60,11 +60,18 @@ export type SiteContent = {
     linkedinCta: string;
     inquiryTitle: string;
     formAriaLabel: string;
+    nameLabel: string;
+    namePlaceholder: string;
+    emailLabel: string;
+    emailPlaceholder: string;
     workstreamLabel: string;
     workstreamPlaceholder: string;
     contextLabel: string;
     contextPlaceholder: string;
     prepareCta: string;
+    sendingCta: string;
+    successMessage: string;
+    errorMessage: string;
   };
   footer: {
     copyright: string;
@@ -232,12 +239,20 @@ export const content = {
       linkedinCta: "LinkedIn",
       inquiryTitle: "Project inquiry",
       formAriaLabel: "Project inquiry placeholder",
+      nameLabel: "Name",
+      namePlaceholder: "Your name",
+      emailLabel: "Email",
+      emailPlaceholder: "you@example.com",
       workstreamLabel: "Workstream",
       workstreamPlaceholder: "AI system, compliance tool, prototype...",
       contextLabel: "Context",
       contextPlaceholder:
         "Shortly describe the workflow, risk or system you want to build.",
       prepareCta: "Prepare Inquiry",
+      sendingCta: "Sending...",
+      successMessage: "Message sent successfully. I’ll get back to you soon.",
+      errorMessage:
+        "Message could not be sent. Please email claudio@aisosu.fi directly.",
     },
     footer: {
       copyright: "Claudio Valenzuela / CAUCO.",
@@ -382,6 +397,10 @@ export const content = {
       linkedinCta: "LinkedIn",
       inquiryTitle: "Projektikysely",
       formAriaLabel: "Projektikyselyn luonnos",
+      nameLabel: "Nimi",
+      namePlaceholder: "Nimesi",
+      emailLabel: "Sähköposti",
+      emailPlaceholder: "sinä@example.com",
       workstreamLabel: "Työnkulku",
       workstreamPlaceholder:
         "AI-järjestelmä, vaatimustenmukaisuustyökalu, prototyyppi...",
@@ -389,6 +408,10 @@ export const content = {
       contextPlaceholder:
         "Kuvaa lyhyesti työnkulku, riski tai järjestelmä, jonka haluat rakentaa.",
       prepareCta: "Valmistele kysely",
+      sendingCta: "Lähetetään...",
+      successMessage: "Viesti lähetettiin onnistuneesti. Palaan pian asiaan.",
+      errorMessage:
+        "Viestiä ei voitu lähettää. Lähetä sähköpostia suoraan osoitteeseen claudio@aisosu.fi.",
     },
     footer: {
       copyright: "Claudio Valenzuela / CAUCO.",
@@ -533,6 +556,10 @@ export const content = {
       linkedinCta: "LinkedIn",
       inquiryTitle: "Projektförfrågan",
       formAriaLabel: "Utkast till projektförfrågan",
+      nameLabel: "Namn",
+      namePlaceholder: "Ditt namn",
+      emailLabel: "E-post",
+      emailPlaceholder: "du@example.com",
       workstreamLabel: "Arbetsflöde",
       workstreamPlaceholder:
         "AI-system, verktyg för regelefterlevnad, prototyp...",
@@ -540,6 +567,11 @@ export const content = {
       contextPlaceholder:
         "Beskriv kort arbetsflödet, risken eller systemet du vill bygga.",
       prepareCta: "Förbered förfrågan",
+      sendingCta: "Skickar...",
+      successMessage:
+        "Meddelandet skickades. Jag återkommer till dig snart.",
+      errorMessage:
+        "Meddelandet kunde inte skickas. Mejla claudio@aisosu.fi direkt.",
     },
     footer: {
       copyright: "Claudio Valenzuela / CAUCO.",
@@ -560,4 +592,3 @@ export function detectLanguage(pathname = window.location.pathname): Language {
 
   return "en";
 }
-
