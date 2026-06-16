@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Antü Magallanes Supercomputing Center</title>
+
+  <!-- Página reservada: pedir a buscadores no indexar -->
+  <meta name="robots" content="noindex, nofollow" />
+
+  <meta name="description" content="Antü Magallanes Supercomputing Center: visión estratégica para una plataforma austral de supercomputación, inteligencia artificial, energía limpia y ciencia polar en Magallanes, Chile." />
+
+  <style>
+    :root {
+      --bg: #06111f;
+      --bg2: #0b1f35;
+      --text: #f4f7fb;
+      --muted: #b7c6d8;
+      --accent: #f4b23c;
+      --accent2: #6fd3ff;
+      --card: rgba(255,255,255,0.07);
+      --border: rgba(255,255,255,0.14);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(111, 211, 255, 0.22), transparent 35%),
+        radial-gradient(circle at top right, rgba(244, 178, 60, 0.18), transparent 30%),
+        linear-gradient(135deg, var(--bg), var(--bg2));
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .page {
+      width: min(1120px, 92%);
+      margin: 0 auto;
+    }
+
+    header {
+      min-height: 92vh;
+      display: flex;
+      align-items: center;
+      padding: 80px 0;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 8px 14px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      color: var(--accent2);
+      background: rgba(255,255,255,0.05);
+      font-size: 0.9rem;
+      margin-bottom: 24px;
+    }
+
+    h1 {
+      font-size: clamp(3rem, 8vw, 6.8rem);
+      line-height: 0.95;
+      letter-spacing: -0.06em;
+      max-width: 980px;
+      margin-bottom: 28px;
+    }
+
+    h1 span {
+      color: var(--accent);
+    }
+
+    .subtitle {
+      font-size: clamp(1.25rem, 2.2vw, 2rem);
+      color: var(--muted);
+      max-width: 850px;
+      margin-bottom: 34px;
+    }
+
+    .hero-note {
+      max-width: 760px;
+      color: #dce8f5;
+      font-size: 1.05rem;
+      border-left: 3px solid var(--accent);
+      padding-left: 18px;
+    }
+
+    section {
+      padding: 80px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    h2 {
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+      margin-bottom: 24px;
+    }
+
+    p {
+      color: var(--muted);
+      font-size: 1.08rem;
+      max-width: 850px;
+      margin-bottom: 18px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 32px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 26px;
+      min-height: 210px;
+      backdrop-filter: blur(12px);
+    }
+
+    .card h3 {
+      color: var(--text);
+      font-size: 1.25rem;
+      margin-bottom: 12px;
+    }
+
+    .card p {
+      font-size: 0.98rem;
+      margin-bottom: 0;
+    }
+
+    .highlight {
+      background: linear-gradient(135deg, rgba(244,178,60,0.16), rgba(111,211,255,0.12));
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      padding: 36px;
+      margin-top: 30px;
+    }
+
+    .pill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .pill {
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid var(--border);
+      color: #dfeaf6;
+      font-size: 0.95rem;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 18px;
+      margin-top: 32px;
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: 90px 1fr;
+      gap: 20px;
+      align-items: start;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 24px;
+    }
+
+    .number {
+      color: var(--accent);
+      font-weight: 800;
+      font-size: 1.6rem;
+    }
+
+    footer {
+      padding: 70px 0;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+    }
+
+    .small {
+      font-size: 0.92rem;
+      color: #9fb0c3;
+      max-width: 900px;
+    }
+
+    @media (max-width: 820px) {
+      header {
+        min-height: auto;
+        padding: 60px 0;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .step {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="page">
+    <header>
+      <div>
+        <div class="badge">Documento conceptual reservado · Magallanes, Chile</div>
+
+        <h1><span>Antü</span> Magallanes Supercomputing Center</h1>
+
+        <div class="subtitle">
+          Plataforma austral para supercomputación, inteligencia artificial, energía limpia y ciencia polar.
+        </div>
+
+        <p class="hero-note">
+          Antü Magallanes propone una visión estratégica para posicionar a Magallanes como un polo latinoamericano de infraestructura digital avanzada, investigación científica, soberanía tecnológica y cooperación internacional desde el extremo sur de Chile.
+        </p>
+      </div>
+    </header>
+
+    <section>
+      <h2>Una oportunidad estratégica para Chile</h2>
+
+      <p>
+        El crecimiento acelerado de la inteligencia artificial, la ciencia de datos, la investigación climática y la computación de alto rendimiento está aumentando la necesidad global de infraestructura digital sostenible, segura y energéticamente eficiente.
+      </p>
+
+      <p>
+        Chile tiene una oportunidad única de proyectar a Magallanes como una plataforma científica y tecnológica de escala internacional, conectando energía limpia, territorio austral, investigación antártica, universidades, Estado, industria y cooperación internacional.
+      </p>
+
+      <div class="highlight">
+        <p>
+          La propuesta no se limita a construir un centro de datos. La visión es desarrollar un ecosistema de supercomputación e inteligencia artificial científica integrado al desarrollo regional, la transición energética, la investigación polar y la soberanía digital de Chile.
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <h2>¿Por qué Magallanes?</h2>
+
+      <div class="grid">
+        <div class="card">
+          <h3>Territorio austral estratégico</h3>
+          <p>
+            Magallanes posee una posición geográfica única para conectar ciencia polar, investigación antártica, monitoreo climático y cooperación internacional desde el hemisferio sur.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Clima frío y eficiencia</h3>
+          <p>
+            Las condiciones climáticas australes pueden favorecer modelos de infraestructura digital más eficientes, especialmente en sistemas intensivos en cómputo y refrigeración.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Energía limpia y futuro industrial</h3>
+          <p>
+            El potencial energético de la región permite imaginar una infraestructura digital alineada con energías renovables, hidrógeno verde, eficiencia energética y desarrollo sostenible.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Ciencia polar y climática</h3>
+          <p>
+            El centro podría apoyar modelos climáticos, simulaciones científicas, procesamiento de datos antárticos, océanos, biodiversidad y observación satelital.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Soberanía digital</h3>
+          <p>
+            Chile necesita fortalecer sus capacidades propias en inteligencia artificial, infraestructura crítica, procesamiento de datos científicos y computación avanzada.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Desarrollo regional avanzado</h3>
+          <p>
+            La iniciativa puede contribuir a formación de talento, empleos especializados, atracción de inversión, innovación y posicionamiento internacional de Magallanes.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Inspiración internacional</h2>
+
+      <p>
+        Países con condiciones climáticas, energéticas y tecnológicas favorables están posicionando sus territorios como plataformas para centros de datos sostenibles, supercomputación, inteligencia artificial y servicios digitales avanzados.
+      </p>
+
+      <p>
+        La experiencia internacional muestra que estos proyectos alcanzan mayor impacto cuando no se desarrollan como infraestructura aislada, sino como ecosistemas conectados con energía, universidades, investigación, empresas, talento local, políticas públicas y cooperación internacional.
+      </p>
+
+      <div class="pill-list">
+        <div class="pill">Supercomputación</div>
+        <div class="pill">Inteligencia artificial científica</div>
+        <div class="pill">Energía limpia</div>
+        <div class="pill">Investigación polar</div>
+        <div class="pill">Modelos climáticos</div>
+        <div class="pill">Datos satelitales</div>
+        <div class="pill">Soberanía digital</div>
+        <div class="pill">Cooperación internacional</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Qué propone Antü Magallanes</h2>
+
+      <p>
+        Antü Magallanes Supercomputing Center propone explorar el desarrollo de una infraestructura de supercomputación e inteligencia artificial científica en la Región de Magallanes, orientada a fortalecer capacidades estratégicas de Chile y América Latina.
+      </p>
+
+      <div class="grid">
+        <div class="card">
+          <h3>Centro de supercomputación</h3>
+          <p>
+            Capacidad computacional avanzada para simulación, investigación científica, IA, análisis de grandes volúmenes de datos y colaboración académica.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Hub de IA científica</h3>
+          <p>
+            Aplicaciones de inteligencia artificial en clima, energía, océanos, logística austral, biodiversidad, astronomía, educación y políticas públicas.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Plataforma de cooperación</h3>
+          <p>
+            Vinculación entre Chile, Finlandia, Europa, América Latina, universidades, centros científicos, sector energético y organismos públicos.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Áreas de impacto</h2>
+
+      <div class="timeline">
+        <div class="step">
+          <div class="number">01</div>
+          <div>
+            <h3>Ciencia antártica y polar</h3>
+            <p>
+              Procesamiento de datos, simulaciones climáticas, monitoreo ambiental, océanos australes, glaciares y colaboración científica internacional.
+            </p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="number">02</div>
+          <div>
+            <h3>Energía y sostenibilidad</h3>
+            <p>
+              Integración con energía limpia, eficiencia operativa, innovación energética y posibles modelos de infraestructura digital de bajo impacto ambiental.
+            </p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="number">03</div>
+          <div>
+            <h3>Educación y talento</h3>
+            <p>
+              Formación de profesionales en IA, ciencia de datos, infraestructura digital, ciberseguridad, ingeniería, computación avanzada y tecnologías críticas.
+            </p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="number">04</div>
+          <div>
+            <h3>Desarrollo regional</h3>
+            <p>
+              Atracción de inversión, empleos especializados, nuevos servicios tecnológicos, transferencia de conocimiento y fortalecimiento del ecosistema regional.
+            </p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="number">05</div>
+          <div>
+            <h3>Posicionamiento internacional</h3>
+            <p>
+              Proyectar a Chile y Magallanes como referentes del hemisferio sur en infraestructura digital sostenible, ciencia polar e inteligencia artificial aplicada.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Ruta preliminar de desarrollo</h2>
+
+      <div class="timeline">
+        <div class="step">
+          <div class="number">I</div>
+          <div>
+            <h3>Conversaciones exploratorias</h3>
+            <p>
+              Presentar la visión a actores públicos, académicos, científicos, energéticos y tecnológicos para evaluar interés, pertinencia y posibles alianzas.
+            </p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="number">II</div>
+          <div>
+            <h3>Estudio de factibilidad</h3>
+            <p>
+              Analizar energía, conectividad, ubicación, demanda científica, gobernanza, costos, impacto regional, modelo institucional y cooperación internacional.
+            </p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="number">III</div>
+          <div>
+            <h3>Modelo institucional</h3>
+            <p>
+              Diseñar una estructura de colaboración entre Estado, región, universidades, centros científicos, industria y socios internacionales.
+            </p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="number">IV</div>
+          <div>
+            <h3>Proyecto piloto</h3>
+            <p>
+              Desarrollar una primera fase demostrativa orientada a IA científica, datos climáticos, investigación polar y formación de talento especializado.
+            </p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="number">V</div>
+          <div>
+            <h3>Escalamiento internacional</h3>
+            <p>
+              Avanzar hacia una infraestructura de mayor escala, con alianzas internacionales, financiamiento público-privado y cooperación científica de largo plazo.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Próximo paso</h2>
+
+      <p>
+        El objetivo inicial es abrir conversaciones estratégicas con instituciones públicas, universidades, centros de investigación, actores energéticos, representantes regionales y potenciales socios internacionales.
+      </p>
+
+      <p>
+        Antü Magallanes se presenta como una visión preliminar de alto potencial para explorar cómo Chile puede fortalecer su infraestructura científica, tecnológica y digital desde una región única en el mundo.
+      </p>
+
+      <div class="highlight">
+        <p>
+          Documento conceptual de circulación reservada para conversaciones preliminares. No representa aún una propuesta institucional definitiva ni compromisos formales de terceros.
+        </p>
+      </div>
+    </section>
+
+    <footer>
+      <p class="small">
+        Antü Magallanes Supercomputing Center · Visión preliminar para infraestructura austral de supercomputación, inteligencia artificial, energía limpia y ciencia polar en Magallanes, Chile.
+      </p>
+    </footer>
+  </main>
+</body>
+</html>
