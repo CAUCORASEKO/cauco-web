@@ -2,6 +2,7 @@ export type Project = {
   name: string;
   description: string;
   tags: string[];
+  href?: string;
 };
 
 export const projects: Project[] = [
@@ -14,14 +15,15 @@ export const projects: Project[] = [
   {
     name: "Aurora Digital Assets",
     description:
-      "Bank-integrated digital asset prototype focused on custody, compliance, education and audit-ready workflows.",
+      "Institutional control layer for regulated digital asset operations, combining risk review, compliance workflows, security guardrails and audit-ready evidence.",
     tags: [
-      "Fintech",
-      "Banking UX",
-      "Crypto Custody",
+      "Digital Assets",
+      "Banking",
       "Compliance",
+      "Custody Guardrails",
       "Audit Trail",
     ],
+    href: "/projects/aurora-digital-assets.html",
   },
   {
     name: "Market Surveillance AI",

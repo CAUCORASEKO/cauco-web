@@ -9,6 +9,7 @@ export type ProjectContent = {
   name: string;
   description: string;
   tags: string[];
+  href?: string;
 };
 
 export type FocusAreaContent = {
@@ -143,14 +144,15 @@ export const content = {
         {
           name: "Aurora Digital Assets",
           description:
-            "Bank-integrated digital asset prototype focused on custody, compliance, education and audit-ready workflows.",
+            "Institutional control layer for regulated digital asset operations, combining risk review, compliance workflows, security guardrails and audit-ready evidence.",
           tags: [
-            "Fintech",
-            "Banking UX",
-            "Crypto Custody",
+            "Digital Assets",
+            "Banking",
             "Compliance",
+            "Custody Guardrails",
             "Audit Trail",
           ],
+          href: "/projects/aurora-digital-assets.html",
         },
         {
           name: "Market Surveillance AI",
@@ -301,14 +303,15 @@ export const content = {
         {
           name: "Aurora Digital Assets",
           description:
-            "Pankki-integroitu digitaalisten varojen prototyyppi, joka keskittyy säilytykseen, vaatimustenmukaisuuteen, koulutukseen ja auditointivalmiisiin työnkulkuihin.",
+            "Institutionaalinen kontrollikerros säännellyille digitaalisten varojen työnkuluille, yhdistäen riskien arvioinnin, vaatimustenmukaisuuden, turvallisuusrajat ja auditointivalmiin evidenssin.",
           tags: [
-            "Fintech",
-            "Pankkikäyttöliittymä",
-            "Kryptovarojen säilytys",
+            "Digitaaliset varat",
+            "Pankkitoiminta",
             "Vaatimustenmukaisuus",
+            "Säilytyksen rajat",
             "Auditointijälki",
           ],
+          href: "/projects/aurora-digital-assets.html",
         },
         {
           name: "Market Surveillance AI",
@@ -460,14 +463,15 @@ export const content = {
         {
           name: "Aurora Digital Assets",
           description:
-            "Bankintegrerad prototyp för digitala tillgångar med fokus på förvaring, regelefterlevnad, utbildning och revisionsklara arbetsflöden.",
+            "Institutionellt kontrollager för reglerade digitala tillgångsflöden, med riskgranskning, regelefterlevnad, säkerhetsgränser och revisionsklar evidens.",
           tags: [
-            "Fintech",
-            "Bank-UX",
-            "Kryptoförvaring",
+            "Digitala tillgångar",
+            "Banking",
             "Regelefterlevnad",
+            "Förvaringsgränser",
             "Revisionsspår",
           ],
+          href: "/projects/aurora-digital-assets.html",
         },
         {
           name: "Market Surveillance AI",

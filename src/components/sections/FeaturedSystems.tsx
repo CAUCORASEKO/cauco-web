@@ -14,34 +14,52 @@ export function FeaturedSystems({ content }: FeaturedSystemsProps) {
         <div className="mb-10 max-w-2xl">
           <p className="section-kicker">{content.kicker}</p>
           <h2 className="section-title">{content.title}</h2>
-          <p className="section-copy">
-            {content.copy}
-          </p>
+          <p className="section-copy">{content.copy}</p>
         </div>
+
         <div className="grid gap-4 md:grid-cols-2">
-          {content.projects.map((project, index) => (
-            <Card
-              key={project.name}
-              className={index === 0 ? "md:col-span-2" : undefined}
-            >
-              <CardHeader className="flex flex-row items-start justify-between gap-4">
-                <div>
-                  <CardTitle>{project.name}</CardTitle>
-                  <p className="mt-3 max-w-3xl text-sm leading-6 text-muted-foreground">
-                    {project.description}
-                  </p>
-                </div>
-                <ArrowUpRight className="mt-1 h-5 w-5 shrink-0 text-primary" />
-              </CardHeader>
-              <CardContent>
-                <div className="flex flex-wrap gap-2">
-                  {project.tags.map((tag) => (
-                    <Badge key={tag}>{tag}</Badge>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-          ))}
+          {content.projects.map((project, index) => {
+            const spanClass = index === 0 ? "md:col-span-2" : "";
+            const card = (
+              <Card className="h-full transition-colors duration-300 group-hover:border-primary/50">
+                <CardHeader className="flex flex-row items-start justify-between gap-4">
+                  <div>
+                    <CardTitle>{project.name}</CardTitle>
+                    <p className="mt-3 max-w-3xl text-sm leading-6 text-muted-foreground">
+                      {project.description}
+                    </p>
+                  </div>
+                  <ArrowUpRight className="mt-1 h-5 w-5 shrink-0 text-primary transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                </CardHeader>
+
+                <CardContent>
+                  <div className="flex flex-wrap gap-2">
+                    {project.tags.map((tag) => (
+                      <Badge key={tag}>{tag}</Badge>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            );
+
+            if (project.href) {
+              return (
+                <a
+                  key={project.name}
+                  href={project.href}
+                  className={`${spanClass} group block focus:outline-none focus:ring-2 focus:ring-primary/60 focus:ring-offset-2 focus:ring-offset-background`}
+                >
+                  {card}
+                </a>
+              );
+            }
+
+            return (
+              <div key={project.name} className={spanClass}>
+                {card}
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
