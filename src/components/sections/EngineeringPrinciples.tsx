@@ -1,34 +1,35 @@
-import { CheckCircle2 } from "lucide-react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { motion, useReducedMotion } from "framer-motion";
 import type { SiteContent } from "@/i18n/content";
 
-type EngineeringPrinciplesProps = {
-  content: SiteContent["engineeringPrinciples"];
-};
+type EngineeringPrinciplesProps = { content: SiteContent["engineeringPrinciples"] };
+const accents = ["lime", "orange", "violet", "blue"];
 
 export function EngineeringPrinciples({ content }: EngineeringPrinciplesProps) {
+  const reduceMotion = useReducedMotion();
+
   return (
-    <section id="principles" className="py-20">
+    <section id="principles" className="principles-manifesto">
       <div className="container">
-        <div className="mb-10 max-w-2xl">
+        <header className="principles-heading">
           <p className="section-kicker">{content.kicker}</p>
-          <h2 className="section-title">{content.title}</h2>
-        </div>
-        <div className="grid gap-4 md:grid-cols-2">
-          {content.principles.map((principle) => (
-            <Card key={principle.title}>
-              <CardHeader className="flex flex-row gap-4">
-                <CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-primary" aria-hidden="true" />
-                <div>
-                  <CardTitle className="text-base">{principle.title}</CardTitle>
-                  <CardContent className="px-0 pb-0 pt-3">
-                    <p className="text-sm leading-6 text-muted-foreground">
-                      {principle.body}
-                    </p>
-                  </CardContent>
-                </div>
-              </CardHeader>
-            </Card>
+          <h2>{content.title}</h2>
+        </header>
+        <div className="principles-flow">
+          {content.principles.map((principle, index) => (
+            <motion.article
+              key={principle.title}
+              className={`principle-block principle-${accents[index]}`}
+              initial={reduceMotion ? false : { opacity: 0, y: 42 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: .35 }}
+              transition={{ duration: .65, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <motion.span className="principle-ghost" aria-hidden="true" initial={reduceMotion ? false : { x: -20 }} whileInView={{ x: 0 }} viewport={{ once: true }} transition={{ duration: .8 }}>0{index + 1}</motion.span>
+              <div className="principle-meta"><span>0{index + 1} / 04</span><i /></div>
+              <h3>{principle.title}</h3>
+              <p>{principle.body}</p>
+              <motion.div className="principle-line" initial={reduceMotion ? false : { scaleX: 0 }} whileInView={{ scaleX: 1 }} viewport={{ once: true }} transition={{ duration: reduceMotion ? 0 : .9 }} aria-hidden="true" />
+            </motion.article>
           ))}
         </div>
       </div>

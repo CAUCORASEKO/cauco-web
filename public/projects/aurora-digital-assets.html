@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Aurora Digital Assets — CAUCO</title>
   <meta name="description" content="Institutional control layer for regulated digital asset operations." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
   <style>
     :root {
       --bg: #020817;
@@ -308,18 +311,61 @@
       main { padding-top: 34px; }
     }
   </style>
+  <style>
+    :root { --bg:#090a0b; --panel:rgba(15,17,19,.88); --panel-strong:rgba(12,14,16,.96); --line:rgba(255,255,255,.14); --text:#f0f2f5; --muted:#aab0ba; --soft:#d7ff45; --green:#a993ff; --orange:#ff5c35; --mono:"IBM Plex Mono",monospace; }
+    html { scroll-behavior:smooth; }
+    body { min-width:320px; background:var(--bg); font-feature-settings:"cv02","cv03","cv04","cv11"; text-rendering:optimizeLegibility; }
+    body::before { position:fixed; inset:0; z-index:-2; content:""; background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px); background-size:64px 64px; -webkit-mask-image:linear-gradient(to bottom,#000,transparent 74%); mask-image:linear-gradient(to bottom,#000,transparent 74%); pointer-events:none; }
+    body::after { position:fixed; inset:0; z-index:-1; content:""; background:radial-gradient(circle at 76% 10%,rgba(169,147,255,.1),transparent 28%),radial-gradient(circle at 18% 4%,rgba(215,255,69,.055),transparent 24%); pointer-events:none; }
+    a { color:inherit; } a,button {-webkit-tap-highlight-color:transparent;} :focus-visible { outline:2px solid var(--soft); outline-offset:3px; }
+    .skip-link { position:fixed; top:10px; left:10px; z-index:100; padding:10px 14px; background:var(--soft); color:#090a0b; transform:translateY(-150%); } .skip-link:focus { transform:translateY(0); }
+    main { max-width:1240px; padding:132px 32px 72px; }
+    .topbar { position:fixed; inset:0 0 auto; z-index:50; flex-direction:row; align-items:center; height:80px; margin:0; padding:0 max(24px,calc((100vw - 1240px)/2)); border-bottom:1px solid rgba(255,255,255,.08); background:rgba(9,10,11,.78); -webkit-backdrop-filter:blur(18px); backdrop-filter:blur(18px); }
+    .back { display:inline-flex; align-items:center; gap:11px; color:#fff; font-size:12px; font-weight:600; letter-spacing:.17em; text-transform:uppercase; }
+    .brand-mark { position:relative; display:grid; width:36px; height:36px; place-items:center; border:1px solid rgba(255,255,255,.25); border-radius:50%; font:500 12px var(--mono); transition:transform .25s ease; }
+    .brand-mark::after { position:absolute; top:-2px; right:-2px; width:8px; height:8px; border-radius:50%; background:var(--orange); content:""; } .back:hover .brand-mark { transform:rotate(-12deg); } .back-arrow { color:var(--muted); font-size:15px; }
+    .language-switcher { gap:3px; }
+    .language-switcher button { min-height:34px; border:0; border-radius:999px; padding:7px 10px; background:transparent; font:500 10px var(--mono); letter-spacing:.08em; text-transform:uppercase; transition:color .2s ease,background .2s ease; }
+    .language-switcher button:hover { color:#fff; background:rgba(255,255,255,.08); } .language-switcher button.active { background:#fff; color:#090a0b; }
+    .eyebrow { display:flex; align-items:center; gap:12px; color:var(--soft); font:500 10px var(--mono); } .eyebrow::before { width:32px; height:1px; background:currentColor; content:""; }
+    [data-lang] > .eyebrow:first-child { margin-top:clamp(38px,8vh,90px); }
+    h1 { max-width:1050px; margin:28px 0 34px; font-size:clamp(56px,8.1vw,112px); line-height:.84; letter-spacing:-.075em; text-wrap:balance; }
+    .lead { max-width:830px; margin-left:auto; padding-left:clamp(20px,3vw,34px); border-left:1px solid rgba(255,255,255,.2); color:#c4c9d1; font-size:clamp(18px,2vw,22px); }
+    .hero-actions { max-width:830px; margin:30px 0 0 auto; }
+    .button { min-height:48px; border-radius:999px; padding:12px 20px; background:rgba(255,255,255,.025); font-size:14px; font-weight:500; transition:color .2s ease,background .2s ease,border-color .2s ease,transform .2s ease; }
+    .button:hover { border-color:#fff; background:#fff; color:#090a0b; transform:translateY(-2px); } .button.primary { border-color:var(--soft); background:var(--soft); color:#090a0b; }
+    .section { margin-top:clamp(104px,13vw,172px); scroll-margin-top:110px; }
+    .section h2 { max-width:980px; margin:0 0 24px; font-size:clamp(42px,6vw,76px); line-height:.94; letter-spacing:-.058em; text-wrap:balance; }
+    .section-copy { font-size:clamp(17px,1.7vw,20px); line-height:1.75; }
+    .grid { display:grid; grid-template-columns:repeat(12,minmax(0,1fr)); gap:1px; margin-top:42px; border:1px solid var(--line); background:var(--line); counter-reset:card; }
+    .card { position:relative; grid-column:span 4; min-height:230px; overflow:hidden; border:0; border-radius:0; padding:clamp(24px,3vw,36px); background:var(--panel); transition:background .25s ease; }
+    .card::before { display:block; margin-bottom:52px; color:var(--soft); font:400 9px var(--mono); letter-spacing:.18em; content:"0" counter(card); counter-increment:card; }
+    .card::after { position:absolute; top:-40px; right:-40px; width:90px; height:90px; border:1px solid rgba(215,255,69,.12); border-radius:50%; content:""; transition:transform .35s ease; } .card:hover { background:#15181a; } .card:hover::after { transform:scale(1.35); }
+    .card h3 { font-size:21px; } .card p { line-height:1.65; }
+    .architecture { border-radius:0; padding:clamp(24px,4vw,48px); background:var(--panel-strong); }
+    .flow { gap:1px; } .node { position:relative; min-height:150px; border:1px solid rgba(215,255,69,.2); border-radius:0; padding:24px 20px; background:rgba(215,255,69,.035); text-align:left; } .node strong { margin-bottom:28px; }
+    .stats { gap:1px; } .stat { border-color:rgba(215,255,69,.2); border-radius:0; background:rgba(215,255,69,.035); } .stat strong { color:var(--soft); font-size:clamp(42px,5vw,64px); }
+    .chain { gap:1px; } .chain-step { border-radius:0; background:rgba(255,255,255,.035); }
+    .notice { border:1px solid rgba(215,255,69,.25); border-left:3px solid var(--soft); padding:24px 28px; background:rgba(215,255,69,.055); } .warning { border-color:rgba(169,147,255,.26); border-left-color:var(--green); background:rgba(169,147,255,.06); }
+    [data-lang] > .notice:last-child { margin-top:90px; } .footer { margin-top:140px; }
+    @media (prefers-reduced-motion:no-preference) { .section { opacity:0; transform:translateY(28px); transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1); } .section.revealed { opacity:1; transform:none; } [data-lang].active > .eyebrow:first-child,[data-lang].active > h1,[data-lang].active > .lead,[data-lang].active > .hero-actions { animation:enter .7s cubic-bezier(.22,1,.36,1) both; } [data-lang].active > h1 { animation-delay:.08s; } [data-lang].active > .lead { animation-delay:.16s; } [data-lang].active > .hero-actions { animation-delay:.22s; } @keyframes enter { from { opacity:0; transform:translateY(24px); } } }
+    @media (max-width:960px) { .card { grid-column:span 6; } .flow { grid-template-columns:repeat(2,1fr); } }
+    @media (max-width:680px) { main { padding:108px 20px 56px; } .topbar { height:72px; padding:0 16px; } .back { letter-spacing:.12em; } .back-label,.back-arrow { display:none; } .language-switcher { flex-wrap:nowrap; } .language-switcher button { padding-inline:8px; } h1 { font-size:clamp(49px,14vw,72px); overflow-wrap:anywhere; } .lead,.hero-actions { margin-left:0; } .button { width:100%; } .card { grid-column:1/-1; min-height:210px; } .flow { grid-template-columns:1fr; } .section { margin-top:104px; } .section h2 { font-size:clamp(38px,12vw,58px); overflow-wrap:anywhere; } .stats { grid-template-columns:repeat(2,minmax(0,1fr)); gap:1px; } .stat { padding:18px 14px; } .chain { grid-template-columns:1fr; gap:1px; } .footer { margin-top:100px; } }
+    @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } *,*::before,*::after { animation-duration:.01ms!important; transition-duration:.01ms!important; } }
+  </style>
 </head>
 <body>
-  <main>
-    <div class="topbar">
-      <a class="back" href="/">← Back to CAUCO</a>
+  <a class="skip-link" href="#content">Skip to content</a>
+  <main id="content">
+    <header class="topbar">
+      <a class="back" href="/" aria-label="Back to CAUCO homepage"><span class="brand-mark" aria-hidden="true">C</span><span class="back-label">CAUCO</span><span class="back-arrow" aria-hidden="true">←</span></a>
       <div class="language-switcher" aria-label="Language selector">
         <button type="button" data-switch="en" class="active">English</button>
         <button type="button" data-switch="es">Castellano</button>
         <button type="button" data-switch="fi">Suomi</button>
         <button type="button" data-switch="sv">Svenska</button>
       </div>
-    </div>
+    </header>
 
     <section data-lang="en" class="active">
       <p class="eyebrow">Aurora Digital Assets</p>
@@ -786,7 +832,9 @@
 
     function setLanguage(lang) {
       buttons.forEach((button) => {
-        button.classList.toggle("active", button.dataset.switch === lang);
+        const isActive = button.dataset.switch === lang;
+        button.classList.toggle("active", isActive);
+        button.setAttribute("aria-pressed", String(isActive));
       });
 
       sections.forEach((section) => {
@@ -794,11 +842,34 @@
       });
 
       document.documentElement.lang = lang;
+      window.history.replaceState(null, "", `${window.location.pathname}#${lang}`);
     }
 
     buttons.forEach((button) => {
       button.addEventListener("click", () => setLanguage(button.dataset.switch));
     });
+
+    const requestedLanguage = window.location.hash.slice(1);
+    if (["en", "es", "fi", "sv"].includes(requestedLanguage)) {
+      setLanguage(requestedLanguage);
+    } else {
+      buttons.forEach((button) => button.setAttribute("aria-pressed", String(button.classList.contains("active"))));
+    }
+
+    if ("IntersectionObserver" in window && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("revealed");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { rootMargin: "0px 0px -10%", threshold: 0.08 });
+
+      document.querySelectorAll(".section").forEach((section) => observer.observe(section));
+    } else {
+      document.querySelectorAll(".section").forEach((section) => section.classList.add("revealed"));
+    }
   </script>
 </body>
 </html>

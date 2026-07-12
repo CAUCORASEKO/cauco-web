@@ -1,55 +1,37 @@
-import {
-  Bot,
-  BriefcaseBusiness,
-  Code2,
-  FileCheck2,
-  MonitorCog,
-  ServerCog,
-} from "lucide-react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { ArrowDownRight } from "lucide-react";
+import { motion, useReducedMotion } from "framer-motion";
 import type { SiteContent } from "@/i18n/content";
 
-const focusIcons = [
-  Bot,
-  BriefcaseBusiness,
-  MonitorCog,
-  ServerCog,
-  FileCheck2,
-  Code2,
-];
-
-type TechnicalFocusProps = {
-  content: SiteContent["technicalFocus"];
-};
+type TechnicalFocusProps = { content: SiteContent["technicalFocus"] };
 
 export function TechnicalFocus({ content }: TechnicalFocusProps) {
-  return (
-    <section id="focus" className="py-20">
-      <div className="container">
-        <div className="mb-10 max-w-2xl">
-          <p className="section-kicker">{content.kicker}</p>
-          <h2 className="section-title">{content.title}</h2>
-          <p className="section-copy">{content.copy}</p>
-        </div>
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {content.areas.map(({ title }, index) => {
-            const Icon = focusIcons[index] ?? Bot;
+  const reduceMotion = useReducedMotion();
 
-            return (
-              <Card key={title} className="bg-card/55">
-                <CardHeader>
-                  <div className="mb-5 grid h-11 w-11 place-items-center rounded-md border border-white/10 bg-white/[0.04] text-primary">
-                    <Icon className="h-5 w-5" aria-hidden="true" />
-                  </div>
-                  <CardTitle className="text-base">{title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="h-px w-full bg-gradient-to-r from-primary/40 via-white/10 to-transparent" />
-                </CardContent>
-              </Card>
-            );
-          })}
-        </div>
+  return (
+    <section id="focus" className="focus-index">
+      <div className="container">
+        <header className="focus-heading">
+          <div><p className="section-kicker">{content.kicker}</p><h2>{content.title}</h2></div>
+          <p>{content.copy}</p>
+        </header>
+        <ol className="focus-list">
+          {content.areas.map(({ title }, index) => (
+            <motion.li
+              key={title}
+              tabIndex={0}
+              initial={reduceMotion ? false : { opacity: 0, x: index % 2 ? 26 : -26 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, amount: .45 }}
+              transition={{ duration: .55, ease: "easeOut" }}
+            >
+              <motion.span className="focus-rule" initial={reduceMotion ? false : { scaleX: 0 }} whileInView={{ scaleX: 1 }} viewport={{ once: true }} transition={{ duration: reduceMotion ? 0 : .75 }} aria-hidden="true" />
+              <span className="focus-number">{String(index + 1).padStart(2, "0")}</span>
+              <h3>{title}</h3>
+              <span className="focus-technical">{title.toUpperCase()} / CAUCO</span>
+              <ArrowDownRight aria-hidden="true" />
+            </motion.li>
+          ))}
+        </ol>
       </div>
     </section>
   );

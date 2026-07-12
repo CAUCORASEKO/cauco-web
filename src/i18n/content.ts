@@ -12,6 +12,18 @@ export type ProjectContent = {
   href?: string;
 };
 
+export type SystemContent = {
+  id: "aurora" | "qalens" | "aisosec" | "whalescope";
+  name: string;
+  category: string;
+  description: string;
+  status: string;
+  capabilities: string[];
+  story: string[];
+  cta: string;
+  href?: string;
+};
+
 export type FocusAreaContent = {
   title: string;
 };
@@ -19,6 +31,18 @@ export type FocusAreaContent = {
 export type PrincipleContent = {
   title: string;
   body: string;
+};
+
+export type LabCategory = "all" | "software" | "research" | "ui" | "templates" | "ai" | "downloads";
+
+export type LabProductContent = {
+  title: string;
+  description: string;
+  category: Exclude<LabCategory, "all">;
+  status: "coming" | "research" | "free" | "premium" | "prototype";
+  statusLabel: string;
+  cta: string;
+  href?: string;
 };
 
 export type SiteContent = {
@@ -36,11 +60,32 @@ export type SiteContent = {
     primaryCta: string;
     secondaryCta: string;
   };
+  reel: {
+    title: string; play: string; close: string; pause: string; resume: string; restart: string; replay: string; explore: string; back: string; controls: string; progress: string; reduced: string;
+    entry: string[]; problemItems: string[]; problemStatement: string; aurora: string[]; qalens: string[]; aisosec: string[]; sharedCore: string; layers: string[]; revelation: string; lab: string[]; unlocked: string; end: string; chapters: string[];
+  };
   featuredSystems: {
     kicker: string;
     title: string;
     copy: string;
+    systems: SystemContent[];
     projects: ProjectContent[];
+  };
+  ecosystem: {
+    label: string;
+    title: string;
+    description: string;
+    coreLabel: string;
+    layers: string[];
+    summary: string;
+  };
+  lab: {
+    label: string;
+    bridge: string;
+    title: string;
+    description: string;
+    filters: Record<LabCategory, string>;
+    products: LabProductContent[];
   };
   technicalFocus: {
     kicker: string;
@@ -78,6 +123,13 @@ export type SiteContent = {
     copyright: string;
     privacy: string;
     dataDeletion: string;
+    positioning: string;
+    navigationLabel: string;
+    systemsLabel: string;
+    labLabel: string;
+    connectLabel: string;
+    emailLabel: string;
+    topLabel: string;
   };
 };
 
@@ -123,11 +175,65 @@ export const content = {
       primaryCta: "View Systems",
       secondaryCta: "Contact",
     },
+    reel: {
+      title: "CAUCO systems reel", play: "Play reel", close: "Close reel", pause: "Pause reel", resume: "Resume reel", restart: "Restart reel", replay: "Replay", explore: "Explore the ecosystem", back: "Back to site", controls: "Reel controls", progress: "Reel progress", reduced: "Motion-reduced reel summary",
+      entry: ["BUILDING SYSTEMS", "FOR A TRUSTED", "DIGITAL ECONOMY"],
+      problemItems: ["IDENTITY", "PERMISSIONS", "RISK", "QUALITY", "COMPLIANCE", "EVIDENCE", "DECISIONS"], problemStatement: "DISCONNECTED SYSTEMS CREATE UNTRUSTED OUTCOMES",
+      aurora: ["Request", "Identity", "Permission", "Policy", "Evidence", "Human Review", "Controlled Decision"],
+      qalens: ["Issue", "QA Risk", "Suggested Improvement", "Test Cases", "Delivery Evidence"],
+      aisosec: ["Finding", "Evidence", "Severity", "OWASP / NIST / ISO mapping", "Compliance Gap", "Audit Output"],
+      sharedCore: "Shared trust core", layers: ["Identity", "Policy", "Evidence", "Decisions"], revelation: "NOT SEPARATE PRODUCTS. ONE TRUST INFRASTRUCTURE.",
+      lab: ["Aurora UI Kit", "Trust Infrastructure Blueprint", "Audit Report Templates", "Risk Matrix Toolkit", "Developer Starter Kit"], unlocked: "UNLOCKED", end: "SYSTEMS FOR TRUST",
+      chapters: ["Trusted digital economy", "Disconnected systems", "Aurora controlled operations", "QALens quality intelligence", "AisoSec audit evidence", "One trust infrastructure", "CAUCO Lab", "Systems for trust"],
+    },
     featuredSystems: {
       kicker: "Featured Systems",
       title: "Applied software for high-trust workflows.",
       copy:
         "Selected systems and prototypes focused on practical automation, deterministic review flows, reporting and usable technical interfaces.",
+      systems: [
+        {
+          id: "aurora",
+          name: "Aurora",
+          category: "Digital Trust & Asset Platform",
+          description: "Institutional control for identity, evidence, permissions and regulated digital asset operations.",
+          status: "Active development",
+          capabilities: ["Policy gates", "Verified identity", "Evidence packages", "Audit trail"],
+          story: ["Request received", "Identity verified", "Permission checked", "Policy gate", "Evidence package", "Human review", "Controlled decision"],
+          cta: "Explore Aurora",
+          href: "/projects/aurora-digital-assets.html",
+        },
+        {
+          id: "qalens",
+          name: "QALens",
+          category: "AI Engineering & Quality Intelligence",
+          description: "Transforms software issues into QA risk analysis, improvements, test cases and delivery evidence.",
+          status: "Prototype",
+          capabilities: ["Issue analysis", "QA risk", "Test design", "Delivery trust"],
+          story: ["Issue received", "QA risk detected", "Improvement suggested", "Test cases generated", "Delivery evidence"],
+          cta: "Case study in development",
+        },
+        {
+          id: "aisosec",
+          name: "AisoSec Audit",
+          category: "AI Compliance & Security Audit Platform",
+          description: "Turns technical findings into captured evidence, compliance mappings, risk gaps and professional audit outputs.",
+          status: "Active development",
+          capabilities: ["Finding review", "Evidence capture", "Control mapping", "Audit reports"],
+          story: ["Finding detected", "Evidence captured", "Severity assessed", "Framework mapping", "Compliance gap", "Audit output"],
+          cta: "Case study in development",
+        },
+        {
+          id: "whalescope",
+          name: "WhaleScope",
+          category: "Digital Asset Research Intelligence",
+          description: "Market, institutional flow and on-chain analysis for rigorous digital asset research.",
+          status: "Research system",
+          capabilities: ["Institutional flow", "Whale signals", "Market context", "Research reports"],
+          story: ["Market event", "Institutional flow", "Whale transaction", "Signal interpretation", "Research insight"],
+          cta: "Research system",
+        },
+      ],
       projects: [
         {
           name: "AgentDock",
@@ -190,6 +296,31 @@ export const content = {
             "Evidence Packaging",
           ],
         },
+      ],
+    },
+    ecosystem: {
+      label: "Trust infrastructure ecosystem",
+      title: "Not separate products. One trust infrastructure.",
+      description: "Aurora, QALens and AisoSec model connected review flows around a shared trust core: identity, policy, evidence and accountable decisions.",
+      coreLabel: "Aurora Trust Engine / Shared trust core",
+      layers: ["Identity", "Policy", "Evidence", "Decisions"],
+      summary: "A visualized architecture showing how system-specific review flows can share identity, policy, evidence and decision layers.",
+    },
+    lab: {
+      label: "Available now",
+      bridge: "Products and research objects emerging from the same trust-infrastructure lab.",
+      title: "Explore the CAUCO Lab",
+      description: "A growing collection of software, research, UI systems, templates and experimental digital products.",
+      filters: { all: "All", software: "Software", research: "Research", ui: "UI", templates: "Templates", ai: "AI", downloads: "Downloads" },
+      products: [
+        { title: "Aurora UI Kit", description: "Interface primitives for controlled operations, evidence and institutional review flows.", category: "ui", status: "coming", statusLabel: "Coming Soon", cta: "Preview" },
+        { title: "Trust Infrastructure Blueprint", description: "A practical architecture map for identity, policy, evidence and accountable automation.", category: "research", status: "research", statusLabel: "Research", cta: "Preview" },
+        { title: "Audit Report Templates", description: "Clear, reusable structures for findings, evidence, controls and remediation reporting.", category: "templates", status: "free", statusLabel: "Free", cta: "Preview" },
+        { title: "Compliance Icons", description: "A precise icon set for controls, approvals, risk states and audit interfaces.", category: "ui", status: "premium", statusLabel: "Premium", cta: "Preview" },
+        { title: "AI Prompt Collection", description: "Focused prompts for analysis, QA review, structured evidence and delivery workflows.", category: "ai", status: "prototype", statusLabel: "Prototype", cta: "Preview" },
+        { title: "Evidence Pack", description: "Modular evidence components for trustworthy technical and compliance documentation.", category: "downloads", status: "coming", statusLabel: "Coming Soon", cta: "Preview" },
+        { title: "Risk Matrix Toolkit", description: "Research-backed scales and canvases for consistent technical risk assessment.", category: "research", status: "research", statusLabel: "Research", cta: "Preview" },
+        { title: "Developer Starter Kit", description: "A compact foundation for building clear, resilient AI-assisted product interfaces.", category: "software", status: "free", statusLabel: "Free", cta: "Preview" },
       ],
     },
     technicalFocus: {
@@ -260,6 +391,13 @@ export const content = {
       copyright: "Claudio Valenzuela / CAUCO.",
       privacy: "Privacy",
       dataDeletion: "Data deletion",
+      positioning: "Applied AI systems, trust infrastructure and technical interfaces for work that needs clarity.",
+      navigationLabel: "CAUCO ecosystem",
+      systemsLabel: "Systems",
+      labLabel: "Lab",
+      connectLabel: "Connect",
+      emailLabel: "Email",
+      topLabel: "Back to top",
     },
   },
   fi: {
@@ -282,11 +420,65 @@ export const content = {
       primaryCta: "Katso järjestelmät",
       secondaryCta: "Yhteys",
     },
+    reel: {
+      title: "CAUCO-järjestelmien reel", play: "Katso reel", close: "Sulje reel", pause: "Keskeytä reel", resume: "Jatka reeliä", restart: "Aloita reel alusta", replay: "Katso uudelleen", explore: "Tutustu ekosysteemiin", back: "Takaisin sivustolle", controls: "Reelin ohjaimet", progress: "Reelin eteneminen", reduced: "Liikettä vähentävä reelin yhteenveto",
+      entry: ["RAKENNAMME JÄRJESTELMIÄ", "LUOTETTAVAAN", "DIGITAALITALOUTEEN"],
+      problemItems: ["IDENTITEETTI", "KÄYTTÖOIKEUDET", "RISKI", "LAATU", "VAATIMUSTENMUKAISUUS", "EVIDENSSI", "PÄÄTÖKSET"], problemStatement: "IRRALLISET JÄRJESTELMÄT TUOTTAVAT EPÄLUOTETTAVIA TULOKSIA",
+      aurora: ["Pyyntö", "Identiteetti", "Käyttöoikeus", "Politiikka", "Evidenssi", "Ihmisen tarkistus", "Hallittu päätös"],
+      qalens: ["Ongelma", "QA-riski", "Parannusehdotus", "Testitapaukset", "Toimitusevidenssi"],
+      aisosec: ["Havainto", "Evidenssi", "Vakavuus", "OWASP / NIST / ISO -kartoitus", "Compliance-puute", "Auditointitulos"],
+      sharedCore: "Jaettu luottamusydin", layers: ["Identiteetti", "Politiikka", "Evidenssi", "Päätökset"], revelation: "EI ERILLISIÄ TUOTTEITA. YKSI LUOTTAMUSINFRASTRUKTUURI.",
+      lab: ["Aurora UI Kit", "Trust Infrastructure Blueprint", "Audit Report Templates", "Risk Matrix Toolkit", "Developer Starter Kit"], unlocked: "AVATTU", end: "JÄRJESTELMIÄ LUOTTAMUKSELLE",
+      chapters: ["Luotettava digitaalitalous", "Irralliset järjestelmät", "Auroran hallitut operaatiot", "QALensin laatuäly", "AisoSecin auditointievidenssi", "Yksi luottamusinfrastruktuuri", "CAUCO Lab", "Järjestelmiä luottamukselle"],
+    },
     featuredSystems: {
       kicker: "Valitut järjestelmät",
       title: "Sovellettua ohjelmistoa korkean luottamuksen työnkulkuihin.",
       copy:
         "Valikoituja järjestelmiä ja prototyyppejä, joissa painottuvat käytännön automaatio, deterministiset tarkistusprosessit, raportointi ja selkeät tekniset käyttöliittymät.",
+      systems: [
+        {
+          id: "aurora",
+          name: "Aurora",
+          category: "Digitaalisen luottamuksen ja varojen alusta",
+          description: "Institutionaalinen kontrolli identiteetille, evidenssille, käyttöoikeuksille ja säännellyille digitaalisten varojen operaatioille.",
+          status: "Aktiivinen kehitys",
+          capabilities: ["Politiikkaportit", "Vahvistettu identiteetti", "Evidenssipaketit", "Auditointijälki"],
+          story: ["Pyyntö vastaanotettu", "Identiteetti vahvistettu", "Käyttöoikeus tarkistettu", "Politiikkaportti", "Evidenssipaketti", "Ihmisen tarkistus", "Hallittu päätös"],
+          cta: "Tutustu Auroraan",
+          href: "/projects/aurora-digital-assets.html",
+        },
+        {
+          id: "qalens",
+          name: "QALens",
+          category: "AI-ohjelmistotuotannon laatuäly",
+          description: "Muuntaa ohjelmisto-ongelmat QA-riskianalyysiksi, parannuksiksi, testitapauksiksi ja toimitusevidenssiksi.",
+          status: "Prototyyppi",
+          capabilities: ["Ongelma-analyysi", "QA-riski", "Testisuunnittelu", "Toimitusluottamus"],
+          story: ["Ongelma vastaanotettu", "QA-riski havaittu", "Parannus ehdotettu", "Testitapaukset luotu", "Toimitusevidenssi"],
+          cta: "Tapaustutkimus kehitteillä",
+        },
+        {
+          id: "aisosec",
+          name: "AisoSec Audit",
+          category: "AI-vaatimustenmukaisuus- ja auditointialusta",
+          description: "Jalostaa tekniset havainnot evidenssiksi, kontrollikartoituksiksi, riskipuutteiksi ja ammattimaisiksi auditointituloksiksi.",
+          status: "Aktiivinen kehitys",
+          capabilities: ["Havaintojen tarkistus", "Evidenssin keruu", "Kontrollikartoitus", "Auditointiraportit"],
+          story: ["Havainto tunnistettu", "Evidenssi kerätty", "Vakavuus arvioitu", "Viitekehyskartoitus", "Compliance-puute", "Auditointitulos"],
+          cta: "Tapaustutkimus kehitteillä",
+        },
+        {
+          id: "whalescope",
+          name: "WhaleScope",
+          category: "Digitaalisten varojen tutkimusäly",
+          description: "Markkinoiden, institutionaalisten virtojen ja lohkoketjudatan analyysi digitaalisten varojen tutkimukseen.",
+          status: "Tutkimusjärjestelmä",
+          capabilities: ["Institutionaaliset virrat", "Whale-signaalit", "Markkinakonteksti", "Tutkimusraportit"],
+          story: ["Markkinatapahtuma", "Institutionaalinen virta", "Suuri transaktio", "Signaalin tulkinta", "Tutkimushavainto"],
+          cta: "Tutkimusjärjestelmä",
+        },
+      ],
       projects: [
         {
           name: "AgentDock",
@@ -349,6 +541,31 @@ export const content = {
             "Todistusaineisto",
           ],
         },
+      ],
+    },
+    ecosystem: {
+      label: "Luottamusinfrastruktuurin ekosysteemi",
+      title: "Ei erillisiä tuotteita. Yksi luottamusinfrastruktuuri.",
+      description: "Aurora, QALens ja AisoSec mallintavat yhdistettyjä tarkistusprosesseja jaetun luottamusytimen ympärillä: identiteetti, politiikka, evidenssi ja vastuulliset päätökset.",
+      coreLabel: "Aurora Trust Engine / Jaettu luottamusydin",
+      layers: ["Identiteetti", "Politiikka", "Evidenssi", "Päätökset"],
+      summary: "Visualisoitu arkkitehtuuri siitä, miten järjestelmäkohtaiset tarkistusprosessit voivat jakaa identiteetti-, politiikka-, evidenssi- ja päätöskerrokset.",
+    },
+    lab: {
+      label: "Saatavilla nyt",
+      bridge: "Tuotteita ja tutkimusobjekteja samasta luottamusinfrastruktuurin laboratoriosta.",
+      title: "Tutustu CAUCO Labiin",
+      description: "Kasvava kokoelma ohjelmistoja, tutkimusta, UI-järjestelmiä, mallipohjia ja kokeellisia digitaalisia tuotteita.",
+      filters: { all: "Kaikki", software: "Ohjelmistot", research: "Tutkimus", ui: "UI", templates: "Mallipohjat", ai: "AI", downloads: "Lataukset" },
+      products: [
+        { title: "Aurora UI Kit", description: "Käyttöliittymäpalikoita hallittuihin operaatioihin, evidenssiin ja institutionaalisiin tarkistusprosesseihin.", category: "ui", status: "coming", statusLabel: "Tulossa", cta: "Esikatsele" },
+        { title: "Trust Infrastructure Blueprint", description: "Käytännöllinen arkkitehtuurikartta identiteetille, politiikoille, evidenssille ja vastuulliselle automaatiolle.", category: "research", status: "research", statusLabel: "Tutkimus", cta: "Esikatsele" },
+        { title: "Audit Report Templates", description: "Selkeät ja uudelleenkäytettävät rakenteet havainnoille, evidenssille, kontrolleille ja korjaustoimille.", category: "templates", status: "free", statusLabel: "Ilmainen", cta: "Esikatsele" },
+        { title: "Compliance Icons", description: "Tarkka ikonisarja kontrolleille, hyväksynnöille, riskitiloille ja auditointiliittymille.", category: "ui", status: "premium", statusLabel: "Premium", cta: "Esikatsele" },
+        { title: "AI Prompt Collection", description: "Kohdennettuja kehotteita analyysiin, QA-tarkistukseen, evidenssiin ja toimitustyönkulkuihin.", category: "ai", status: "prototype", statusLabel: "Prototyyppi", cta: "Esikatsele" },
+        { title: "Evidence Pack", description: "Modulaarisia evidenssikomponentteja luotettavaan tekniseen ja compliance-dokumentaatioon.", category: "downloads", status: "coming", statusLabel: "Tulossa", cta: "Esikatsele" },
+        { title: "Risk Matrix Toolkit", description: "Tutkimuspohjaiset asteikot ja pohjat johdonmukaiseen tekniseen riskien arviointiin.", category: "research", status: "research", statusLabel: "Tutkimus", cta: "Esikatsele" },
+        { title: "Developer Starter Kit", description: "Kompakti perusta selkeiden ja kestävien AI-avusteisten tuotekäyttöliittymien rakentamiseen.", category: "software", status: "free", statusLabel: "Ilmainen", cta: "Esikatsele" },
       ],
     },
     technicalFocus: {
@@ -420,6 +637,13 @@ export const content = {
       copyright: "Claudio Valenzuela / CAUCO.",
       privacy: "Tietosuoja",
       dataDeletion: "Tietojen poistaminen",
+      positioning: "Sovellettuja AI-järjestelmiä, luottamusinfrastruktuuria ja teknisiä käyttöliittymiä selkeyttä vaativaan työhön.",
+      navigationLabel: "CAUCO-ekosysteemi",
+      systemsLabel: "Järjestelmät",
+      labLabel: "Lab",
+      connectLabel: "Yhteys",
+      emailLabel: "Sähköposti",
+      topLabel: "Takaisin alkuun",
     },
   },
   sv: {
@@ -442,11 +666,65 @@ export const content = {
       primaryCta: "Visa system",
       secondaryCta: "Kontakt",
     },
+    reel: {
+      title: "CAUCO systemreel", play: "Spela reel", close: "Stäng reel", pause: "Pausa reel", resume: "Fortsätt reel", restart: "Starta om reel", replay: "Spela igen", explore: "Utforska ekosystemet", back: "Tillbaka till webbplatsen", controls: "Reelkontroller", progress: "Reelens förlopp", reduced: "Reelsammanfattning med minskad rörelse",
+      entry: ["VI BYGGER SYSTEM", "FÖR EN BETRODD", "DIGITAL EKONOMI"],
+      problemItems: ["IDENTITET", "BEHÖRIGHETER", "RISK", "KVALITET", "REGELEFTERLEVNAD", "EVIDENS", "BESLUT"], problemStatement: "FRÅNKOPPLADE SYSTEM SKAPAR OTILLFÖRLITLIGA RESULTAT",
+      aurora: ["Begäran", "Identitet", "Behörighet", "Policy", "Evidens", "Mänsklig granskning", "Kontrollerat beslut"],
+      qalens: ["Problem", "QA-risk", "Förbättringsförslag", "Testfall", "Leveransevidens"],
+      aisosec: ["Fynd", "Evidens", "Allvarlighet", "OWASP / NIST / ISO-mappning", "Compliance-gap", "Revisionsunderlag"],
+      sharedCore: "Gemensam tillitskärna", layers: ["Identitet", "Policy", "Evidens", "Beslut"], revelation: "INTE SEPARATA PRODUKTER. EN TILLITSINFRASTRUKTUR.",
+      lab: ["Aurora UI Kit", "Trust Infrastructure Blueprint", "Audit Report Templates", "Risk Matrix Toolkit", "Developer Starter Kit"], unlocked: "UPPLÅST", end: "SYSTEM FÖR TILLIT",
+      chapters: ["Betrodd digital ekonomi", "Frånkopplade system", "Auroras kontrollerade operationer", "QALens kvalitetsintelligens", "AisoSec revisionsevidens", "En tillitsinfrastruktur", "CAUCO Lab", "System för tillit"],
+    },
     featuredSystems: {
       kicker: "Utvalda system",
       title: "Tillämpad programvara för arbetsflöden med högt förtroende.",
       copy:
         "Utvalda system och prototyper med fokus på praktisk automatisering, deterministiska granskningsflöden, rapportering och användbara tekniska gränssnitt.",
+      systems: [
+        {
+          id: "aurora",
+          name: "Aurora",
+          category: "Plattform för digital tillit och tillgångar",
+          description: "Institutionell kontroll för identitet, evidens, behörigheter och reglerade operationer med digitala tillgångar.",
+          status: "Aktiv utveckling",
+          capabilities: ["Policygrindar", "Verifierad identitet", "Evidenspaket", "Revisionsspår"],
+          story: ["Begäran mottagen", "Identitet verifierad", "Behörighet kontrollerad", "Policygrind", "Evidenspaket", "Mänsklig granskning", "Kontrollerat beslut"],
+          cta: "Utforska Aurora",
+          href: "/projects/aurora-digital-assets.html",
+        },
+        {
+          id: "qalens",
+          name: "QALens",
+          category: "AI-driven kvalitet för programvaruutveckling",
+          description: "Omvandlar programvaruproblem till QA-riskanalys, förbättringar, testfall och leveransevidens.",
+          status: "Prototyp",
+          capabilities: ["Problemanalys", "QA-risk", "Testdesign", "Leveranstillit"],
+          story: ["Ärende mottaget", "QA-risk identifierad", "Förbättring föreslagen", "Testfall genererade", "Leveranstillit"],
+          cta: "Fallstudie under utveckling",
+        },
+        {
+          id: "aisosec",
+          name: "AisoSec Audit",
+          category: "AI-plattform för compliance och säkerhetsrevision",
+          description: "Omvandlar tekniska fynd till evidens, regelverksmappningar, riskluckor och professionella revisionsunderlag.",
+          status: "Aktiv utveckling",
+          capabilities: ["Fyndgranskning", "Evidensinsamling", "Kontrollmappning", "Revisionsrapporter"],
+          story: ["Fynd identifierat", "Evidens insamlad", "Allvarlighet bedömd", "Ramverksmappning", "Compliance-gap", "Revisionsunderlag"],
+          cta: "Fallstudie under utveckling",
+        },
+        {
+          id: "whalescope",
+          name: "WhaleScope",
+          category: "Analys för forskning om digitala tillgångar",
+          description: "Marknadsanalys, institutionella flöden och on-chain-data för kvalificerad forskning om digitala tillgångar.",
+          status: "Forskningssystem",
+          capabilities: ["Institutionella flöden", "Whale-signaler", "Marknadskontext", "Forskningsrapporter"],
+          story: ["Marknadshändelse", "Institutionellt flöde", "Stor transaktion", "Signaltolkning", "Forskningsinsikt"],
+          cta: "Forskningssystem",
+        },
+      ],
       projects: [
         {
           name: "AgentDock",
@@ -509,6 +787,31 @@ export const content = {
             "Bevisunderlag",
           ],
         },
+      ],
+    },
+    ecosystem: {
+      label: "Ekosystem för tillitsinfrastruktur",
+      title: "Inte separata produkter. En tillitsinfrastruktur.",
+      description: "Aurora, QALens och AisoSec modellerar sammanhängande granskningsflöden kring en gemensam tillitskärna: identitet, policy, evidens och ansvariga beslut.",
+      coreLabel: "Aurora Trust Engine / Gemensam tillitskärna",
+      layers: ["Identitet", "Policy", "Evidens", "Beslut"],
+      summary: "En visualiserad arkitektur som visar hur systemspecifika granskningsflöden kan dela identitets-, policy-, evidens- och beslutslager.",
+    },
+    lab: {
+      label: "Tillgängligt nu",
+      bridge: "Produkter och forskningsobjekt från samma laboratorium för tillitsinfrastruktur.",
+      title: "Utforska CAUCO Lab",
+      description: "En växande samling programvara, forskning, UI-system, mallar och experimentella digitala produkter.",
+      filters: { all: "Alla", software: "Programvara", research: "Forskning", ui: "UI", templates: "Mallar", ai: "AI", downloads: "Nedladdningar" },
+      products: [
+        { title: "Aurora UI Kit", description: "Gränssnittselement för kontrollerade operationer, evidens och institutionella granskningsflöden.", category: "ui", status: "coming", statusLabel: "Kommer snart", cta: "Förhandsvisa" },
+        { title: "Trust Infrastructure Blueprint", description: "En praktisk arkitekturkarta för identitet, policy, evidens och ansvarsfull automatisering.", category: "research", status: "research", statusLabel: "Forskning", cta: "Förhandsvisa" },
+        { title: "Audit Report Templates", description: "Tydliga, återanvändbara strukturer för fynd, evidens, kontroller och åtgärdsrapportering.", category: "templates", status: "free", statusLabel: "Gratis", cta: "Förhandsvisa" },
+        { title: "Compliance Icons", description: "En precis ikonuppsättning för kontroller, godkännanden, riskstatus och revisionsgränssnitt.", category: "ui", status: "premium", statusLabel: "Premium", cta: "Förhandsvisa" },
+        { title: "AI Prompt Collection", description: "Fokuserade prompter för analys, QA-granskning, strukturerad evidens och leveransflöden.", category: "ai", status: "prototype", statusLabel: "Prototyp", cta: "Förhandsvisa" },
+        { title: "Evidence Pack", description: "Modulära evidenskomponenter för tillförlitlig teknisk dokumentation och compliance.", category: "downloads", status: "coming", statusLabel: "Kommer snart", cta: "Förhandsvisa" },
+        { title: "Risk Matrix Toolkit", description: "Forskningsbaserade skalor och underlag för konsekvent teknisk riskbedömning.", category: "research", status: "research", statusLabel: "Forskning", cta: "Förhandsvisa" },
+        { title: "Developer Starter Kit", description: "En kompakt grund för tydliga, robusta och AI-assisterade produktgränssnitt.", category: "software", status: "free", statusLabel: "Gratis", cta: "Förhandsvisa" },
       ],
     },
     technicalFocus: {
@@ -581,6 +884,13 @@ export const content = {
       copyright: "Claudio Valenzuela / CAUCO.",
       privacy: "Integritet",
       dataDeletion: "Radering av data",
+      positioning: "Tillämpade AI-system, tillitsinfrastruktur och tekniska gränssnitt för arbete som kräver tydlighet.",
+      navigationLabel: "CAUCO-ekosystem",
+      systemsLabel: "System",
+      labLabel: "Lab",
+      connectLabel: "Kontakt",
+      emailLabel: "E-post",
+      topLabel: "Tillbaka till toppen",
     },
   },
 } satisfies Record<Language, SiteContent>;

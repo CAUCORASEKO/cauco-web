@@ -1,162 +1,58 @@
 import { type FormEvent, useState } from "react";
-import { Linkedin, Mail } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { ArrowUpRight, Linkedin, Mail } from "lucide-react";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import type { SiteContent } from "@/i18n/content";
 
 const CONTACT_EMAIL = "claudio@aisosu.fi";
 const LINKEDIN_URL = "https://www.linkedin.com/in/multimedia3d/";
 const EMAIL_SUBJECT = "Project inquiry from CAUCO portfolio";
-
-type ContactSectionProps = {
-  content: SiteContent["contact"];
-};
-
+type ContactSectionProps = { content: SiteContent["contact"] };
 type SubmitStatus = "idle" | "sending" | "success" | "error";
 
 export function ContactSection({ content }: ContactSectionProps) {
   const [submitStatus, setSubmitStatus] = useState<SubmitStatus>("idle");
+  const reduceMotion = useReducedMotion();
+  const isSwedish = typeof document !== "undefined" && document.documentElement.lang === "sv";
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setSubmitStatus("sending");
-
     const form = event.currentTarget;
-    const formData = new FormData(form);
-
     try {
-      const response = await fetch("/sendmail.php", {
-        method: "POST",
-        body: formData,
-      });
-
-      if (response.ok) {
-        setSubmitStatus("success");
-        form.reset();
-      } else {
-        setSubmitStatus("error");
-      }
-    } catch {
-      setSubmitStatus("error");
-    }
+      const response = await fetch("/sendmail.php", { method: "POST", body: new FormData(form) });
+      if (response.ok) { setSubmitStatus("success"); form.reset(); } else { setSubmitStatus("error"); }
+    } catch { setSubmitStatus("error"); }
   }
 
   return (
-    <section id="contact" className="py-20">
-      <div className="container">
-        <Card className="relative overflow-hidden">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,rgba(91,141,239,0.18),transparent_34%),radial-gradient(circle_at_85%_75%,rgba(155,212,198,0.12),transparent_30%)]" />
-          <div className="relative grid gap-8 p-6 sm:p-8 lg:grid-cols-[1fr_0.85fr] lg:p-10">
-            <div>
-              <p className="section-kicker">{content.kicker}</p>
-              <h2 className="section-title">{content.title}</h2>
-              <p className="section-copy max-w-2xl">
-                {content.copy}
-              </p>
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                <Button asChild>
-                  <a
-                    href={`mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(
-                      EMAIL_SUBJECT,
-                    )}`}
-                  >
-                    <Mail className="h-4 w-4" /> {content.emailCta}
-                  </a>
-                </Button>
-                <Button asChild variant="outline">
-                  <a
-                    href={LINKEDIN_URL}
-                    target="_blank"
-                    rel="noreferrer noopener"
-                  >
-                    <Linkedin className="h-4 w-4" /> {content.linkedinCta}
-                  </a>
-                </Button>
-              </div>
-            </div>
-            <div className="rounded-lg border border-white/10 bg-black/20 p-5">
-              <CardHeader className="p-0">
-                <CardTitle className="text-base">{content.inquiryTitle}</CardTitle>
-              </CardHeader>
-              <CardContent className="px-0 pb-0 pt-5">
-                <form
-                  className="space-y-4"
-                  aria-label={content.formAriaLabel}
-                  onSubmit={handleSubmit}
-                >
-                  <label className="block">
-                    <span className="mb-2 block text-sm text-muted-foreground">
-                      {content.nameLabel}
-                    </span>
-                    <input
-                      className="h-11 w-full rounded-md border border-white/10 bg-white/[0.04] px-3 text-sm text-foreground outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/20"
-                      name="name"
-                      placeholder={content.namePlaceholder}
-                      required
-                      type="text"
-                    />
-                  </label>
-                  <label className="block">
-                    <span className="mb-2 block text-sm text-muted-foreground">
-                      {content.emailLabel}
-                    </span>
-                    <input
-                      autoComplete="email"
-                      className="h-11 w-full rounded-md border border-white/10 bg-white/[0.04] px-3 text-sm text-foreground outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/20"
-                      name="email"
-                      placeholder={content.emailPlaceholder}
-                      required
-                      type="email"
-                    />
-                  </label>
-                  <label className="block">
-                    <span className="mb-2 block text-sm text-muted-foreground">
-                      {content.workstreamLabel}
-                    </span>
-                    <input
-                      className="h-11 w-full rounded-md border border-white/10 bg-white/[0.04] px-3 text-sm text-foreground outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/20"
-                      name="type"
-                      placeholder={content.workstreamPlaceholder}
-                      required
-                      type="text"
-                    />
-                  </label>
-                  <label className="block">
-                    <span className="mb-2 block text-sm text-muted-foreground">
-                      {content.contextLabel}
-                    </span>
-                    <textarea
-                      className="min-h-28 w-full resize-y rounded-md border border-white/10 bg-white/[0.04] px-3 py-3 text-sm text-foreground outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/20"
-                      name="message"
-                      placeholder={content.contextPlaceholder}
-                      required
-                    />
-                  </label>
-                  <Button
-                    type="submit"
-                    variant="outline"
-                    className="w-full"
-                    disabled={submitStatus === "sending"}
-                  >
-                    {submitStatus === "sending"
-                      ? content.sendingCta
-                      : content.prepareCta}
-                  </Button>
-                  {submitStatus === "success" ? (
-                    <p className="text-sm leading-6 text-primary" role="status">
-                      {content.successMessage}
-                    </p>
-                  ) : null}
-                  {submitStatus === "error" ? (
-                    <p className="text-sm leading-6 text-red-300" role="alert">
-                      {content.errorMessage}
-                    </p>
-                  ) : null}
-                </form>
-              </CardContent>
-            </div>
+    <section id="contact" className="contact-scene">
+      <div className="contact-grid" aria-hidden="true" />
+      <div className="container contact-layout">
+        <motion.div className="contact-statement" initial={reduceMotion ? false : isSwedish ? { opacity: 0, y: 20 } : { opacity: 0, x: -28 }} whileInView={{ opacity: 1, x: 0, y: 0 }} viewport={{ once: true, amount: .35 }} transition={{ duration: .65 }}>
+          <p className="section-kicker">{content.kicker}</p>
+          <h2>{content.title}</h2>
+          <p className="contact-copy">{content.copy}</p>
+          <div className="contact-direct">
+            <a href={`mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(EMAIL_SUBJECT)}`}><Mail aria-hidden="true" />{content.emailCta}<ArrowUpRight aria-hidden="true" /></a>
+            <a href={LINKEDIN_URL} target="_blank" rel="noreferrer noopener"><Linkedin aria-hidden="true" />{content.linkedinCta}<ArrowUpRight aria-hidden="true" /></a>
           </div>
-        </Card>
+          <div className="contact-coordinate" aria-hidden="true"><span>AI SYSTEMS</span><span>TRUST INFRASTRUCTURE</span><span>TECHNICAL PROTOTYPES</span></div>
+        </motion.div>
+
+        <motion.div className="contact-intake" initial={reduceMotion ? false : { opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: .25 }} transition={{ duration: .65, delay: reduceMotion ? 0 : .12 }}>
+          <header><span>01 / PROJECT BRIEF</span><h3>{content.inquiryTitle}</h3><i aria-hidden="true" /></header>
+          <form aria-label={content.formAriaLabel} onSubmit={handleSubmit}>
+            <label><span>01 — {content.nameLabel}</span><input name="name" placeholder={content.namePlaceholder} required type="text" /></label>
+            <label><span>02 — {content.emailLabel}</span><input autoComplete="email" name="email" placeholder={content.emailPlaceholder} required type="email" /></label>
+            <label><span>03 — {content.workstreamLabel}</span><input name="type" placeholder={content.workstreamPlaceholder} required type="text" /></label>
+            <label><span>04 — {content.contextLabel}</span><textarea name="message" placeholder={content.contextPlaceholder} required /></label>
+            <button type="submit" disabled={submitStatus === "sending"}>{submitStatus === "sending" ? content.sendingCta : content.prepareCta}<motion.span animate={!reduceMotion && submitStatus === "sending" ? { rotate: 360 } : undefined} transition={{ duration: 1.1, repeat: Infinity, ease: "linear" }}><ArrowUpRight aria-hidden="true" /></motion.span></button>
+            <AnimatePresence mode="wait">
+              {submitStatus === "success" && <motion.p key="success" initial={reduceMotion ? false : { opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} className="contact-success" role="status">{content.successMessage}</motion.p>}
+              {submitStatus === "error" && <motion.p key="error" initial={reduceMotion ? false : { opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} className="contact-error" role="alert">{content.errorMessage}</motion.p>}
+            </AnimatePresence>
+          </form>
+        </motion.div>
       </div>
     </section>
   );
