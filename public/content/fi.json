@@ -1,0 +1,571 @@
+{
+  "language": "fi",
+  "header": {
+    "homeLabel": "CAUCO etusivu",
+    "nav": [
+      {
+        "label": "Järjestelmät",
+        "href": "#systems"
+      },
+      {
+        "label": "Painopisteet",
+        "href": "#focus"
+      },
+      {
+        "label": "Periaatteet",
+        "href": "#principles"
+      },
+      {
+        "label": "Yhteys",
+        "href": "#contact"
+      }
+    ],
+    "cta": "Aloita keskustelu",
+    "languages": {
+      "en": "English",
+      "fi": "Suomi",
+      "sv": "Svenska"
+    }
+  },
+  "hero": {
+    "eyebrow": "Claudio Valenzuela / CAUCO",
+    "title": "Ohjelmistoarkkitehti & AI-järjestelmien rakentaja",
+    "subtitle": "Suunnittelen ja rakennan käytännönläheisiä AI-pohjaisia ohjelmistojärjestelmiä finanssialalle, vaatimustenmukaisuuteen, kehittäjätyönkulkuihin ja institutionaalisiin prosesseihin.",
+    "primaryCta": "Katso järjestelmät",
+    "secondaryCta": "Yhteys"
+  },
+  "reel": {
+    "title": "CAUCO-järjestelmien reel",
+    "play": "Katso reel",
+    "close": "Sulje reel",
+    "pause": "Keskeytä reel",
+    "resume": "Jatka reeliä",
+    "restart": "Aloita reel alusta",
+    "replay": "Katso uudelleen",
+    "explore": "Tutustu ekosysteemiin",
+    "back": "Takaisin sivustolle",
+    "controls": "Reelin ohjaimet",
+    "progress": "Reelin eteneminen",
+    "reduced": "Liikettä vähentävä reelin yhteenveto",
+    "entry": [
+      "RAKENNAMME JÄRJESTELMIÄ",
+      "LUOTETTAVAAN",
+      "DIGITAALITALOUTEEN"
+    ],
+    "problemItems": [
+      "IDENTITEETTI",
+      "KÄYTTÖOIKEUDET",
+      "RISKI",
+      "LAATU",
+      "VAATIMUSTENMUKAISUUS",
+      "EVIDENSSI",
+      "PÄÄTÖKSET"
+    ],
+    "problemStatement": "IRRALLISET JÄRJESTELMÄT TUOTTAVAT EPÄLUOTETTAVIA TULOKSIA",
+    "aurora": [
+      "Pyyntö",
+      "Identiteetti",
+      "Käyttöoikeus",
+      "Politiikka",
+      "Evidenssi",
+      "Ihmisen tarkistus",
+      "Hallittu päätös"
+    ],
+    "qalens": [
+      "Ongelma",
+      "QA-riski",
+      "Parannusehdotus",
+      "Testitapaukset",
+      "Toimitusevidenssi"
+    ],
+    "aisosec": [
+      "Havainto",
+      "Evidenssi",
+      "Vakavuus",
+      "OWASP / NIST / ISO -kartoitus",
+      "Compliance-puute",
+      "Auditointitulos"
+    ],
+    "sharedCore": "Jaettu luottamusydin",
+    "layers": [
+      "Identiteetti",
+      "Politiikka",
+      "Evidenssi",
+      "Päätökset"
+    ],
+    "revelation": "EI ERILLISIÄ TUOTTEITA. YKSI LUOTTAMUSINFRASTRUKTUURI.",
+    "lab": [
+      "Aurora UI Kit",
+      "Trust Infrastructure Blueprint",
+      "Audit Report Templates",
+      "Risk Matrix Toolkit",
+      "Developer Starter Kit"
+    ],
+    "unlocked": "AVATTU",
+    "end": "JÄRJESTELMIÄ LUOTTAMUKSELLE",
+    "chapters": [
+      "Luotettava digitaalitalous",
+      "Irralliset järjestelmät",
+      "Auroran hallitut operaatiot",
+      "QALensin laatuäly",
+      "AisoSecin auditointievidenssi",
+      "Yksi luottamusinfrastruktuuri",
+      "CAUCO Lab",
+      "Järjestelmiä luottamukselle"
+    ]
+  },
+  "featuredSystems": {
+    "kicker": "Valitut järjestelmät",
+    "title": "Sovellettua ohjelmistoa korkean luottamuksen työnkulkuihin.",
+    "copy": "Valikoituja järjestelmiä ja prototyyppejä, joissa painottuvat käytännön automaatio, deterministiset tarkistusprosessit, raportointi ja selkeät tekniset käyttöliittymät.",
+    "systems": [
+      {
+        "id": "aurora",
+        "name": "Aurora",
+        "category": "Digitaalisen luottamuksen ja varojen alusta",
+        "description": "Institutionaalinen kontrolli identiteetille, evidenssille, käyttöoikeuksille ja säännellyille digitaalisten varojen operaatioille.",
+        "status": "Aktiivinen kehitys",
+        "capabilities": [
+          "Politiikkaportit",
+          "Vahvistettu identiteetti",
+          "Evidenssipaketit",
+          "Auditointijälki"
+        ],
+        "story": [
+          "Pyyntö vastaanotettu",
+          "Identiteetti vahvistettu",
+          "Käyttöoikeus tarkistettu",
+          "Politiikkaportti",
+          "Evidenssipaketti",
+          "Ihmisen tarkistus",
+          "Hallittu päätös"
+        ],
+        "cta": "Tutustu Auroraan",
+        "href": "/projects/aurora-digital-assets.html"
+      },
+      {
+        "id": "qalens",
+        "name": "QALens",
+        "category": "AI-ohjelmistotuotannon laatuäly",
+        "description": "Muuntaa ohjelmisto-ongelmat QA-riskianalyysiksi, parannuksiksi, testitapauksiksi ja toimitusevidenssiksi.",
+        "status": "Prototyyppi",
+        "capabilities": [
+          "Ongelma-analyysi",
+          "QA-riski",
+          "Testisuunnittelu",
+          "Toimitusluottamus"
+        ],
+        "story": [
+          "Ongelma vastaanotettu",
+          "QA-riski havaittu",
+          "Parannus ehdotettu",
+          "Testitapaukset luotu",
+          "Toimitusevidenssi"
+        ],
+        "cta": "Tapaustutkimus kehitteillä"
+      },
+      {
+        "id": "aisosec",
+        "name": "AisoSec Audit",
+        "category": "AI-vaatimustenmukaisuus- ja auditointialusta",
+        "description": "Jalostaa tekniset havainnot evidenssiksi, kontrollikartoituksiksi, riskipuutteiksi ja ammattimaisiksi auditointituloksiksi.",
+        "status": "Aktiivinen kehitys",
+        "capabilities": [
+          "Havaintojen tarkistus",
+          "Evidenssin keruu",
+          "Kontrollikartoitus",
+          "Auditointiraportit"
+        ],
+        "story": [
+          "Havainto tunnistettu",
+          "Evidenssi kerätty",
+          "Vakavuus arvioitu",
+          "Viitekehyskartoitus",
+          "Compliance-puute",
+          "Auditointitulos"
+        ],
+        "cta": "Tapaustutkimus kehitteillä"
+      },
+      {
+        "id": "whalescope",
+        "name": "WhaleScope",
+        "category": "Digitaalisten varojen tutkimusäly",
+        "description": "Markkinoiden, institutionaalisten virtojen ja lohkoketjudatan analyysi digitaalisten varojen tutkimukseen.",
+        "status": "Tutkimusjärjestelmä",
+        "capabilities": [
+          "Institutionaaliset virrat",
+          "Whale-signaalit",
+          "Markkinakonteksti",
+          "Tutkimusraportit"
+        ],
+        "story": [
+          "Markkinatapahtuma",
+          "Institutionaalinen virta",
+          "Suuri transaktio",
+          "Signaalin tulkinta",
+          "Tutkimushavainto"
+        ],
+        "cta": "Tutkimusjärjestelmä"
+      }
+    ],
+    "projects": [
+      {
+        "name": "AgentDock",
+        "description": "Mobiililähtöinen komentokeskus AI-koodausagenteille, repositoriotyönkuluille, hyväksyntäporteille ja hallitulle automaatiolle.",
+        "tags": [
+          "AI-agentit",
+          "Kehittäjätyökalut",
+          "FastAPI",
+          "Mobiili",
+          "Git-työnkulut"
+        ]
+      },
+      {
+        "name": "Aurora Digital Assets",
+        "description": "Institutionaalinen kontrollikerros säännellyille digitaalisten varojen työnkuluille, yhdistäen riskien arvioinnin, vaatimustenmukaisuuden, turvallisuusrajat ja auditointivalmiin evidenssin.",
+        "tags": [
+          "Digitaaliset varat",
+          "Pankkitoiminta",
+          "Vaatimustenmukaisuus",
+          "Säilytyksen rajat",
+          "Auditointijälki"
+        ],
+        "href": "/projects/aurora-digital-assets.html"
+      },
+      {
+        "name": "Market Surveillance AI",
+        "description": "Työpöytäsovellus vaatimustenmukaisuuteen ja markkinavalvontaan, jossa on deterministiset hälytykset, tapauskäsittely ja PDF-raportointi.",
+        "tags": [
+          "Vaatimustenmukaisuus",
+          "PySide6",
+          "SQLite",
+          "PDF-raportit",
+          "Markkinavalvonta"
+        ]
+      },
+      {
+        "name": "WhaleScope Desktop",
+        "description": "Markkina- ja lohkoketjuanalytiikan työpöytäsovellus kryptotutkimukseen, suurten transaktioiden analyysiin ja raportointiin.",
+        "tags": [
+          "Työpöytäsovellus",
+          "Python",
+          "Electron",
+          "Markkinadata",
+          "Lohkoketjuanalytiikka"
+        ]
+      },
+      {
+        "name": "Deterministic Vault Factory",
+        "description": "Institutionaalinen älysopimusten riskianalyysijärjestelmä hyökkäyspinnan arviointiin, hallintoriskeihin ja todistusaineiston paketointiin.",
+        "tags": [
+          "Älysopimukset",
+          "Tietoturva",
+          "Slither",
+          "Riskianalyysi",
+          "Todistusaineisto"
+        ]
+      }
+    ]
+  },
+  "ecosystem": {
+    "label": "Luottamusinfrastruktuurin ekosysteemi",
+    "title": "Ei erillisiä tuotteita. Yksi luottamusinfrastruktuuri.",
+    "description": "Aurora, QALens ja AisoSec mallintavat yhdistettyjä tarkistusprosesseja jaetun luottamusytimen ympärillä: identiteetti, politiikka, evidenssi ja vastuulliset päätökset.",
+    "coreLabel": "Aurora Trust Engine / Jaettu luottamusydin",
+    "layers": [
+      "Identiteetti",
+      "Politiikka",
+      "Evidenssi",
+      "Päätökset"
+    ],
+    "summary": "Visualisoitu arkkitehtuuri siitä, miten järjestelmäkohtaiset tarkistusprosessit voivat jakaa identiteetti-, politiikka-, evidenssi- ja päätöskerrokset."
+  },
+  "lab": {
+    "label": "Saatavilla asiakastöihin",
+    "bridge": "Kaupallista ohjelmistokehitystä käytännön toimintaan ja vaativiin institutionaalisiin tarpeisiin.",
+    "title": "Ohjelmistojärjestelmiä todellisiin liiketoiminnan tarpeisiin.",
+    "description": "Verkkosivustoja, alustoja, mobiilisovelluksia, tekoälyjärjestelmiä, analytiikkatyökaluja ja räätälöityjä teknisiä ratkaisuja erikokoisille organisaatioille.",
+    "filters": {
+      "all": "Kaikki",
+      "web": "Verkko",
+      "commerce": "Kauppa",
+      "operations": "Toiminnot",
+      "mobile": "Mobiili",
+      "ai": "AI",
+      "intelligence": "Analytiikka",
+      "trust": "Luottamus",
+      "custom": "Räätälöity"
+    },
+    "products": [
+      {
+        "title": "Yritysten verkkosivustot",
+        "description": "Ammattimaiset monikieliset sivustot, jotka esittelevät yrityksen selkeästi ja muuttavat kävijät asiakkaiksi.",
+        "category": "web",
+        "idealFor": [
+          "Kasvuyritykset",
+          "Asiantuntijapalvelut",
+          "Kansainväliset tiimit"
+        ],
+        "capabilities": [
+          "Sisällönhallinta",
+          "Monikielinen käyttökokemus",
+          "Hakukoneoptimointi ja mittaus"
+        ],
+        "delivery": "2–5 viikkoa",
+        "engagement": "Starter",
+        "cta": "Tutustu ratkaisuun"
+      },
+      {
+        "title": "Verkkokauppa-alustat",
+        "description": "Verkkokaupat maksuineen, tuotehallintoineen, tilausprosesseineen, varastoineen ja analytiikkoineen.",
+        "category": "commerce",
+        "idealFor": [
+          "Kauppiaat",
+          "Valmistajat",
+          "Tilauspalvelut"
+        ],
+        "capabilities": [
+          "Maksut ja kassa",
+          "Varasto ja tilaukset",
+          "Kaupan analytiikka"
+        ],
+        "delivery": "4–8 viikkoa",
+        "engagement": "Professional",
+        "cta": "Katso ominaisuudet"
+      },
+      {
+        "title": "Ajanvarausjärjestelmät",
+        "description": "Ajanvaraus, saatavuus, muistutukset, maksut ja hallintatyökalut yhtenä kokonaisuutena.",
+        "category": "operations",
+        "idealFor": [
+          "Klinikat ja studiot",
+          "Majoitusala",
+          "Kenttäpalvelut"
+        ],
+        "capabilities": [
+          "Reaaliaikainen saatavuus",
+          "Automaattiset muistutukset",
+          "Maksut ja hallinta"
+        ],
+        "delivery": "4–8 viikkoa",
+        "engagement": "Professional",
+        "cta": "Tutustu ratkaisuun"
+      },
+      {
+        "title": "Asiakas- ja jäsenportaalit",
+        "description": "Turvalliset portaalit asiakkaille, jäsenille, kumppaneille tai sisäisille tiimeille.",
+        "category": "operations",
+        "idealFor": [
+          "Jäsenorganisaatiot",
+          "B2B-palvelut",
+          "Hajautetut tiimit"
+        ],
+        "capabilities": [
+          "Tunnistautuminen ja oikeudet",
+          "Dokumenttityönkulut",
+          "Itsepalvelunäkymät"
+        ],
+        "delivery": "6–12 viikkoa",
+        "engagement": "Advanced",
+        "cta": "Keskustele järjestelmästä"
+      },
+      {
+        "title": "Mobiilisovellukset",
+        "description": "iOS- ja Android-sovellukset taustapalveluineen, ilmoituksineen ja käyttäjähallintoineen.",
+        "category": "mobile",
+        "idealFor": [
+          "Digitaaliset palvelut",
+          "Operatiiviset tiimit",
+          "Yhdistetyt tuotteet"
+        ],
+        "capabilities": [
+          "iOS ja Android",
+          "Push-ilmoitukset",
+          "Turvalliset API-liitännät"
+        ],
+        "delivery": "8–16 viikkoa",
+        "engagement": "Advanced",
+        "cta": "Katso ominaisuudet"
+      },
+      {
+        "title": "AI-liiketoiminta-avustajat",
+        "description": "Yksityiset tekoälyavustajat, jotka hyödyntävät yrityksen tietoa, dokumentteja, rajapintoja ja työnkulkuja.",
+        "category": "ai",
+        "idealFor": [
+          "Asiantuntijatiimit",
+          "Asiakastoiminnot",
+          "Säännellyt organisaatiot"
+        ],
+        "capabilities": [
+          "Yksityinen tiedonhaku",
+          "Työnkulkuautomaatio",
+          "Käyttöoikeudet ja arviointi"
+        ],
+        "delivery": "6–12 viikkoa",
+        "engagement": "Advanced",
+        "cta": "Keskustele järjestelmästä"
+      },
+      {
+        "title": "Analytiikka- ja valvonta-alustat",
+        "description": "Kojelaudat, raportointi, reaaliaikainen valvonta, hälytykset ja päätöksenteon tuki.",
+        "category": "intelligence",
+        "idealFor": [
+          "Operatiivinen johto",
+          "Tutkimustiimit",
+          "Dataohjatut organisaatiot"
+        ],
+        "capabilities": [
+          "Dataintegraatiot",
+          "Reaaliaikaiset kojelaudat",
+          "Hälytykset ja raportointi"
+        ],
+        "delivery": "6–12 viikkoa",
+        "engagement": "Advanced",
+        "cta": "Katso ominaisuudet"
+      },
+      {
+        "title": "Tutkinta- ja evidenssijärjestelmät",
+        "description": "Ohjelmistoja tutkimukseen, tapausten hallintaan, evidenssin jäsentämiseen, aikajanoihin ja raportointiin.",
+        "category": "intelligence",
+        "idealFor": [
+          "Tutkintatiimit",
+          "Tutkijat",
+          "Julkiset organisaatiot"
+        ],
+        "capabilities": [
+          "Tapaus- ja evidenssihallinta",
+          "Aikajana- ja suhdeanalyysi",
+          "Hallittu raportointi"
+        ],
+        "delivery": "8–16 viikkoa",
+        "engagement": "Enterprise",
+        "cta": "Keskustele järjestelmästä"
+      },
+      {
+        "title": "Luottamus-, compliance- ja laatujärjestelmät",
+        "description": "Hallintoa, auditointia, evidenssiä ja laatujärjestelmiä kontrolloituihin työnkulkuihin.",
+        "category": "trust",
+        "idealFor": [
+          "Säännellyt yritykset",
+          "Laatutiimit",
+          "Julkiset organisaatiot"
+        ],
+        "capabilities": [
+          "Kontrollit ja auditointijäljet",
+          "Evidenssipohjaiset päätökset",
+          "Aurora-, QALens- ja AisoSec-integraatiot"
+        ],
+        "delivery": "8–16 viikkoa",
+        "engagement": "Enterprise",
+        "cta": "Katso ominaisuudet"
+      },
+      {
+        "title": "Räätälöity ohjelmistokehitys",
+        "description": "Mittatilausohjelmistoja monimutkaisiin tai poikkeuksellisiin tarpeisiin, joihin vakioratkaisu ei sovi.",
+        "category": "custom",
+        "idealFor": [
+          "Monimutkaiset toiminnot",
+          "Uudet digitaaliset palvelut",
+          "Erikoisorganisaatiot"
+        ],
+        "capabilities": [
+          "Määrittely ja arkkitehtuuri",
+          "Räätälöidyt integraatiot",
+          "Tuotantotason toteutus"
+        ],
+        "delivery": "Laajuuden mukaan",
+        "engagement": "Enterprise",
+        "cta": "Keskustele järjestelmästä"
+      }
+    ],
+    "detail": {
+      "close": "Sulje",
+      "includes": "Mitä ratkaisu sisältää",
+      "idealFor": "Sopii erityisesti",
+      "capabilities": "Keskeiset ominaisuudet",
+      "delivery": "Tyypillinen toimitusaika",
+      "engagement": "Yhteistyön taso",
+      "contact": "Keskustele projektistasi"
+    }
+  },
+  "technicalFocus": {
+    "kicker": "Tekninen painopiste",
+    "title": "Rakennettu järjestelmille, jotka tarvitsevat selkeyttä.",
+    "copy": "Työ on vahvimmillaan siellä, missä tuoteajattelun, arkkitehtuurin ja toteutuksen laadun pitää kohdata samassa käyttöliittymässä.",
+    "areas": [
+      {
+        "title": "AI-avusteiset ohjelmistojärjestelmät"
+      },
+      {
+        "title": "Fintech- ja vaatimustenmukaisuustyökalut"
+      },
+      {
+        "title": "Työpöytäsovellukset"
+      },
+      {
+        "title": "Taustajärjestelmien arkkitehtuuri"
+      },
+      {
+        "title": "Auditointivalmis raportointi"
+      },
+      {
+        "title": "Kehittäjätyönkulkujen automaatio"
+      }
+    ]
+  },
+  "engineeringPrinciples": {
+    "kicker": "Suunnitteluperiaatteet",
+    "title": "Arkkitehtuurivalintoja, jotka vähentävät riskiä.",
+    "principles": [
+      {
+        "title": "Käytännön AI ennen hypeä",
+        "body": "AI:ta käytetään siellä, missä se parantaa työnkulkua, lyhentää tarkistusaikaa tai selkeyttää todistusaineistoa. Järjestelmän pitää olla hyödyllinen ilman myyntiesitystäkin."
+      },
+      {
+        "title": "Deterministiset tulokset siellä, missä luottamus ratkaisee",
+        "body": "Vaatimustenmukaisuus-, finanssi- ja auditointityönkulut tarvitsevat toistettavia tuloksia, jäljitettäviä syötteitä ja selkeitä virhetiloja."
+      },
+      {
+        "title": "Oletusarvoisesti turvalliset työnkulut",
+        "body": "Hyväksyntäportit, rajatut käyttöoikeudet, läpinäkyvät lokit ja varovainen automaatio käsitellään tuotevaatimuksina."
+      },
+      {
+        "title": "Ihminen mukana päätöksenteossa",
+        "body": "Hyvä ohjelmisto parantaa asiantuntijan harkintaa. Sen tulee nostaa esiin konteksti, selittää tulokset ja pitää lopulliset päätökset vastuullisina."
+      }
+    ]
+  },
+  "contact": {
+    "kicker": "Yhteys",
+    "title": "Keskustellaan vaativasta ohjelmistojärjestelmästä.",
+    "copy": "AI-avusteisiin sovelluksiin, vaatimustenmukaisuustyökaluihin, kehittäjätyönkulkujen automaatioon tai teknisiin prototyyppeihin, jotka tarvitsevat selkeän arkkitehtuurin ennen melua.",
+    "emailCta": "Lähetä sähköpostia",
+    "linkedinCta": "LinkedIn",
+    "inquiryTitle": "Projektikysely",
+    "formAriaLabel": "Projektikyselyn luonnos",
+    "nameLabel": "Nimi",
+    "namePlaceholder": "Nimesi",
+    "emailLabel": "Sähköposti",
+    "emailPlaceholder": "sinä@example.com",
+    "workstreamLabel": "Työnkulku",
+    "workstreamPlaceholder": "AI-järjestelmä, vaatimustenmukaisuustyökalu, prototyyppi...",
+    "contextLabel": "Konteksti",
+    "contextPlaceholder": "Kuvaa lyhyesti työnkulku, riski tai järjestelmä, jonka haluat rakentaa.",
+    "prepareCta": "Valmistele kysely",
+    "sendingCta": "Lähetetään...",
+    "successMessage": "Viesti lähetettiin onnistuneesti. Palaan pian asiaan.",
+    "errorMessage": "Viestiä ei voitu lähettää. Lähetä sähköpostia suoraan osoitteeseen claudio@aisosu.fi."
+  },
+  "footer": {
+    "copyright": "Claudio Valenzuela / CAUCO.",
+    "privacy": "Tietosuoja",
+    "dataDeletion": "Tietojen poistaminen",
+    "positioning": "Sovellettuja AI-järjestelmiä, luottamusinfrastruktuuria ja teknisiä käyttöliittymiä selkeyttä vaativaan työhön.",
+    "navigationLabel": "CAUCO-ekosysteemi",
+    "systemsLabel": "Järjestelmät",
+    "labLabel": "Lab",
+    "connectLabel": "Yhteys",
+    "emailLabel": "Sähköposti",
+    "topLabel": "Takaisin alkuun"
+  }
+}

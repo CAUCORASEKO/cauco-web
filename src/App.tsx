@@ -1,3 +1,5 @@
+import { useEffect, useRef, useState } from "react";
+import { AnimatePresence } from "framer-motion";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { ContactSection } from "@/components/sections/ContactSection";
@@ -9,13 +11,29 @@ import { TechnicalFocus } from "@/components/sections/TechnicalFocus";
 import { EcosystemReveal } from "@/components/ecosystem/EcosystemReveal";
 import { PlayReel } from "@/components/reel/PlayReel";
 import { content, detectLanguage } from "@/i18n/content";
+import type { SiteContent } from "@/i18n/content";
+import { loadSiteContent } from "@/i18n/loadContent";
 
 export default function App() {
-  const siteContent = content[detectLanguage()];
+  const [siteContent, setSiteContent] = useState<SiteContent>(() => content[detectLanguage()]);
   const [reelOpen, setReelOpen] = useState(false);
   const pageRef = useRef<HTMLDivElement>(null);
   const openerRef = useRef<HTMLElement | null>(null);
   const bodyOverflowRef = useRef("");
+
+  useEffect(() => {
+    let mounted = true;
+
+    void loadSiteContent().then((loadedContent) => {
+      if (mounted) {
+        setSiteContent(loadedContent);
+      }
+    });
+
+    return () => {
+      mounted = false;
+    };
+  }, []);
 
   const openReel = (opener: HTMLElement) => { openerRef.current = opener; setReelOpen(true); };
   const closeReel = () => setReelOpen(false);
@@ -58,5 +76,3 @@ export default function App() {
     </>
   );
 }
-import { useEffect, useRef, useState } from "react";
-import { AnimatePresence } from "framer-motion";
