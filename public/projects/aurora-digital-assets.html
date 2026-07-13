@@ -1,0 +1,875 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Aurora Digital Assets — CAUCO</title>
+  <meta name="description" content="Institutional control layer for regulated digital asset operations." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #020817;
+      --panel: rgba(15, 23, 42, 0.76);
+      --panel-strong: rgba(15, 23, 42, 0.92);
+      --line: rgba(255, 255, 255, 0.1);
+      --text: #e5e7eb;
+      --muted: #a7b0c0;
+      --soft: #7ab0ff;
+      --green: #9bd4c6;
+      --danger: #fca5a5;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at 12% 4%, rgba(91, 141, 239, 0.22), transparent 30%),
+        radial-gradient(circle at 88% 10%, rgba(155, 212, 198, 0.12), transparent 32%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a { color: var(--soft); text-decoration: none; }
+
+    main {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 56px 24px 88px;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 72px;
+    }
+
+    .back {
+      color: var(--soft);
+      font-size: 15px;
+    }
+
+    .language-switcher {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .language-switcher button {
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.04);
+      color: var(--muted);
+      border-radius: 10px;
+      padding: 8px 12px;
+      cursor: pointer;
+      font-weight: 650;
+    }
+
+    .language-switcher button.active {
+      background: #75adff;
+      border-color: #75adff;
+      color: #06111f;
+    }
+
+    .eyebrow {
+      color: var(--soft);
+      text-transform: uppercase;
+      letter-spacing: 0.28em;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    h1 {
+      max-width: 980px;
+      font-size: clamp(44px, 7vw, 86px);
+      line-height: 0.96;
+      margin: 22px 0;
+      letter-spacing: -0.065em;
+    }
+
+    .lead {
+      max-width: 830px;
+      color: #c4cbd7;
+      font-size: clamp(18px, 2vw, 22px);
+      line-height: 1.7;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 34px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      padding: 12px 18px;
+      font-weight: 750;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.05);
+      color: var(--text);
+    }
+
+    .button.primary {
+      background: #75adff;
+      color: #06111f;
+      border-color: #75adff;
+    }
+
+    .section {
+      margin-top: 76px;
+    }
+
+    .section h2 {
+      font-size: clamp(30px, 4vw, 50px);
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+      margin: 0 0 18px;
+    }
+
+    .section-copy {
+      max-width: 820px;
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+      margin-top: 30px;
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      background: var(--panel);
+      border-radius: 20px;
+      padding: 24px;
+      min-height: 190px;
+    }
+
+    .card h3 {
+      margin: 0 0 12px;
+      font-size: 20px;
+      letter-spacing: -0.02em;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .pill {
+      display: inline-block;
+      margin: 7px 7px 0 0;
+      padding: 7px 11px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.045);
+      color: #cbd5e1;
+      font-size: 13px;
+      font-weight: 650;
+    }
+
+    .architecture {
+      margin-top: 30px;
+      border: 1px solid var(--line);
+      background: var(--panel-strong);
+      border-radius: 24px;
+      padding: 28px;
+    }
+
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-top: 22px;
+    }
+
+    .node {
+      border: 1px solid rgba(122, 176, 255, 0.24);
+      background: rgba(122, 176, 255, 0.07);
+      border-radius: 16px;
+      padding: 18px;
+      text-align: center;
+      min-height: 110px;
+    }
+
+    .node strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+
+    .node span {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .notice {
+      margin-top: 36px;
+      border-left: 3px solid var(--soft);
+      padding: 20px 24px;
+      background: rgba(122,176,255,0.08);
+      color: #cbd5e1;
+    }
+
+    .warning {
+      border-left-color: var(--green);
+      background: rgba(155, 212, 198, 0.08);
+    }
+
+    .footer {
+      margin-top: 86px;
+      padding-top: 28px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    [data-lang] { display: none; }
+    [data-lang].active { display: block; }
+
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .stat {
+      border: 1px solid rgba(122, 176, 255, 0.22);
+      background: rgba(122, 176, 255, 0.07);
+      border-radius: 18px;
+      padding: 20px;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 34px;
+      line-height: 1;
+      letter-spacing: -0.05em;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .chain {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .chain-step {
+      border: 1px solid rgba(255,255,255,0.11);
+      background: rgba(255,255,255,0.045);
+      border-radius: 16px;
+      padding: 16px;
+      min-height: 96px;
+    }
+
+    .chain-step strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--text);
+    }
+
+    .chain-step span {
+      display: block;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .module-note {
+      margin-top: 20px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    @media (max-width: 860px) {
+      .topbar { align-items: flex-start; flex-direction: column; margin-bottom: 48px; }
+      .flow { grid-template-columns: 1fr; }
+      main { padding-top: 34px; }
+    }
+  </style>
+  <style>
+    :root { --bg:#090a0b; --panel:rgba(15,17,19,.88); --panel-strong:rgba(12,14,16,.96); --line:rgba(255,255,255,.14); --text:#f0f2f5; --muted:#aab0ba; --soft:#d7ff45; --green:#a993ff; --orange:#ff5c35; --mono:"IBM Plex Mono",monospace; }
+    html { scroll-behavior:smooth; }
+    body { min-width:320px; background:var(--bg); font-feature-settings:"cv02","cv03","cv04","cv11"; text-rendering:optimizeLegibility; }
+    body::before { position:fixed; inset:0; z-index:-2; content:""; background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px); background-size:64px 64px; -webkit-mask-image:linear-gradient(to bottom,#000,transparent 74%); mask-image:linear-gradient(to bottom,#000,transparent 74%); pointer-events:none; }
+    body::after { position:fixed; inset:0; z-index:-1; content:""; background:radial-gradient(circle at 76% 10%,rgba(169,147,255,.1),transparent 28%),radial-gradient(circle at 18% 4%,rgba(215,255,69,.055),transparent 24%); pointer-events:none; }
+    a { color:inherit; } a,button {-webkit-tap-highlight-color:transparent;} :focus-visible { outline:2px solid var(--soft); outline-offset:3px; }
+    .skip-link { position:fixed; top:10px; left:10px; z-index:100; padding:10px 14px; background:var(--soft); color:#090a0b; transform:translateY(-150%); } .skip-link:focus { transform:translateY(0); }
+    main { max-width:1240px; padding:132px 32px 72px; }
+    .topbar { position:fixed; inset:0 0 auto; z-index:50; flex-direction:row; align-items:center; height:80px; margin:0; padding:0 max(24px,calc((100vw - 1240px)/2)); border-bottom:1px solid rgba(255,255,255,.08); background:rgba(9,10,11,.78); -webkit-backdrop-filter:blur(18px); backdrop-filter:blur(18px); }
+    .back { display:inline-flex; align-items:center; gap:11px; color:#fff; font-size:12px; font-weight:600; letter-spacing:.17em; text-transform:uppercase; }
+    .brand-mark { position:relative; display:grid; width:36px; height:36px; place-items:center; border:1px solid rgba(255,255,255,.25); border-radius:50%; font:500 12px var(--mono); transition:transform .25s ease; }
+    .brand-mark::after { position:absolute; top:-2px; right:-2px; width:8px; height:8px; border-radius:50%; background:var(--orange); content:""; } .back:hover .brand-mark { transform:rotate(-12deg); } .back-arrow { color:var(--muted); font-size:15px; }
+    .language-switcher { gap:3px; }
+    .language-switcher button { min-height:34px; border:0; border-radius:999px; padding:7px 10px; background:transparent; font:500 10px var(--mono); letter-spacing:.08em; text-transform:uppercase; transition:color .2s ease,background .2s ease; }
+    .language-switcher button:hover { color:#fff; background:rgba(255,255,255,.08); } .language-switcher button.active { background:#fff; color:#090a0b; }
+    .eyebrow { display:flex; align-items:center; gap:12px; color:var(--soft); font:500 10px var(--mono); } .eyebrow::before { width:32px; height:1px; background:currentColor; content:""; }
+    [data-lang] > .eyebrow:first-child { margin-top:clamp(38px,8vh,90px); }
+    h1 { max-width:1050px; margin:28px 0 34px; font-size:clamp(56px,8.1vw,112px); line-height:.84; letter-spacing:-.075em; text-wrap:balance; }
+    .lead { max-width:830px; margin-left:auto; padding-left:clamp(20px,3vw,34px); border-left:1px solid rgba(255,255,255,.2); color:#c4c9d1; font-size:clamp(18px,2vw,22px); }
+    .hero-actions { max-width:830px; margin:30px 0 0 auto; }
+    .button { min-height:48px; border-radius:999px; padding:12px 20px; background:rgba(255,255,255,.025); font-size:14px; font-weight:500; transition:color .2s ease,background .2s ease,border-color .2s ease,transform .2s ease; }
+    .button:hover { border-color:#fff; background:#fff; color:#090a0b; transform:translateY(-2px); } .button.primary { border-color:var(--soft); background:var(--soft); color:#090a0b; }
+    .section { margin-top:clamp(104px,13vw,172px); scroll-margin-top:110px; }
+    .section h2 { max-width:980px; margin:0 0 24px; font-size:clamp(42px,6vw,76px); line-height:.94; letter-spacing:-.058em; text-wrap:balance; }
+    .section-copy { font-size:clamp(17px,1.7vw,20px); line-height:1.75; }
+    .grid { display:grid; grid-template-columns:repeat(12,minmax(0,1fr)); gap:1px; margin-top:42px; border:1px solid var(--line); background:var(--line); counter-reset:card; }
+    .card { position:relative; grid-column:span 4; min-height:230px; overflow:hidden; border:0; border-radius:0; padding:clamp(24px,3vw,36px); background:var(--panel); transition:background .25s ease; }
+    .card::before { display:block; margin-bottom:52px; color:var(--soft); font:400 9px var(--mono); letter-spacing:.18em; content:"0" counter(card); counter-increment:card; }
+    .card::after { position:absolute; top:-40px; right:-40px; width:90px; height:90px; border:1px solid rgba(215,255,69,.12); border-radius:50%; content:""; transition:transform .35s ease; } .card:hover { background:#15181a; } .card:hover::after { transform:scale(1.35); }
+    .card h3 { font-size:21px; } .card p { line-height:1.65; }
+    .architecture { border-radius:0; padding:clamp(24px,4vw,48px); background:var(--panel-strong); }
+    .flow { gap:1px; } .node { position:relative; min-height:150px; border:1px solid rgba(215,255,69,.2); border-radius:0; padding:24px 20px; background:rgba(215,255,69,.035); text-align:left; } .node strong { margin-bottom:28px; }
+    .stats { gap:1px; } .stat { border-color:rgba(215,255,69,.2); border-radius:0; background:rgba(215,255,69,.035); } .stat strong { color:var(--soft); font-size:clamp(42px,5vw,64px); }
+    .chain { gap:1px; } .chain-step { border-radius:0; background:rgba(255,255,255,.035); }
+    .notice { border:1px solid rgba(215,255,69,.25); border-left:3px solid var(--soft); padding:24px 28px; background:rgba(215,255,69,.055); } .warning { border-color:rgba(169,147,255,.26); border-left-color:var(--green); background:rgba(169,147,255,.06); }
+    [data-lang] > .notice:last-child { margin-top:90px; } .footer { margin-top:140px; }
+    @media (prefers-reduced-motion:no-preference) { .section { opacity:0; transform:translateY(28px); transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1); } .section.revealed { opacity:1; transform:none; } [data-lang].active > .eyebrow:first-child,[data-lang].active > h1,[data-lang].active > .lead,[data-lang].active > .hero-actions { animation:enter .7s cubic-bezier(.22,1,.36,1) both; } [data-lang].active > h1 { animation-delay:.08s; } [data-lang].active > .lead { animation-delay:.16s; } [data-lang].active > .hero-actions { animation-delay:.22s; } @keyframes enter { from { opacity:0; transform:translateY(24px); } } }
+    @media (max-width:960px) { .card { grid-column:span 6; } .flow { grid-template-columns:repeat(2,1fr); } }
+    @media (max-width:680px) { main { padding:108px 20px 56px; } .topbar { height:72px; padding:0 16px; } .back { letter-spacing:.12em; } .back-label,.back-arrow { display:none; } .language-switcher { flex-wrap:nowrap; } .language-switcher button { padding-inline:8px; } h1 { font-size:clamp(49px,14vw,72px); overflow-wrap:anywhere; } .lead,.hero-actions { margin-left:0; } .button { width:100%; } .card { grid-column:1/-1; min-height:210px; } .flow { grid-template-columns:1fr; } .section { margin-top:104px; } .section h2 { font-size:clamp(38px,12vw,58px); overflow-wrap:anywhere; } .stats { grid-template-columns:repeat(2,minmax(0,1fr)); gap:1px; } .stat { padding:18px 14px; } .chain { grid-template-columns:1fr; gap:1px; } .footer { margin-top:100px; } }
+    @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } *,*::before,*::after { animation-duration:.01ms!important; transition-duration:.01ms!important; } }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to content</a>
+  <main id="content">
+    <header class="topbar">
+      <a class="back" href="/" aria-label="Back to CAUCO homepage"><span class="brand-mark" aria-hidden="true">C</span><span class="back-label">CAUCO</span><span class="back-arrow" aria-hidden="true">←</span></a>
+      <div class="language-switcher" aria-label="Language selector">
+        <button type="button" data-switch="en" class="active">English</button>
+        <button type="button" data-switch="es">Castellano</button>
+        <button type="button" data-switch="fi">Suomi</button>
+        <button type="button" data-switch="sv">Svenska</button>
+      </div>
+    </header>
+
+    <section data-lang="en" class="active">
+      <p class="eyebrow">Aurora Digital Assets</p>
+      <h1>Institutional control layer for regulated digital asset operations.</h1>
+      <p class="lead">
+        Aurora is a deterministic prototype for risk review, compliance workflows,
+        security guardrails, evidence packaging, agent governance and controlled
+        human approval integrity before sensitive digital asset operations can proceed.
+      </p>
+      <div class="hero-actions">
+        <a class="button primary" href="#architecture-en">View architecture</a>
+        <a class="button" href="/#contact">Start a conversation</a>
+      </div>
+
+      <section class="section">
+        <h2>Aurora is not a wallet. Aurora is a control layer.</h2>
+        <p class="section-copy">
+          The system is designed to sit between a regulated institution, compliance teams,
+          risk operations and future regulated custodians. Its purpose is not to custody
+          assets, but to make operations auditable, reviewable and controllable before execution.
+        </p>
+
+        <div class="grid">
+          <div class="card">
+            <h3>What Aurora is</h3>
+            <p>A bank-facing control layer for digital asset operations, approvals, evidence and review workflows.</p>
+          </div>
+          <div class="card">
+            <h3>What Aurora is not</h3>
+            <p>Not a wallet, not an exchange, not a custodian and not a live banking integration.</p>
+          </div>
+          <div class="card">
+            <h3>Prototype boundary</h3>
+            <p>Local deterministic backend prototype. No real assets, no real custody execution and no private keys.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="architecture-en">
+        <p class="eyebrow">Control architecture</p>
+        <h2>Built around review before execution.</h2>
+        <p class="section-copy">
+          Aurora models the institutional controls required before regulated digital asset
+          operations, cloud deployment paths or custodian integrations are allowed to proceed.
+        </p>
+
+        <div class="architecture">
+          <div class="flow">
+            <div class="node"><strong>Bank / Institution</strong><span>Customer, staff and approval context</span></div>
+            <div class="node"><strong>Aurora Control Layer</strong><span>Risk, compliance, security and review logic</span></div>
+            <div class="node"><strong>Regulated Custodian</strong><span>Future external custody boundary</span></div>
+            <div class="node"><strong>Audit / Evidence</strong><span>Packages, review cases and lifecycle records</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <p class="eyebrow">Core modules</p>
+        <h2>Deterministic guardrails for high-trust workflows.</h2>
+        <div class="grid">
+          <div class="card"><h3>AI Threat Defense</h3><p>Models defensive review flows for AI-assisted risk signals and suspicious operation chains.</p></div>
+          <div class="card"><h3>Secret Exposure Guard</h3><p>Prevents sensitive workflows from proceeding when secret exposure risks are active.</p></div>
+          <div class="card"><h3>Sensitive Approval Guard</h3><p>Separates customer approval from backend risk approval for sensitive operations.</p></div>
+          <div class="card"><h3>Cloud / Kubernetes Guardrails</h3><p>Blocks future deployment paths when infrastructure controls are not verified.</p></div>
+          <div class="card"><h3>Custodian Integration Guardrails</h3><p>Evaluates regulated custodian readiness, boundaries, liabilities and control gaps.</p></div>
+          <div class="card"><h3>Evidence & Review Lifecycle</h3><p>Turns risk signals into evidence packages, review cases and auditable lifecycle transitions.</p></div>
+        </div>
+      </section>
+
+
+      <section class="section">
+        <p class="eyebrow">Agent and human governance</p>
+        <h2>Aurora does not rely on blind trust.</h2>
+        <p class="section-copy">
+          The backend now includes twenty-six completed phases. The visible module cards group those
+          phases into presentation areas, so the page remains readable while still showing the full
+          governance chain: agents, permissions, evidence, review, revocation, policy, abuse detection,
+          partner readiness and human approval integrity.
+        </p>
+
+        <div class="stats">
+          <div class="stat"><strong>26</strong><span>completed backend phases</span></div>
+          <div class="stat"><strong>196</strong><span>passing backend tests</span></div>
+          <div class="stat"><strong>0</strong><span>real executions, assets or secrets</span></div>
+          <div class="stat"><strong>4</strong><span>public languages on this page</span></div>
+        </div>
+
+        <div class="architecture">
+          <p class="section-copy">
+            Aurora treats every decision actor as a controlled risk surface. AI, agents, partners,
+            custodians and human reviewers are all evaluated through deterministic controls.
+          </p>
+          <div class="chain">
+            <div class="chain-step"><strong>Agent identity</strong><span>Registry, passport and explicit permissions</span></div>
+            <div class="chain-step"><strong>Action audit</strong><span>Every agent attempt is recorded before trust is granted</span></div>
+            <div class="chain-step"><strong>Evidence & review</strong><span>Evidence packages and review cases preserve traceability</span></div>
+            <div class="chain-step"><strong>Revocation & policy</strong><span>Suspension, quarantine and policy blocks are evaluated</span></div>
+            <div class="chain-step"><strong>Abuse detection</strong><span>Repeated denials, override attempts and misuse patterns are flagged</span></div>
+            <div class="chain-step"><strong>Human integrity</strong><span>Human approval is also treated as a controlled risk event</span></div>
+          </div>
+        </div>
+
+        <div class="grid">
+          <div class="card"><h3>Agent Identity Governance</h3><p>Registry, passports, permissions, action audit events and deterministic policy decisions.</p></div>
+          <div class="card"><h3>Agent Abuse Detection</h3><p>Detects suspicious sequences such as secret access attempts, custodian API attempts and repeated policy blocks.</p></div>
+          <div class="card"><h3>External Partner Readiness</h3><p>Evaluates future partner or custodian-agent readiness without granting real access.</p></div>
+          <div class="card"><h3>Human Approval Integrity</h3><p>Human review is not a trust anchor; critical overrides require integrity checks, dual control and audit.</p></div>
+        </div>
+
+        <div class="notice warning">
+          Aurora does not trust AI blindly. It does not trust agents, partners, custodians or humans blindly.
+          Every sensitive decision layer is scored, controlled, evidenced and auditable.
+        </div>
+      </section>
+
+      <section class="section">
+        <p class="eyebrow">Public safety boundary</p>
+        <h2>Designed as a prototype, not as a live custody system.</h2>
+        <div class="notice">
+          Aurora does not custody assets, move funds, store private keys, connect to live banks,
+          connect to exchanges, connect to cloud providers or integrate with real custodians.
+          The prototype models institutional control logic before those integrations can safely exist.
+        </div>
+      </section>
+    </section>
+
+    <section data-lang="es">
+      <p class="eyebrow">Aurora Digital Assets</p>
+      <h1>Capa institucional de control para operaciones reguladas con activos digitales.</h1>
+      <p class="lead">
+        Aurora es un prototipo determinístico para revisión de riesgo, cumplimiento,
+        controles de seguridad, paquetes de evidencia, gobernanza de agentes e integridad
+        de aprobación humana antes de que una operación sensible con activos digitales pueda avanzar.
+      </p>
+      <div class="hero-actions">
+        <a class="button primary" href="#architecture-es">Ver arquitectura</a>
+        <a class="button" href="/#contact">Iniciar conversación</a>
+      </div>
+
+      <section class="section">
+        <h2>Aurora no es una billetera. Aurora es una capa de control.</h2>
+        <p class="section-copy">
+          El sistema está diseñado para ubicarse entre una institución regulada, equipos de
+          cumplimiento, operaciones de riesgo y futuros custodios regulados. Su objetivo no
+          es custodiar activos, sino hacer que las operaciones sean auditables, revisables y
+          controlables antes de su ejecución.
+        </p>
+
+        <div class="grid">
+          <div class="card"><h3>Qué es Aurora</h3><p>Una capa de control para operaciones, aprobaciones, evidencia y revisión institucional de activos digitales.</p></div>
+          <div class="card"><h3>Qué no es Aurora</h3><p>No es una wallet, no es un exchange, no es un custodio y no es una integración bancaria real.</p></div>
+          <div class="card"><h3>Límite del prototipo</h3><p>Prototipo backend local y determinístico. Sin activos reales, sin custodia real y sin llaves privadas.</p></div>
+        </div>
+      </section>
+
+      <section class="section" id="architecture-es">
+        <p class="eyebrow">Arquitectura de control</p>
+        <h2>Diseñado alrededor de revisión antes de ejecución.</h2>
+        <p class="section-copy">
+          Aurora modela los controles institucionales necesarios antes de permitir operaciones
+          reguladas con activos digitales, despliegues cloud o integraciones con custodios.
+        </p>
+
+        <div class="architecture">
+          <div class="flow">
+            <div class="node"><strong>Banco / Institución</strong><span>Cliente, personal y contexto de aprobación</span></div>
+            <div class="node"><strong>Capa Aurora</strong><span>Riesgo, cumplimiento, seguridad y revisión</span></div>
+            <div class="node"><strong>Custodio regulado</strong><span>Futura frontera externa de custodia</span></div>
+            <div class="node"><strong>Auditoría / Evidencia</strong><span>Paquetes, casos y ciclo de revisión</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <p class="eyebrow">Módulos centrales</p>
+        <h2>Controles determinísticos para flujos de alta confianza.</h2>
+        <div class="grid">
+          <div class="card"><h3>AI Threat Defense</h3><p>Modela revisión defensiva frente a señales de riesgo asistidas por IA.</p></div>
+          <div class="card"><h3>Secret Exposure Guard</h3><p>Bloquea flujos sensibles cuando hay riesgo activo de exposición de secretos.</p></div>
+          <div class="card"><h3>Sensitive Approval Guard</h3><p>Separa la aprobación del cliente de la aprobación de riesgo backend.</p></div>
+          <div class="card"><h3>Cloud / Kubernetes Guardrails</h3><p>Bloquea rutas futuras de despliegue cuando faltan controles de infraestructura.</p></div>
+          <div class="card"><h3>Custodian Integration Guardrails</h3><p>Evalúa readiness, límites, responsabilidades y brechas de control del custodio regulado.</p></div>
+          <div class="card"><h3>Evidencia y ciclo de revisión</h3><p>Convierte señales de riesgo en paquetes de evidencia, casos y transiciones auditables.</p></div>
+        </div>
+      </section>
+
+
+      <section class="section">
+        <p class="eyebrow">Gobernanza de agentes y humanos</p>
+        <h2>Aurora no se basa en confianza ciega.</h2>
+        <p class="section-copy">
+          El backend ya incluye veintiséis fases completadas. Las tarjetas visibles agrupan esas fases
+          en áreas de presentación para mantener la página clara, sin perder la cadena completa de
+          gobernanza: agentes, permisos, evidencia, revisión, revocación, política, detección de abuso,
+          readiness de partners e integridad de aprobación humana.
+        </p>
+
+        <div class="stats">
+          <div class="stat"><strong>26</strong><span>fases backend completadas</span></div>
+          <div class="stat"><strong>196</strong><span>tests backend aprobados</span></div>
+          <div class="stat"><strong>0</strong><span>ejecuciones, activos o secretos reales</span></div>
+          <div class="stat"><strong>4</strong><span>idiomas públicos en esta página</span></div>
+        </div>
+
+        <div class="architecture">
+          <p class="section-copy">
+            Aurora trata a cada actor de decisión como una superficie de riesgo controlada. La IA,
+            los agentes, los partners, los custodios y los revisores humanos son evaluados mediante
+            controles determinísticos.
+          </p>
+          <div class="chain">
+            <div class="chain-step"><strong>Identidad de agente</strong><span>Registro, passport y permisos explícitos</span></div>
+            <div class="chain-step"><strong>Auditoría de acciones</strong><span>Cada intento de agente queda registrado antes de confiar</span></div>
+            <div class="chain-step"><strong>Evidencia y revisión</strong><span>Paquetes de evidencia y casos preservan trazabilidad</span></div>
+            <div class="chain-step"><strong>Revocación y política</strong><span>Suspensión, cuarentena y bloqueos de política son evaluados</span></div>
+            <div class="chain-step"><strong>Detección de abuso</strong><span>Denegaciones repetidas, overrides y patrones de mal uso son detectados</span></div>
+            <div class="chain-step"><strong>Integridad humana</strong><span>La aprobación humana también es un evento de riesgo controlado</span></div>
+          </div>
+        </div>
+
+        <div class="grid">
+          <div class="card"><h3>Gobernanza de identidad de agentes</h3><p>Registro, passports, permisos, auditoría de acciones y decisiones determinísticas de política.</p></div>
+          <div class="card"><h3>Detección de abuso de agentes</h3><p>Detecta secuencias sospechosas como intentos de acceso a secretos, custodian APIs y bloqueos repetidos.</p></div>
+          <div class="card"><h3>Readiness de partners externos</h3><p>Evalúa readiness futuro de partners o agentes de custodia sin otorgar acceso real.</p></div>
+          <div class="card"><h3>Integridad de aprobación humana</h3><p>La revisión humana no es un ancla de confianza; los overrides críticos requieren integridad, doble control y auditoría.</p></div>
+        </div>
+
+        <div class="notice warning">
+          Aurora no confía ciegamente en la IA. Tampoco confía ciegamente en agentes, partners,
+          custodios o humanos. Cada capa de decisión sensible es puntuada, controlada, evidenciada y auditable.
+        </div>
+      </section>
+
+      <section class="section">
+        <p class="eyebrow">Límite público de seguridad</p>
+        <h2>Prototipo, no sistema de custodia en producción.</h2>
+        <div class="notice">
+          Aurora no custodia activos, no mueve fondos, no almacena llaves privadas, no se conecta
+          a bancos reales, exchanges, proveedores cloud o custodios reales. El prototipo modela
+          la lógica de control institucional antes de que esas integraciones puedan existir de forma segura.
+        </div>
+      </section>
+    </section>
+
+    <section data-lang="fi">
+      <p class="eyebrow">Aurora Digital Assets</p>
+      <h1>Institutionaalinen kontrollikerros säännellyille digitaalisten varojen operaatioille.</h1>
+      <p class="lead">
+        Aurora on deterministinen prototyyppi riskien arviointiin, vaatimustenmukaisuuden
+        työnkulkuihin, turvallisuusrajoihin, evidenssipaketteihin, agenttien hallintaan
+        ja hallittuun ihmishyväksynnän eheyteen ennen arkaluonteisia digitaalisten varojen operaatioita.
+      </p>
+      <div class="hero-actions">
+        <a class="button primary" href="#architecture-fi">Katso arkkitehtuuri</a>
+        <a class="button" href="/#contact">Aloita keskustelu</a>
+      </div>
+
+      <section class="section">
+        <h2>Aurora ei ole lompakko. Aurora on kontrollikerros.</h2>
+        <p class="section-copy">
+          Järjestelmä on suunniteltu sijoittumaan säännellyn instituution, compliance-tiimien,
+          riskitoimintojen ja tulevien säänneltyjen säilyttäjien väliin.
+        </p>
+        <div class="grid">
+          <div class="card"><h3>Mitä Aurora on</h3><p>Kontrollikerros digitaalisten varojen operaatioille, hyväksynnöille, evidenssille ja tarkistukselle.</p></div>
+          <div class="card"><h3>Mitä Aurora ei ole</h3><p>Ei lompakko, ei pörssi, ei säilyttäjä eikä oikea pankki-integraatio.</p></div>
+          <div class="card"><h3>Prototyypin raja</h3><p>Paikallinen deterministinen backend-prototyyppi ilman oikeita varoja, säilytystä tai yksityisiä avaimia.</p></div>
+        </div>
+      </section>
+
+      <section class="section" id="architecture-fi">
+        <p class="eyebrow">Kontrolliarkkitehtuuri</p>
+        <h2>Rakennettu tarkistukseen ennen toteutusta.</h2>
+        <div class="architecture">
+          <div class="flow">
+            <div class="node"><strong>Pankki / instituutio</strong><span>Asiakas, henkilöstö ja hyväksyntäkonteksti</span></div>
+            <div class="node"><strong>Aurora-kontrollikerros</strong><span>Riski, compliance, turvallisuus ja tarkistus</span></div>
+            <div class="node"><strong>Säännelty säilyttäjä</strong><span>Tuleva ulkoinen säilytysraja</span></div>
+            <div class="node"><strong>Auditointi / evidenssi</strong><span>Paketit, tapaukset ja lifecycle</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <p class="eyebrow">Keskeiset moduulit</p>
+        <h2>Deterministiset kontrollit korkean luottamuksen työnkulkuihin.</h2>
+        <div class="grid">
+          <div class="card"><h3>AI Threat Defense</h3><p>Puolustava tarkistusmalli AI-avusteisille riskisignaaleille.</p></div>
+          <div class="card"><h3>Secret Exposure Guard</h3><p>Estää arkaluonteisia työnkulkuja etenemästä salaisuuksien altistusriskissä.</p></div>
+          <div class="card"><h3>Sensitive Approval Guard</h3><p>Erottaa asiakkaan hyväksynnän backend-riskihyväksynnästä.</p></div>
+          <div class="card"><h3>Cloud / Kubernetes Guardrails</h3><p>Estää tulevia käyttöönottopolkuja, jos infrastruktuurikontrollit puuttuvat.</p></div>
+          <div class="card"><h3>Custodian Integration Guardrails</h3><p>Arvioi säännellyn säilyttäjän valmiutta, rajoja ja kontrollipuutteita.</p></div>
+          <div class="card"><h3>Evidenssi ja review lifecycle</h3><p>Muuntaa riskisignaalit evidenssipaketeiksi, tapauksiksi ja auditoitaviksi siirtymiksi.</p></div>
+        </div>
+      </section>
+
+
+      <section class="section">
+        <p class="eyebrow">Agenttien ja ihmisten hallinta</p>
+        <h2>Aurora ei perustu sokeaan luottamukseen.</h2>
+        <p class="section-copy">
+          Backend sisältää nyt kaksikymmentäkuusi valmista vaihetta. Näkyvät moduulikortit
+          ryhmittelevät vaiheet esitystä varten, jotta sivu pysyy luettavana ja samalla näyttää
+          koko hallintaketjun: agentit, oikeudet, evidenssi, tarkistus, peruutus, politiikka,
+          väärinkäytön tunnistus, partnerivalmius ja ihmishyväksynnän eheys.
+        </p>
+
+        <div class="stats">
+          <div class="stat"><strong>26</strong><span>valmista backend-vaihetta</span></div>
+          <div class="stat"><strong>196</strong><span>läpäistyä backend-testiä</span></div>
+          <div class="stat"><strong>0</strong><span>oikeaa toteutusta, varoja tai salaisuuksia</span></div>
+          <div class="stat"><strong>4</strong><span>julkista kieltä tällä sivulla</span></div>
+        </div>
+
+        <div class="architecture">
+          <p class="section-copy">
+            Aurora käsittelee jokaista päätöksentekijää hallittuna riskipintana. AI, agentit,
+            partnerit, säilyttäjät ja ihmistarkastajat arvioidaan deterministisillä kontrolleilla.
+          </p>
+          <div class="chain">
+            <div class="chain-step"><strong>Agentin identiteetti</strong><span>Rekisteri, passport ja eksplisiittiset oikeudet</span></div>
+            <div class="chain-step"><strong>Toimintojen auditointi</strong><span>Jokainen agentin yritys kirjataan ennen luottamusta</span></div>
+            <div class="chain-step"><strong>Evidenssi ja tarkistus</strong><span>Evidenssipaketit ja tapaukset säilyttävät jäljitettävyyden</span></div>
+            <div class="chain-step"><strong>Peruutus ja politiikka</strong><span>Keskeytys, karanteeni ja politiikkablokit arvioidaan</span></div>
+            <div class="chain-step"><strong>Väärinkäytön tunnistus</strong><span>Toistuvat estot, override-yritykset ja väärinkäytön mallit tunnistetaan</span></div>
+            <div class="chain-step"><strong>Ihmishyväksynnän eheys</strong><span>Ihmisen hyväksyntä on myös hallittu riskitapahtuma</span></div>
+          </div>
+        </div>
+
+        <div class="grid">
+          <div class="card"><h3>Agentti-identiteetin hallinta</h3><p>Rekisteri, passportit, oikeudet, toimintojen auditointi ja deterministiset politiikkapäätökset.</p></div>
+          <div class="card"><h3>Agenttien väärinkäytön tunnistus</h3><p>Tunnistaa salaisuuksien käyttöyritykset, custodian API -yritykset ja toistuvat politiikkablokit.</p></div>
+          <div class="card"><h3>Ulkoisen partnerin valmius</h3><p>Arvioi tulevaa partneri- tai säilyttäjäagentin valmiutta ilman oikeaa pääsyä.</p></div>
+          <div class="card"><h3>Ihmishyväksynnän eheys</h3><p>Ihmistarkistus ei ole luottamuksen ankkuri; kriittiset overridet vaativat eheyden, kaksoiskontrollin ja auditoinnin.</p></div>
+        </div>
+
+        <div class="notice warning">
+          Aurora ei luota sokeasti AI:hin. Se ei luota sokeasti agentteihin, partnereihin,
+          säilyttäjiin tai ihmisiin. Jokainen arkaluonteinen päätöskerros pisteytetään, kontrolloidaan,
+          evidensoidaan ja auditoidaan.
+        </div>
+      </section>
+
+      <div class="notice">
+        Aurora ei säilytä varoja, siirrä rahaa, tallenna yksityisiä avaimia tai yhdisty oikeisiin pankkeihin,
+        pörsseihin, pilvipalveluihin tai säilyttäjiin.
+      </div>
+    </section>
+
+    <section data-lang="sv">
+      <p class="eyebrow">Aurora Digital Assets</p>
+      <h1>Institutionellt kontrollager för reglerade digitala tillgångsoperationer.</h1>
+      <p class="lead">
+        Aurora är en deterministisk prototyp för riskgranskning, regelefterlevnad,
+        säkerhetsgränser, evidenspaketering, agentstyrning och kontrollerad integritet
+        i mänskliga godkännanden innan känsliga digitala tillgångsflöden kan gå vidare.
+      </p>
+      <div class="hero-actions">
+        <a class="button primary" href="#architecture-sv">Visa arkitektur</a>
+        <a class="button" href="/#contact">Starta en dialog</a>
+      </div>
+
+      <section class="section">
+        <h2>Aurora är inte en plånbok. Aurora är ett kontrollager.</h2>
+        <p class="section-copy">
+          Systemet är utformat för att ligga mellan en reglerad institution, compliance-team,
+          riskfunktioner och framtida reglerade förvaringsinstitut.
+        </p>
+        <div class="grid">
+          <div class="card"><h3>Vad Aurora är</h3><p>Ett kontrollager för digitala tillgångsoperationer, godkännanden, evidens och granskning.</p></div>
+          <div class="card"><h3>Vad Aurora inte är</h3><p>Inte en plånbok, inte en börs, inte ett förvaringsinstitut och inte en live-bankintegration.</p></div>
+          <div class="card"><h3>Prototypens gräns</h3><p>Lokal deterministisk backend-prototyp utan riktiga tillgångar, förvaring eller privata nycklar.</p></div>
+        </div>
+      </section>
+
+      <section class="section" id="architecture-sv">
+        <p class="eyebrow">Kontrollarkitektur</p>
+        <h2>Byggt kring granskning före exekvering.</h2>
+        <div class="architecture">
+          <div class="flow">
+            <div class="node"><strong>Bank / institution</strong><span>Kund, personal och godkännandekontext</span></div>
+            <div class="node"><strong>Aurora-kontrollager</strong><span>Risk, compliance, säkerhet och granskning</span></div>
+            <div class="node"><strong>Reglerad förvarare</strong><span>Framtida extern förvaringsgräns</span></div>
+            <div class="node"><strong>Revision / evidens</strong><span>Paket, ärenden och lifecycle</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <p class="eyebrow">Kärnmoduler</p>
+        <h2>Deterministiska skyddsräcken för arbetsflöden med högt förtroende.</h2>
+        <div class="grid">
+          <div class="card"><h3>AI Threat Defense</h3><p>Defensiv granskningsmodell för AI-assisterade risksignaler.</p></div>
+          <div class="card"><h3>Secret Exposure Guard</h3><p>Stoppar känsliga flöden vid aktiv risk för exponering av hemligheter.</p></div>
+          <div class="card"><h3>Sensitive Approval Guard</h3><p>Separera kundgodkännande från backend-riskgodkännande.</p></div>
+          <div class="card"><h3>Cloud / Kubernetes Guardrails</h3><p>Blockerar framtida deploymentvägar när infrastrukturkontroller saknas.</p></div>
+          <div class="card"><h3>Custodian Integration Guardrails</h3><p>Utvärderar reglerad förvaringsberedskap, gränser och kontrollgap.</p></div>
+          <div class="card"><h3>Evidens och review lifecycle</h3><p>Gör risksignaler till evidenspaket, ärenden och auditerbara övergångar.</p></div>
+        </div>
+      </section>
+
+
+      <section class="section">
+        <p class="eyebrow">Agent- och mänsklig styrning</p>
+        <h2>Aurora bygger inte på blind tillit.</h2>
+        <p class="section-copy">
+          Backenden innehåller nu tjugosex färdiga faser. De synliga modulkorten grupperar
+          faserna för presentation, så att sidan förblir läsbar men ändå visar hela styrkedjan:
+          agenter, behörigheter, evidens, granskning, återkallelse, policy, missbruksdetektion,
+          partnerberedskap och integritet i mänskliga godkännanden.
+        </p>
+
+        <div class="stats">
+          <div class="stat"><strong>26</strong><span>färdiga backendfaser</span></div>
+          <div class="stat"><strong>196</strong><span>godkända backendtester</span></div>
+          <div class="stat"><strong>0</strong><span>riktig exekvering, tillgångar eller hemligheter</span></div>
+          <div class="stat"><strong>4</strong><span>publika språk på denna sida</span></div>
+        </div>
+
+        <div class="architecture">
+          <p class="section-copy">
+            Aurora behandlar varje beslutsaktör som en kontrollerad riskyta. AI, agenter,
+            partner, förvarare och mänskliga granskare utvärderas med deterministiska kontroller.
+          </p>
+          <div class="chain">
+            <div class="chain-step"><strong>Agentidentitet</strong><span>Register, passport och explicita behörigheter</span></div>
+            <div class="chain-step"><strong>Åtgärdsrevision</strong><span>Varje agentförsök registreras innan tillit ges</span></div>
+            <div class="chain-step"><strong>Evidens och granskning</strong><span>Evidenspaket och ärenden bevarar spårbarhet</span></div>
+            <div class="chain-step"><strong>Återkallelse och policy</strong><span>Avstängning, karantän och policyblockeringar utvärderas</span></div>
+            <div class="chain-step"><strong>Missbruksdetektion</strong><span>Upprepade avslag, override-försök och missbruksmönster flaggas</span></div>
+            <div class="chain-step"><strong>Mänsklig integritet</strong><span>Mänskligt godkännande är också en kontrollerad riskhändelse</span></div>
+          </div>
+        </div>
+
+        <div class="grid">
+          <div class="card"><h3>Styrning av agentidentitet</h3><p>Register, passport, behörigheter, åtgärdsrevision och deterministiska policybeslut.</p></div>
+          <div class="card"><h3>Detektion av agentmissbruk</h3><p>Upptäcker försök till hemlig åtkomst, custodian API-försök och upprepade policyblockeringar.</p></div>
+          <div class="card"><h3>Extern partnerberedskap</h3><p>Utvärderar framtida partner- eller förvararagentberedskap utan att ge verklig åtkomst.</p></div>
+          <div class="card"><h3>Integritet i mänskligt godkännande</h3><p>Mänsklig granskning är inte ett tillitsankare; kritiska overrides kräver integritetskontroll, dubbel kontroll och revision.</p></div>
+        </div>
+
+        <div class="notice warning">
+          Aurora litar inte blint på AI. Den litar inte blint på agenter, partner,
+          förvarare eller människor. Varje känsligt beslutssteg poängsätts, kontrolleras,
+          evidenssäkras och kan revideras.
+        </div>
+      </section>
+
+      <div class="notice">
+        Aurora förvarar inte tillgångar, flyttar inte pengar, lagrar inte privata nycklar och ansluter inte
+        till riktiga banker, börser, molnleverantörer eller förvaringsinstitut.
+      </div>
+    </section>
+
+    <footer class="footer">
+      <span>Claudio Valenzuela / CAUCO</span>
+      <span>Aurora Digital Assets — 26-phase local deterministic prototype</span>
+    </footer>
+  </main>
+
+  <script>
+    const buttons = document.querySelectorAll("[data-switch]");
+    const sections = document.querySelectorAll("[data-lang]");
+
+    function setLanguage(lang) {
+      buttons.forEach((button) => {
+        const isActive = button.dataset.switch === lang;
+        button.classList.toggle("active", isActive);
+        button.setAttribute("aria-pressed", String(isActive));
+      });
+
+      sections.forEach((section) => {
+        section.classList.toggle("active", section.dataset.lang === lang);
+      });
+
+      document.documentElement.lang = lang;
+      window.history.replaceState(null, "", `${window.location.pathname}#${lang}`);
+    }
+
+    buttons.forEach((button) => {
+      button.addEventListener("click", () => setLanguage(button.dataset.switch));
+    });
+
+    const requestedLanguage = window.location.hash.slice(1);
+    if (["en", "es", "fi", "sv"].includes(requestedLanguage)) {
+      setLanguage(requestedLanguage);
+    } else {
+      buttons.forEach((button) => button.setAttribute("aria-pressed", String(button.classList.contains("active"))));
+    }
+
+    if ("IntersectionObserver" in window && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("revealed");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { rootMargin: "0px 0px -10%", threshold: 0.08 });
+
+      document.querySelectorAll(".section").forEach((section) => observer.observe(section));
+    } else {
+      document.querySelectorAll(".section").forEach((section) => section.classList.add("revealed"));
+    }
+  </script>
+</body>
+</html>
