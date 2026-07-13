@@ -1,0 +1,571 @@
+{
+  "language": "en",
+  "header": {
+    "homeLabel": "CAUCO home",
+    "nav": [
+      {
+        "label": "Systems",
+        "href": "#systems"
+      },
+      {
+        "label": "Focus",
+        "href": "#focus"
+      },
+      {
+        "label": "Principles",
+        "href": "#principles"
+      },
+      {
+        "label": "Contact",
+        "href": "#contact"
+      }
+    ],
+    "cta": "Start a Conversation",
+    "languages": {
+      "en": "English",
+      "fi": "Suomi",
+      "sv": "Svenska"
+    }
+  },
+  "hero": {
+    "eyebrow": "Claudio Valenzuela / CAUCO",
+    "title": "Software Architect & AI Systems Builder",
+    "subtitle": "I design and build practical AI-powered software systems for finance, compliance, developer productivity and institutional workflows.",
+    "primaryCta": "View Systems",
+    "secondaryCta": "Contact"
+  },
+  "reel": {
+    "title": "CAUCO systems reel",
+    "play": "Play reel",
+    "close": "Close reel",
+    "pause": "Pause reel",
+    "resume": "Resume reel",
+    "restart": "Restart reel",
+    "replay": "Replay",
+    "explore": "Explore the ecosystem",
+    "back": "Back to site",
+    "controls": "Reel controls",
+    "progress": "Reel progress",
+    "reduced": "Motion-reduced reel summary",
+    "entry": [
+      "BUILDING SYSTEMS",
+      "FOR A TRUSTED",
+      "DIGITAL ECONOMY"
+    ],
+    "problemItems": [
+      "IDENTITY",
+      "PERMISSIONS",
+      "RISK",
+      "QUALITY",
+      "COMPLIANCE",
+      "EVIDENCE",
+      "DECISIONS"
+    ],
+    "problemStatement": "DISCONNECTED SYSTEMS CREATE UNTRUSTED OUTCOMES",
+    "aurora": [
+      "Request",
+      "Identity",
+      "Permission",
+      "Policy",
+      "Evidence",
+      "Human Review",
+      "Controlled Decision"
+    ],
+    "qalens": [
+      "Issue",
+      "QA Risk",
+      "Suggested Improvement",
+      "Test Cases",
+      "Delivery Evidence"
+    ],
+    "aisosec": [
+      "Finding",
+      "Evidence",
+      "Severity",
+      "OWASP / NIST / ISO mapping",
+      "Compliance Gap",
+      "Audit Output"
+    ],
+    "sharedCore": "Shared trust core",
+    "layers": [
+      "Identity",
+      "Policy",
+      "Evidence",
+      "Decisions"
+    ],
+    "revelation": "NOT SEPARATE PRODUCTS. ONE TRUST INFRASTRUCTURE.",
+    "lab": [
+      "Aurora UI Kit",
+      "Trust Infrastructure Blueprint",
+      "Audit Report Templates",
+      "Risk Matrix Toolkit",
+      "Developer Starter Kit"
+    ],
+    "unlocked": "UNLOCKED",
+    "end": "SYSTEMS FOR TRUST",
+    "chapters": [
+      "Trusted digital economy",
+      "Disconnected systems",
+      "Aurora controlled operations",
+      "QALens quality intelligence",
+      "AisoSec audit evidence",
+      "One trust infrastructure",
+      "CAUCO Lab",
+      "Systems for trust"
+    ]
+  },
+  "featuredSystems": {
+    "kicker": "Featured Systems",
+    "title": "Applied software for high-trust workflows.",
+    "copy": "Selected systems and prototypes focused on practical automation, deterministic review flows, reporting and usable technical interfaces.",
+    "systems": [
+      {
+        "id": "aurora",
+        "name": "Aurora",
+        "category": "Digital Trust & Asset Platform",
+        "description": "Institutional control for identity, evidence, permissions and regulated digital asset operations.",
+        "status": "Active development",
+        "capabilities": [
+          "Policy gates",
+          "Verified identity",
+          "Evidence packages",
+          "Audit trail"
+        ],
+        "story": [
+          "Request received",
+          "Identity verified",
+          "Permission checked",
+          "Policy gate",
+          "Evidence package",
+          "Human review",
+          "Controlled decision"
+        ],
+        "cta": "Explore Aurora",
+        "href": "/projects/aurora-digital-assets.html"
+      },
+      {
+        "id": "qalens",
+        "name": "QALens",
+        "category": "AI Engineering & Quality Intelligence",
+        "description": "Transforms software issues into QA risk analysis, improvements, test cases and delivery evidence.",
+        "status": "Prototype",
+        "capabilities": [
+          "Issue analysis",
+          "QA risk",
+          "Test design",
+          "Delivery trust"
+        ],
+        "story": [
+          "Issue received",
+          "QA risk detected",
+          "Improvement suggested",
+          "Test cases generated",
+          "Delivery evidence"
+        ],
+        "cta": "Case study in development"
+      },
+      {
+        "id": "aisosec",
+        "name": "AisoSec Audit",
+        "category": "AI Compliance & Security Audit Platform",
+        "description": "Turns technical findings into captured evidence, compliance mappings, risk gaps and professional audit outputs.",
+        "status": "Active development",
+        "capabilities": [
+          "Finding review",
+          "Evidence capture",
+          "Control mapping",
+          "Audit reports"
+        ],
+        "story": [
+          "Finding detected",
+          "Evidence captured",
+          "Severity assessed",
+          "Framework mapping",
+          "Compliance gap",
+          "Audit output"
+        ],
+        "cta": "Case study in development"
+      },
+      {
+        "id": "whalescope",
+        "name": "WhaleScope",
+        "category": "Digital Asset Research Intelligence",
+        "description": "Market, institutional flow and on-chain analysis for rigorous digital asset research.",
+        "status": "Research system",
+        "capabilities": [
+          "Institutional flow",
+          "Whale signals",
+          "Market context",
+          "Research reports"
+        ],
+        "story": [
+          "Market event",
+          "Institutional flow",
+          "Whale transaction",
+          "Signal interpretation",
+          "Research insight"
+        ],
+        "cta": "Research system"
+      }
+    ],
+    "projects": [
+      {
+        "name": "AgentDock",
+        "description": "Mobile-first command center for AI coding agents, repository workflows, approval gates and safe automation.",
+        "tags": [
+          "AI Agents",
+          "Developer Tools",
+          "FastAPI",
+          "Mobile",
+          "Git Workflows"
+        ]
+      },
+      {
+        "name": "Aurora Digital Assets",
+        "description": "Institutional control layer for regulated digital asset operations, combining risk review, compliance workflows, security guardrails and audit-ready evidence.",
+        "tags": [
+          "Digital Assets",
+          "Banking",
+          "Compliance",
+          "Custody Guardrails",
+          "Audit Trail"
+        ],
+        "href": "/projects/aurora-digital-assets.html"
+      },
+      {
+        "name": "Market Surveillance AI",
+        "description": "Desktop compliance and market surveillance application with deterministic alerts, case review and PDF reporting.",
+        "tags": [
+          "Compliance",
+          "PySide6",
+          "SQLite",
+          "PDF Reports",
+          "Market Surveillance"
+        ]
+      },
+      {
+        "name": "WhaleScope Desktop",
+        "description": "Market and on-chain analytics desktop application for crypto research, whale activity analysis and reporting.",
+        "tags": [
+          "Desktop App",
+          "Python",
+          "Electron",
+          "Market Data",
+          "On-chain Analytics"
+        ]
+      },
+      {
+        "name": "Deterministic Vault Factory",
+        "description": "Institutional smart contract risk analysis system with attack surface review, governance risk and evidence packaging.",
+        "tags": [
+          "Smart Contracts",
+          "Security",
+          "Slither",
+          "Risk Analysis",
+          "Evidence Packaging"
+        ]
+      }
+    ]
+  },
+  "ecosystem": {
+    "label": "Trust infrastructure ecosystem",
+    "title": "Not separate products. One trust infrastructure.",
+    "description": "Aurora, QALens and AisoSec model connected review flows around a shared trust core: identity, policy, evidence and accountable decisions.",
+    "coreLabel": "Aurora Trust Engine / Shared trust core",
+    "layers": [
+      "Identity",
+      "Policy",
+      "Evidence",
+      "Decisions"
+    ],
+    "summary": "A visualized architecture showing how system-specific review flows can share identity, policy, evidence and decision layers."
+  },
+  "lab": {
+    "label": "Available for client work",
+    "bridge": "Commercial software engineering for practical operations and complex institutional requirements.",
+    "title": "Software systems for real business problems.",
+    "description": "A catalog of websites, platforms, mobile applications, AI systems, analytics tools and custom engineering solutions designed for organizations of different sizes.",
+    "filters": {
+      "all": "All",
+      "web": "Web",
+      "commerce": "Commerce",
+      "operations": "Operations",
+      "mobile": "Mobile",
+      "ai": "AI",
+      "intelligence": "Intelligence",
+      "trust": "Trust",
+      "custom": "Custom"
+    },
+    "products": [
+      {
+        "title": "Business Websites",
+        "description": "Professional multilingual websites that present a company clearly and convert visitors into customers.",
+        "category": "web",
+        "idealFor": [
+          "Growing businesses",
+          "Professional services",
+          "International teams"
+        ],
+        "capabilities": [
+          "Content management",
+          "Multilingual UX",
+          "SEO and conversion tracking"
+        ],
+        "delivery": "2–5 weeks",
+        "engagement": "Starter",
+        "cta": "Explore solution"
+      },
+      {
+        "title": "E-Commerce Platforms",
+        "description": "Online stores with payments, product management, order workflows, inventory and analytics.",
+        "category": "commerce",
+        "idealFor": [
+          "Retailers",
+          "Manufacturers",
+          "Subscription businesses"
+        ],
+        "capabilities": [
+          "Payments and checkout",
+          "Inventory and orders",
+          "Commerce analytics"
+        ],
+        "delivery": "4–8 weeks",
+        "engagement": "Professional",
+        "cta": "View capabilities"
+      },
+      {
+        "title": "Booking & Reservation Systems",
+        "description": "Scheduling, availability, reminders, payments and administrative tools in one operational flow.",
+        "category": "operations",
+        "idealFor": [
+          "Clinics and studios",
+          "Hospitality",
+          "Field services"
+        ],
+        "capabilities": [
+          "Live availability",
+          "Automated reminders",
+          "Payments and admin tools"
+        ],
+        "delivery": "4–8 weeks",
+        "engagement": "Professional",
+        "cta": "Explore solution"
+      },
+      {
+        "title": "Customer & Member Portals",
+        "description": "Secure portals for customers, members, partners or internal teams, with authentication and document access.",
+        "category": "operations",
+        "idealFor": [
+          "Member organizations",
+          "B2B services",
+          "Distributed teams"
+        ],
+        "capabilities": [
+          "Identity and permissions",
+          "Document workflows",
+          "Self-service dashboards"
+        ],
+        "delivery": "6–12 weeks",
+        "engagement": "Advanced",
+        "cta": "Discuss this system"
+      },
+      {
+        "title": "Mobile Applications",
+        "description": "Cross-platform iOS and Android applications with backend services, notifications and account management.",
+        "category": "mobile",
+        "idealFor": [
+          "Digital services",
+          "Operational teams",
+          "Connected products"
+        ],
+        "capabilities": [
+          "iOS and Android",
+          "Push notifications",
+          "Secure API integration"
+        ],
+        "delivery": "8–16 weeks",
+        "engagement": "Advanced",
+        "cta": "View capabilities"
+      },
+      {
+        "title": "AI Business Assistants",
+        "description": "Private AI assistants connected to company knowledge, documents, APIs and internal workflows.",
+        "category": "ai",
+        "idealFor": [
+          "Knowledge teams",
+          "Customer operations",
+          "Regulated organizations"
+        ],
+        "capabilities": [
+          "Private knowledge retrieval",
+          "Workflow automation",
+          "Access controls and evaluation"
+        ],
+        "delivery": "6–12 weeks",
+        "engagement": "Advanced",
+        "cta": "Discuss this system"
+      },
+      {
+        "title": "Analytics & Monitoring Platforms",
+        "description": "Dashboards, reporting, real-time monitoring, alerts and decision-support systems.",
+        "category": "intelligence",
+        "idealFor": [
+          "Operations leaders",
+          "Research teams",
+          "Data-driven organizations"
+        ],
+        "capabilities": [
+          "Data integrations",
+          "Live dashboards",
+          "Alerts and reporting"
+        ],
+        "delivery": "6–12 weeks",
+        "engagement": "Advanced",
+        "cta": "View capabilities"
+      },
+      {
+        "title": "Investigation & Evidence Systems",
+        "description": "Software for research, case management, evidence organization, timelines and investigative workflows.",
+        "category": "intelligence",
+        "idealFor": [
+          "Investigative teams",
+          "Researchers",
+          "Public institutions"
+        ],
+        "capabilities": [
+          "Case and evidence management",
+          "Timeline and relationship analysis",
+          "Controlled reporting"
+        ],
+        "delivery": "8–16 weeks",
+        "engagement": "Enterprise",
+        "cta": "Discuss this system"
+      },
+      {
+        "title": "Trust, Compliance & Quality Systems",
+        "description": "Governance, audit, evidence and quality engineering for controlled operational workflows.",
+        "category": "trust",
+        "idealFor": [
+          "Regulated businesses",
+          "Quality teams",
+          "Public institutions"
+        ],
+        "capabilities": [
+          "Controls and audit trails",
+          "Evidence-based decisions",
+          "Aurora, QALens and AisoSec integration"
+        ],
+        "delivery": "8–16 weeks",
+        "engagement": "Enterprise",
+        "cta": "View capabilities"
+      },
+      {
+        "title": "Custom Engineering",
+        "description": "Tailored software for complex or unusual business problems that do not fit a standard category.",
+        "category": "custom",
+        "idealFor": [
+          "Complex operations",
+          "New digital ventures",
+          "Specialist organizations"
+        ],
+        "capabilities": [
+          "Discovery and architecture",
+          "Custom integrations",
+          "Production engineering"
+        ],
+        "delivery": "Scope-dependent",
+        "engagement": "Enterprise",
+        "cta": "Discuss this system"
+      }
+    ],
+    "detail": {
+      "close": "Close",
+      "includes": "What the solution includes",
+      "idealFor": "Ideal for",
+      "capabilities": "Core capabilities",
+      "delivery": "Typical delivery",
+      "engagement": "Engagement level",
+      "contact": "Discuss your project"
+    }
+  },
+  "technicalFocus": {
+    "kicker": "Technical Focus",
+    "title": "Built around systems that need clarity.",
+    "copy": "The work is strongest where product thinking, architecture and implementation quality need to meet in the same interface.",
+    "areas": [
+      {
+        "title": "AI-assisted software systems"
+      },
+      {
+        "title": "Fintech and compliance tooling"
+      },
+      {
+        "title": "Desktop applications"
+      },
+      {
+        "title": "Backend architecture"
+      },
+      {
+        "title": "Audit-ready reporting"
+      },
+      {
+        "title": "Developer workflow automation"
+      }
+    ]
+  },
+  "engineeringPrinciples": {
+    "kicker": "Engineering Principles",
+    "title": "Architecture choices that reduce risk.",
+    "principles": [
+      {
+        "title": "Practical AI over hype",
+        "body": "AI is used where it improves a workflow, reduces review time or clarifies evidence. The system still has to be useful without a pitch deck."
+      },
+      {
+        "title": "Deterministic outputs where trust matters",
+        "body": "Compliance, finance and audit workflows need repeatable results, traceable inputs and clear failure states."
+      },
+      {
+        "title": "Secure-by-default workflows",
+        "body": "Approval gates, scoped permissions, transparent logs and conservative automation are treated as product requirements."
+      },
+      {
+        "title": "Human-in-the-loop decision systems",
+        "body": "Good software improves expert judgment. It should surface context, explain outputs and keep final decisions accountable."
+      }
+    ]
+  },
+  "contact": {
+    "kicker": "Contact",
+    "title": "Discuss a serious software system.",
+    "copy": "For AI-assisted applications, compliance tools, developer workflow automation or technical prototypes that need a clear architecture before they need noise.",
+    "emailCta": "Email CAUCO",
+    "linkedinCta": "LinkedIn",
+    "inquiryTitle": "Project inquiry",
+    "formAriaLabel": "Project inquiry placeholder",
+    "nameLabel": "Name",
+    "namePlaceholder": "Your name",
+    "emailLabel": "Email",
+    "emailPlaceholder": "you@example.com",
+    "workstreamLabel": "Workstream",
+    "workstreamPlaceholder": "AI system, compliance tool, prototype...",
+    "contextLabel": "Context",
+    "contextPlaceholder": "Shortly describe the workflow, risk or system you want to build.",
+    "prepareCta": "Prepare Inquiry",
+    "sendingCta": "Sending...",
+    "successMessage": "Message sent successfully. I’ll get back to you soon.",
+    "errorMessage": "Message could not be sent. Please email claudio@aisosu.fi directly."
+  },
+  "footer": {
+    "copyright": "Claudio Valenzuela / CAUCO.",
+    "privacy": "Privacy",
+    "dataDeletion": "Data deletion",
+    "positioning": "Applied AI systems, trust infrastructure and technical interfaces for work that needs clarity.",
+    "navigationLabel": "CAUCO ecosystem",
+    "systemsLabel": "Systems",
+    "labLabel": "Lab",
+    "connectLabel": "Connect",
+    "emailLabel": "Email",
+    "topLabel": "Back to top"
+  }
+}
