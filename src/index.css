@@ -601,6 +601,9 @@ html[lang="sv"] .contact-intake { min-width: 0; }
   .lab-cover-6 { --lab-color: #a993ff; background: radial-gradient(circle at 75% 50%, rgba(169,147,255,.2), transparent 32%), #100f17; }
   .lab-cover-7 { --lab-color: #d7ff45; background: linear-gradient(135deg, rgba(215,255,69,.1), rgba(255,190,92,.05)), #10130c; }
   .lab-cover-8 { --lab-color: #4cb6ff; background: radial-gradient(circle at 50% 50%, rgba(76,182,255,.17), transparent 38%), #0b1217; }
+  .lab-cover-9 { --lab-color: #ffbe5c; background: radial-gradient(circle at 48% 45%, rgba(255,190,92,.16), transparent 38%), #17130b; }
+  .lab-cover-10 { --lab-color: #ff6a3d; background: linear-gradient(145deg, rgba(255,106,61,.12), transparent 55%), #17100d; }
+  .system-object { position: relative; width: 100%; height: 100%; font-family: "IBM Plex Mono", monospace; }.system-object svg { position: absolute; inset: 5%; width: 90%; height: 90%; }.system-object path { fill: none; stroke: color-mix(in srgb, var(--lab-color) 65%, transparent); stroke-width: 1; stroke-dasharray: 4 4; }.system-object > div { position: absolute; display: grid; grid-template-columns: auto 1fr; gap: 4px 8px; min-width: 105px; padding: 10px; border: 1px solid color-mix(in srgb, var(--lab-color) 45%, transparent); background: rgba(9,11,13,.9); box-shadow: 0 12px 30px rgba(0,0,0,.25); }.system-object > div:nth-of-type(1) { left: 2%; top: 8%; }.system-object > div:nth-of-type(2) { right: 4%; top: 12%; }.system-object > div:nth-of-type(3) { left: 14%; bottom: 8%; }.system-object > div:nth-of-type(4) { right: 8%; bottom: 6%; }.system-object span,.system-object i,.system-object em { font-size: 6px; font-style: normal; letter-spacing: .1em; }.system-object span,.system-object i { color: var(--lab-color); }.system-object b { font-size: 7px; color: rgba(255,255,255,.78); }.system-object i { grid-column: 2; }.system-object em { position: absolute; top: 48%; left: 34%; padding: 6px; background: #090b0d; color: rgba(255,255,255,.48); }
   .aurora-object > div { position: absolute; display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 8px; width: 58%; padding: 10px; border: 1px solid rgba(255,106,61,.5); background: rgba(25,14,11,.92); font-size: 7px; letter-spacing: .09em; box-shadow: 12px 16px 40px rgba(0,0,0,.28); }.aurora-object svg { width: 14px; height: 14px; color: var(--lab-color); }.aurora-object b { color: var(--lab-color); }.aurora-object > div:nth-child(1) { left: 4%; top: 10%; }.aurora-object > div:nth-child(2) { right: 3%; top: 39%; }.aurora-object > div:nth-child(3) { left: 14%; bottom: 7%; }.aurora-object > i { position: absolute; right: 2%; bottom: 6%; border-right: 2px solid var(--lab-color); padding-right: 8px; font-size: 6px; letter-spacing: .12em; color: rgba(255,255,255,.5); }
   .blueprint-object svg { position: absolute; inset: 8% 2%; width: 96%; height: 84%; }.blueprint-object path { fill: none; stroke: rgba(169,147,255,.7); stroke-width: 1; }.blueprint-object > span { position: absolute; display: flex; flex-direction: column; gap: 4px; min-width: 68px; padding: 8px; border: 1px solid rgba(255,255,255,.35); background: #15121e; font-size: 6px; letter-spacing: .1em; }.blueprint-object > span b { color: var(--lab-color); }.blueprint-object > span:nth-of-type(1) { left: 2%; top: 42%; }.blueprint-object > span:nth-of-type(2) { left: 27%; top: 5%; }.blueprint-object > span:nth-of-type(3) { left: 43%; top: 42%; }.blueprint-object > span:nth-of-type(4) { right: 22%; top: 8%; }.blueprint-object > span:nth-of-type(5) { right: 1%; top: 43%; }
   .reports-object > div { position: absolute; width: 68%; height: 68%; padding: 14px; border: 1px solid rgba(215,255,69,.52); background: #181d11; box-shadow: 10px 12px 0 rgba(215,255,69,.05); }.reports-object > div:nth-child(1) { left: 23%; top: 18%; transform: rotate(5deg); }.reports-object > div:nth-child(2) { left: 17%; top: 14%; transform: rotate(2deg); }.reports-object > div:nth-child(3) { left: 11%; top: 10%; transform: rotate(-2deg); }.reports-object > div:nth-child(4) { left: 5%; top: 6%; transform: rotate(-5deg); }.reports-object span { font-size: 6px; letter-spacing: .15em; color: rgba(255,255,255,.45); }.reports-object strong { display: block; margin-top: 14px; font-size: 9px; color: var(--lab-color); }.reports-object i { display: block; width: 80%; height: 1px; margin-top: 9px; background: rgba(255,255,255,.2); }
@@ -611,17 +614,18 @@ html[lang="sv"] .contact-intake { min-width: 0; }
   .developer-object svg { position: absolute; inset: 8% 2%; width: 96%; height: 84%; }.developer-object path { fill: none; stroke: rgba(76,182,255,.55); stroke-width: 1; }.developer-object > div { position: absolute; display: grid; gap: 5px; min-width: 72px; padding: 9px; border: 1px solid rgba(76,182,255,.45); background: #0d1820; font-size: 6px; letter-spacing: .1em; }.developer-object > div b { color: var(--lab-color); }.developer-object > div:nth-of-type(1) { left: 1%; top: 11%; }.developer-object > div:nth-of-type(2) { left: 41%; top: 3%; }.developer-object > div:nth-of-type(3) { right: 1%; top: 11%; }.developer-object > div:nth-of-type(4) { left: 21%; bottom: 7%; }.developer-object > div:nth-of-type(5) { right: 21%; bottom: 7%; }
   .lab-card-body { display: flex; min-height: 235px; flex-direction: column; padding: 1.5rem 0 0; }
   .lab-card-meta { display: flex; align-items: center; justify-content: space-between; gap: .75rem; font: 8px "IBM Plex Mono", monospace; letter-spacing: .12em; color: rgba(255,255,255,.28); }
-  .lab-badge { display: inline-flex; padding: .35rem .5rem; border: 1px solid currentColor; text-transform: uppercase; }.lab-badge-coming { color: #ff8a67; }.lab-badge-research { color: #b9a9ff; }.lab-badge-free { color: #d7ff45; }.lab-badge-premium { color: #62c0ff; }
+  .lab-badge { display: inline-flex; padding: .35rem .5rem; border: 1px solid currentColor; text-transform: uppercase; color: #d7ff45; }
   .lab-badge-prototype { color: #ffbe5c; }
   .lab-card h3 { margin-top: 1.5rem; font-size: clamp(1.7rem, 2.5vw, 2.5rem); font-weight: 600; line-height: 1.05; letter-spacing: -.045em; color: #fff; }
   .lab-card-body > p { max-width: 520px; margin-top: 1rem; font-size: .9rem; line-height: 1.7; color: rgba(255,255,255,.5); }
   .lab-cta { display: flex; align-items: center; justify-content: space-between; gap: 1rem; width: 100%; margin-top: auto; padding-top: 1.2rem; border-top: 1px solid rgba(255,255,255,.12); font: 9px "IBM Plex Mono", monospace; letter-spacing: .1em; text-align: left; text-transform: uppercase; color: rgba(255,255,255,.68); }
   .lab-cta svg { width: 15px; height: 15px; opacity: .5; }
-  a.lab-cta { opacity: .7; }
-  .lab-card:hover a.lab-cta,a.lab-cta:focus-visible { opacity: 1; color: #d7ff45; }
-  a.lab-cta:focus-visible { outline: 2px solid #d7ff45; outline-offset: 5px; }
+  .lab-card:hover .lab-cta,.lab-cta:focus-visible { color: #d7ff45; }
+  .lab-cta:focus-visible { outline: 2px solid #d7ff45; outline-offset: 5px; }
   .lab-cta-static { justify-content: flex-start; color: rgba(255,255,255,.38); cursor: default; }
   .lab-cta-static svg { order: -1; }
+  .lab-detail { margin-top: clamp(4rem,7vw,7rem); border: 1px solid rgba(215,255,69,.35); padding: clamp(1.25rem,4vw,3.5rem); background: radial-gradient(circle at 85% 10%,rgba(215,255,69,.08),transparent 30%),#0c0f10; outline: none; }.lab-detail:focus-visible { box-shadow: 0 0 0 2px #d7ff45; }.lab-detail-head { display:flex; justify-content:space-between; align-items:center; gap:1rem; padding-bottom:1.25rem; border-bottom:1px solid rgba(255,255,255,.14); font:8px "IBM Plex Mono",monospace; letter-spacing:.14em; color:#d7ff45; }.lab-detail-head button { display:flex; align-items:center; gap:.5rem; min-height:44px; color:rgba(255,255,255,.65); }.lab-detail-head svg { width:15px; }.lab-detail-layout { display:grid; grid-template-columns:minmax(0,1.2fr) minmax(420px,.8fr); gap:clamp(2.5rem,5vw,5rem); padding-top:clamp(2.5rem,5vw,5rem); }.lab-detail-main,.lab-detail-specs { min-width:0; }.lab-detail-label,.lab-detail-specs h4,.lab-detail-specs dt { font:8px "IBM Plex Mono",monospace; letter-spacing:.14em; text-transform:uppercase; color:#d7ff45; }.lab-detail h3 { width:100%; max-width:100%; margin-top:1rem; font-size:clamp(4rem,5.4vw,6.75rem); line-height:.88; letter-spacing:-.06em; text-wrap:balance; overflow-wrap:normal; word-break:normal; hyphens:manual; }.lab-detail h3[data-title-size="compact"] { font-size:clamp(3.2rem,4.35vw,5.4rem); line-height:.92; letter-spacing:-.05em; }.lab-detail-layout > div > p:last-child { max-width:640px; margin-top:1.5rem; line-height:1.7; color:rgba(255,255,255,.56); }.lab-detail-specs { display:grid; gap:2rem; }.lab-detail-specs ul { display:flex; flex-wrap:wrap; gap:.5rem; margin-top:.8rem; }.lab-detail-specs li { border:1px solid rgba(255,255,255,.16); padding:.55rem .7rem; font-size:.78rem; color:rgba(255,255,255,.65); }.lab-detail-specs dl { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }.lab-detail-specs dl div { border-top:1px solid rgba(255,255,255,.15); padding-top:1rem; }.lab-detail-specs dd { margin-top:.55rem; color:#fff; }.lab-detail-contact { display:flex; justify-content:space-between; align-items:center; min-height:48px; border-top:1px solid rgba(215,255,69,.35); padding-top:1rem; font:9px "IBM Plex Mono",monospace; letter-spacing:.12em; text-transform:uppercase; color:#d7ff45; }.lab-detail-contact svg { width:16px; }
+  html[lang="fi"] .lab-detail h3,html[lang="sv"] .lab-detail h3 { hyphens:auto; }
 }
 
 @keyframes lab-marquee { to { transform: translateX(-50%); } }
@@ -660,6 +664,8 @@ html[lang="sv"] .contact-intake { min-width: 0; }
   .lab-card-featured { display: block; padding: 1rem; }
   .lab-card-featured .lab-card-body { min-height: 235px; padding-top: 1.5rem; }
   .lab-card-tall .lab-cover { aspect-ratio: 16 / 11; }
+  .lab-detail-layout { grid-template-columns: minmax(0,1fr); }
+  .lab-detail h3 { max-width: 14ch; }
 
   .focus-heading { grid-template-columns: minmax(0, 1fr); }
   .focus-heading > p { max-width: 620px; }
@@ -679,6 +685,11 @@ html[lang="sv"] .contact-intake { min-width: 0; }
   .footer-top { grid-template-columns: minmax(0, 1fr); gap: 4rem; }
   .footer-positioning p { max-width: 620px; }
 
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .lab-detail-layout { grid-template-columns: minmax(0,1fr); }
+  .lab-detail h3 { max-width: 14ch; }
 }
 
 @media (max-width: 767px) {
@@ -708,6 +719,8 @@ html[lang="sv"] .contact-intake { min-width: 0; }
   .lab-card-body,.lab-card-featured .lab-card-body { min-height: 0; padding-top: 1.35rem; }
   .lab-card-body > p { margin-bottom: 1.5rem; }
   .lab-cta { min-height: 44px; }
+  .lab-detail-layout { grid-template-columns: minmax(0,1fr); }
+  .lab-detail h3 { overflow-wrap: break-word; }
 
   .focus-index,.principles-manifesto,.contact-scene { padding-top: 6rem; padding-bottom: 6rem; }
   .focus-heading h2,.principles-heading h2 { font-size: clamp(3.2rem, 15vw, 5rem); }
@@ -1009,4 +1022,55 @@ html[lang="fi"] .story-rail li b { font-size: 6.5px; line-height: 1.5; letter-sp
 @media (prefers-reduced-motion: reduce) {
   .core-orbit { animation: none; }
   .ecosystem-routes path { transition: none; }
+}
+
+/* CAUCO Lab heading — structural containment and Swedish long-title handling */
+.lab-title-row > * {
+  min-width: 0;
+}
+
+.lab-heading h2 {
+  width: 100%;
+  max-width: 100%;
+  text-wrap: balance;
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
+@media (min-width: 1024px) {
+  html[lang="sv"] .lab-title-row {
+    grid-template-columns:
+      minmax(0, 1.25fr)
+      minmax(320px, .75fr);
+    gap: clamp(2rem, 4vw, 5rem);
+  }
+
+  html[lang="sv"] .lab-heading h2 {
+    max-width: 14ch;
+    font-size: clamp(4.25rem, 6.35vw, 7.3rem);
+    line-height: .86;
+    letter-spacing: -.065em;
+    hyphens: auto;
+  }
+}
+
+/* CAUCO Lab heading — Finnish long-title handling */
+@media (min-width: 1024px) {
+  html[lang="fi"] .lab-title-row {
+    grid-template-columns:
+      minmax(0, 1.3fr)
+      minmax(320px, .7fr);
+    gap: clamp(2rem, 4vw, 5rem);
+  }
+
+  html[lang="fi"] .lab-heading h2 {
+    max-width: 13ch;
+    font-size: clamp(4rem, 5.75vw, 6.8rem);
+    line-height: .88;
+    letter-spacing: -.06em;
+    text-wrap: balance;
+    overflow-wrap: normal;
+    word-break: normal;
+    hyphens: auto;
+  }
 }

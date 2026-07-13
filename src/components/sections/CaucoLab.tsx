@@ -1,17 +1,22 @@
-import { forwardRef, type PointerEvent, useState } from "react";
+import { forwardRef, type PointerEvent, useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion, useMotionValue, useReducedMotion, useSpring } from "framer-motion";
-import { ArrowUpRight, Clock3 } from "lucide-react";
+import { ArrowRight, X } from "lucide-react";
 import { LabProductVisual } from "@/components/lab/LabProductVisual";
 import type { LabCategory, LabProductContent, SiteContent } from "@/i18n/content";
 
 type CaucoLabProps = { content: SiteContent["lab"] };
-type LabCardProps = { product: LabProductContent; index: number; categoryLabel: string };
+type LabCardProps = { product: LabProductContent; index: number; categoryLabel: string; expanded: boolean; onOpen: () => void };
 
-const categories: LabCategory[] = ["all", "software", "research", "ui", "templates", "ai", "downloads"];
-const featuredPositions = new Set([0, 4]);
-const tallPositions = new Set([2, 6]);
+const categories: LabCategory[] = ["all", "web", "commerce", "operations", "mobile", "ai", "intelligence", "trust", "custom"];
+const featuredPositions = new Set([0, 5]);
+const tallPositions = new Set([2, 7]);
+const compactTitleLength = 27;
+const compactWordLength = 16;
 
-const LabCard = forwardRef<HTMLElement, LabCardProps>(function LabCard({ product, index, categoryLabel }, ref) {
+const needsCompactTitle = (title: string) =>
+  title.length > compactTitleLength || title.split(/\s+/).some((word) => word.length > compactWordLength);
+
+const LabCard = forwardRef<HTMLElement, LabCardProps>(function LabCard({ product, index, categoryLabel, expanded, onOpen }, ref) {
   const reduceMotion = useReducedMotion();
   const rawX = useMotionValue(0);
   const rawY = useMotionValue(0);
@@ -60,16 +65,12 @@ const LabCard = forwardRef<HTMLElement, LabCardProps>(function LabCard({ product
       </div>
       <div className="lab-card-body">
         <div className="lab-card-meta">
-          <span className={`lab-badge lab-badge-${product.status}`}>{product.statusLabel}</span>
+          <span className="lab-badge">{product.engagement}</span>
           <span>{categoryLabel}</span>
         </div>
         <h3>{product.title}</h3>
         <p>{product.description}</p>
-        {product.href ? (
-          <a href={product.href} className="lab-cta">{product.cta}<ArrowUpRight aria-hidden="true" /></a>
-        ) : (
-          <span className="lab-cta lab-cta-static"><Clock3 aria-hidden="true" />{product.statusLabel}</span>
-        )}
+        <button type="button" className="lab-cta" aria-expanded={expanded} aria-controls="lab-detail" onClick={onOpen}>{product.cta}<ArrowRight aria-hidden="true" /></button>
       </div>
     </motion.article>
   );
@@ -77,14 +78,25 @@ const LabCard = forwardRef<HTMLElement, LabCardProps>(function LabCard({ product
 
 export function CaucoLab({ content }: CaucoLabProps) {
   const [activeCategory, setActiveCategory] = useState<LabCategory>("all");
+  const [selected, setSelected] = useState<number | null>(null);
+  const detailRef = useRef<HTMLDivElement>(null);
   const reduceMotion = useReducedMotion();
   const visibleProducts = activeCategory === "all" ? content.products : content.products.filter((product) => product.category === activeCategory);
   const total = String(content.products.length).padStart(2, "0");
+  const selectedProduct = selected === null ? null : content.products[selected];
+  const compactDetailTitle = selectedProduct ? needsCompactTitle(selectedProduct.title) : false;
+  useEffect(() => { if (selectedProduct) detailRef.current?.focus(); }, [selectedProduct]);
+  useEffect(() => {
+    if (!selectedProduct) return;
+    const closeOnEscape = (event: KeyboardEvent) => { if (event.key === "Escape") setSelected(null); };
+    window.addEventListener("keydown", closeOnEscape);
+    return () => window.removeEventListener("keydown", closeOnEscape);
+  }, [selectedProduct]);
 
   return (
     <section id="lab" className="cauco-lab" aria-labelledby="cauco-lab-title">
       <div className="lab-marquee" aria-hidden="true">
-        <div>CAUCO LAB — DIGITAL GOODS — RESEARCH OBJECTS — INTERFACE SYSTEMS — CAUCO LAB — DIGITAL GOODS — RESEARCH OBJECTS — INTERFACE SYSTEMS —</div>
+        <div>CAUCO LAB — SOFTWARE SYSTEMS — APPLIED ENGINEERING — CLIENT WORK — CAUCO LAB — SOFTWARE SYSTEMS — APPLIED ENGINEERING — CLIENT WORK —</div>
       </div>
       <div className="container">
         <p className="lab-bridge"><span>04 / LAB OUTPUT</span>{content.bridge}</p>
@@ -111,10 +123,16 @@ export function CaucoLab({ content }: CaucoLabProps) {
           <AnimatePresence mode="popLayout" initial={false}>
             {visibleProducts.map((product) => {
               const index = content.products.indexOf(product);
-              return <LabCard key={product.title} product={product} index={index} categoryLabel={content.filters[product.category]} />;
+              return <LabCard key={product.title} product={product} index={index} categoryLabel={content.filters[product.category]} expanded={selected === index} onOpen={() => setSelected(index)} />;
             })}
           </AnimatePresence>
         </motion.div>
+        <AnimatePresence>
+          {selectedProduct && <motion.div id="lab-detail" ref={detailRef} tabIndex={-1} role="region" aria-labelledby="lab-detail-title" className="lab-detail" initial={reduceMotion ? false : { opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: reduceMotion ? 0 : 16 }}>
+            <div className="lab-detail-head"><span>LAB—{String(selected! + 1).padStart(2, "0")} / {content.filters[selectedProduct.category]}</span><button type="button" onClick={() => setSelected(null)} aria-label={content.detail.close}><X aria-hidden="true" />{content.detail.close}</button></div>
+            <div className="lab-detail-layout"><div className="lab-detail-main"><p className="lab-detail-label">{content.detail.includes}</p><h3 id="lab-detail-title" data-title-size={compactDetailTitle ? "compact" : "default"}>{selectedProduct.title}</h3><p>{selectedProduct.description}</p></div><div className="lab-detail-specs"><section><h4>{content.detail.idealFor}</h4><ul>{selectedProduct.idealFor.map(x => <li key={x}>{x}</li>)}</ul></section><section><h4>{content.detail.capabilities}</h4><ul>{selectedProduct.capabilities.map(x => <li key={x}>{x}</li>)}</ul></section><dl><div><dt>{content.detail.delivery}</dt><dd>{selectedProduct.delivery}</dd></div><div><dt>{content.detail.engagement}</dt><dd>{selectedProduct.engagement}</dd></div></dl><a href="#contact" className="lab-detail-contact">{content.detail.contact}<ArrowRight aria-hidden="true" /></a></div></div>
+          </motion.div>}
+        </AnimatePresence>
       </div>
     </section>
   );

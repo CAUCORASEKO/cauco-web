@@ -33,16 +33,19 @@ export type PrincipleContent = {
   body: string;
 };
 
-export type LabCategory = "all" | "software" | "research" | "ui" | "templates" | "ai" | "downloads";
+export type LabCategory = "all" | "web" | "commerce" | "operations" | "mobile" | "ai" | "intelligence" | "trust" | "custom";
+
+export type LabEngagement = "Starter" | "Professional" | "Advanced" | "Enterprise";
 
 export type LabProductContent = {
   title: string;
   description: string;
   category: Exclude<LabCategory, "all">;
-  status: "coming" | "research" | "free" | "premium" | "prototype";
-  statusLabel: string;
+  idealFor: string[];
+  capabilities: string[];
+  delivery: string;
+  engagement: LabEngagement;
   cta: string;
-  href?: string;
 };
 
 export type SiteContent = {
@@ -86,6 +89,7 @@ export type SiteContent = {
     description: string;
     filters: Record<LabCategory, string>;
     products: LabProductContent[];
+    detail: { close: string; includes: string; idealFor: string; capabilities: string; delivery: string; engagement: string; contact: string };
   };
   technicalFocus: {
     kicker: string;
@@ -307,21 +311,24 @@ export const content = {
       summary: "A visualized architecture showing how system-specific review flows can share identity, policy, evidence and decision layers.",
     },
     lab: {
-      label: "Available now",
-      bridge: "Products and research objects emerging from the same trust-infrastructure lab.",
-      title: "Explore the CAUCO Lab",
-      description: "A growing collection of software, research, UI systems, templates and experimental digital products.",
-      filters: { all: "All", software: "Software", research: "Research", ui: "UI", templates: "Templates", ai: "AI", downloads: "Downloads" },
+      label: "Available for client work",
+      bridge: "Commercial software engineering for practical operations and complex institutional requirements.",
+      title: "Software systems for real business problems.",
+      description: "A catalog of websites, platforms, mobile applications, AI systems, analytics tools and custom engineering solutions designed for organizations of different sizes.",
+      filters: { all: "All", web: "Web", commerce: "Commerce", operations: "Operations", mobile: "Mobile", ai: "AI", intelligence: "Intelligence", trust: "Trust", custom: "Custom" },
       products: [
-        { title: "Aurora UI Kit", description: "Interface primitives for controlled operations, evidence and institutional review flows.", category: "ui", status: "coming", statusLabel: "Coming Soon", cta: "Preview" },
-        { title: "Trust Infrastructure Blueprint", description: "A practical architecture map for identity, policy, evidence and accountable automation.", category: "research", status: "research", statusLabel: "Research", cta: "Preview" },
-        { title: "Audit Report Templates", description: "Clear, reusable structures for findings, evidence, controls and remediation reporting.", category: "templates", status: "free", statusLabel: "Free", cta: "Preview" },
-        { title: "Compliance Icons", description: "A precise icon set for controls, approvals, risk states and audit interfaces.", category: "ui", status: "premium", statusLabel: "Premium", cta: "Preview" },
-        { title: "AI Prompt Collection", description: "Focused prompts for analysis, QA review, structured evidence and delivery workflows.", category: "ai", status: "prototype", statusLabel: "Prototype", cta: "Preview" },
-        { title: "Evidence Pack", description: "Modular evidence components for trustworthy technical and compliance documentation.", category: "downloads", status: "coming", statusLabel: "Coming Soon", cta: "Preview" },
-        { title: "Risk Matrix Toolkit", description: "Research-backed scales and canvases for consistent technical risk assessment.", category: "research", status: "research", statusLabel: "Research", cta: "Preview" },
-        { title: "Developer Starter Kit", description: "A compact foundation for building clear, resilient AI-assisted product interfaces.", category: "software", status: "free", statusLabel: "Free", cta: "Preview" },
+        { title: "Business Websites", description: "Professional multilingual websites that present a company clearly and convert visitors into customers.", category: "web", idealFor: ["Growing businesses", "Professional services", "International teams"], capabilities: ["Content management", "Multilingual UX", "SEO and conversion tracking"], delivery: "2–5 weeks", engagement: "Starter", cta: "Explore solution" },
+        { title: "E-Commerce Platforms", description: "Online stores with payments, product management, order workflows, inventory and analytics.", category: "commerce", idealFor: ["Retailers", "Manufacturers", "Subscription businesses"], capabilities: ["Payments and checkout", "Inventory and orders", "Commerce analytics"], delivery: "4–8 weeks", engagement: "Professional", cta: "View capabilities" },
+        { title: "Booking & Reservation Systems", description: "Scheduling, availability, reminders, payments and administrative tools in one operational flow.", category: "operations", idealFor: ["Clinics and studios", "Hospitality", "Field services"], capabilities: ["Live availability", "Automated reminders", "Payments and admin tools"], delivery: "4–8 weeks", engagement: "Professional", cta: "Explore solution" },
+        { title: "Customer & Member Portals", description: "Secure portals for customers, members, partners or internal teams, with authentication and document access.", category: "operations", idealFor: ["Member organizations", "B2B services", "Distributed teams"], capabilities: ["Identity and permissions", "Document workflows", "Self-service dashboards"], delivery: "6–12 weeks", engagement: "Advanced", cta: "Discuss this system" },
+        { title: "Mobile Applications", description: "Cross-platform iOS and Android applications with backend services, notifications and account management.", category: "mobile", idealFor: ["Digital services", "Operational teams", "Connected products"], capabilities: ["iOS and Android", "Push notifications", "Secure API integration"], delivery: "8–16 weeks", engagement: "Advanced", cta: "View capabilities" },
+        { title: "AI Business Assistants", description: "Private AI assistants connected to company knowledge, documents, APIs and internal workflows.", category: "ai", idealFor: ["Knowledge teams", "Customer operations", "Regulated organizations"], capabilities: ["Private knowledge retrieval", "Workflow automation", "Access controls and evaluation"], delivery: "6–12 weeks", engagement: "Advanced", cta: "Discuss this system" },
+        { title: "Analytics & Monitoring Platforms", description: "Dashboards, reporting, real-time monitoring, alerts and decision-support systems.", category: "intelligence", idealFor: ["Operations leaders", "Research teams", "Data-driven organizations"], capabilities: ["Data integrations", "Live dashboards", "Alerts and reporting"], delivery: "6–12 weeks", engagement: "Advanced", cta: "View capabilities" },
+        { title: "Investigation & Evidence Systems", description: "Software for research, case management, evidence organization, timelines and investigative workflows.", category: "intelligence", idealFor: ["Investigative teams", "Researchers", "Public institutions"], capabilities: ["Case and evidence management", "Timeline and relationship analysis", "Controlled reporting"], delivery: "8–16 weeks", engagement: "Enterprise", cta: "Discuss this system" },
+        { title: "Trust, Compliance & Quality Systems", description: "Governance, audit, evidence and quality engineering for controlled operational workflows.", category: "trust", idealFor: ["Regulated businesses", "Quality teams", "Public institutions"], capabilities: ["Controls and audit trails", "Evidence-based decisions", "Aurora, QALens and AisoSec integration"], delivery: "8–16 weeks", engagement: "Enterprise", cta: "View capabilities" },
+        { title: "Custom Engineering", description: "Tailored software for complex or unusual business problems that do not fit a standard category.", category: "custom", idealFor: ["Complex operations", "New digital ventures", "Specialist organizations"], capabilities: ["Discovery and architecture", "Custom integrations", "Production engineering"], delivery: "Scope-dependent", engagement: "Enterprise", cta: "Discuss this system" },
       ],
+      detail: { close: "Close", includes: "What the solution includes", idealFor: "Ideal for", capabilities: "Core capabilities", delivery: "Typical delivery", engagement: "Engagement level", contact: "Discuss your project" },
     },
     technicalFocus: {
       kicker: "Technical Focus",
@@ -552,21 +559,24 @@ export const content = {
       summary: "Visualisoitu arkkitehtuuri siitä, miten järjestelmäkohtaiset tarkistusprosessit voivat jakaa identiteetti-, politiikka-, evidenssi- ja päätöskerrokset.",
     },
     lab: {
-      label: "Saatavilla nyt",
-      bridge: "Tuotteita ja tutkimusobjekteja samasta luottamusinfrastruktuurin laboratoriosta.",
-      title: "Tutustu CAUCO Labiin",
-      description: "Kasvava kokoelma ohjelmistoja, tutkimusta, UI-järjestelmiä, mallipohjia ja kokeellisia digitaalisia tuotteita.",
-      filters: { all: "Kaikki", software: "Ohjelmistot", research: "Tutkimus", ui: "UI", templates: "Mallipohjat", ai: "AI", downloads: "Lataukset" },
+      label: "Saatavilla asiakastöihin",
+      bridge: "Kaupallista ohjelmistokehitystä käytännön toimintaan ja vaativiin institutionaalisiin tarpeisiin.",
+      title: "Ohjelmistojärjestelmiä todellisiin liiketoiminnan tarpeisiin.",
+      description: "Verkkosivustoja, alustoja, mobiilisovelluksia, tekoälyjärjestelmiä, analytiikkatyökaluja ja räätälöityjä teknisiä ratkaisuja erikokoisille organisaatioille.",
+      filters: { all: "Kaikki", web: "Verkko", commerce: "Kauppa", operations: "Toiminnot", mobile: "Mobiili", ai: "AI", intelligence: "Analytiikka", trust: "Luottamus", custom: "Räätälöity" },
       products: [
-        { title: "Aurora UI Kit", description: "Käyttöliittymäpalikoita hallittuihin operaatioihin, evidenssiin ja institutionaalisiin tarkistusprosesseihin.", category: "ui", status: "coming", statusLabel: "Tulossa", cta: "Esikatsele" },
-        { title: "Trust Infrastructure Blueprint", description: "Käytännöllinen arkkitehtuurikartta identiteetille, politiikoille, evidenssille ja vastuulliselle automaatiolle.", category: "research", status: "research", statusLabel: "Tutkimus", cta: "Esikatsele" },
-        { title: "Audit Report Templates", description: "Selkeät ja uudelleenkäytettävät rakenteet havainnoille, evidenssille, kontrolleille ja korjaustoimille.", category: "templates", status: "free", statusLabel: "Ilmainen", cta: "Esikatsele" },
-        { title: "Compliance Icons", description: "Tarkka ikonisarja kontrolleille, hyväksynnöille, riskitiloille ja auditointiliittymille.", category: "ui", status: "premium", statusLabel: "Premium", cta: "Esikatsele" },
-        { title: "AI Prompt Collection", description: "Kohdennettuja kehotteita analyysiin, QA-tarkistukseen, evidenssiin ja toimitustyönkulkuihin.", category: "ai", status: "prototype", statusLabel: "Prototyyppi", cta: "Esikatsele" },
-        { title: "Evidence Pack", description: "Modulaarisia evidenssikomponentteja luotettavaan tekniseen ja compliance-dokumentaatioon.", category: "downloads", status: "coming", statusLabel: "Tulossa", cta: "Esikatsele" },
-        { title: "Risk Matrix Toolkit", description: "Tutkimuspohjaiset asteikot ja pohjat johdonmukaiseen tekniseen riskien arviointiin.", category: "research", status: "research", statusLabel: "Tutkimus", cta: "Esikatsele" },
-        { title: "Developer Starter Kit", description: "Kompakti perusta selkeiden ja kestävien AI-avusteisten tuotekäyttöliittymien rakentamiseen.", category: "software", status: "free", statusLabel: "Ilmainen", cta: "Esikatsele" },
+        { title: "Yritysten verkkosivustot", description: "Ammattimaiset monikieliset sivustot, jotka esittelevät yrityksen selkeästi ja muuttavat kävijät asiakkaiksi.", category: "web", idealFor: ["Kasvuyritykset", "Asiantuntijapalvelut", "Kansainväliset tiimit"], capabilities: ["Sisällönhallinta", "Monikielinen käyttökokemus", "Hakukoneoptimointi ja mittaus"], delivery: "2–5 viikkoa", engagement: "Starter", cta: "Tutustu ratkaisuun" },
+        { title: "Verkkokauppa-alustat", description: "Verkkokaupat maksuineen, tuotehallintoineen, tilausprosesseineen, varastoineen ja analytiikkoineen.", category: "commerce", idealFor: ["Kauppiaat", "Valmistajat", "Tilauspalvelut"], capabilities: ["Maksut ja kassa", "Varasto ja tilaukset", "Kaupan analytiikka"], delivery: "4–8 viikkoa", engagement: "Professional", cta: "Katso ominaisuudet" },
+        { title: "Ajanvarausjärjestelmät", description: "Ajanvaraus, saatavuus, muistutukset, maksut ja hallintatyökalut yhtenä kokonaisuutena.", category: "operations", idealFor: ["Klinikat ja studiot", "Majoitusala", "Kenttäpalvelut"], capabilities: ["Reaaliaikainen saatavuus", "Automaattiset muistutukset", "Maksut ja hallinta"], delivery: "4–8 viikkoa", engagement: "Professional", cta: "Tutustu ratkaisuun" },
+        { title: "Asiakas- ja jäsenportaalit", description: "Turvalliset portaalit asiakkaille, jäsenille, kumppaneille tai sisäisille tiimeille.", category: "operations", idealFor: ["Jäsenorganisaatiot", "B2B-palvelut", "Hajautetut tiimit"], capabilities: ["Tunnistautuminen ja oikeudet", "Dokumenttityönkulut", "Itsepalvelunäkymät"], delivery: "6–12 viikkoa", engagement: "Advanced", cta: "Keskustele järjestelmästä" },
+        { title: "Mobiilisovellukset", description: "iOS- ja Android-sovellukset taustapalveluineen, ilmoituksineen ja käyttäjähallintoineen.", category: "mobile", idealFor: ["Digitaaliset palvelut", "Operatiiviset tiimit", "Yhdistetyt tuotteet"], capabilities: ["iOS ja Android", "Push-ilmoitukset", "Turvalliset API-liitännät"], delivery: "8–16 viikkoa", engagement: "Advanced", cta: "Katso ominaisuudet" },
+        { title: "AI-liiketoiminta-avustajat", description: "Yksityiset tekoälyavustajat, jotka hyödyntävät yrityksen tietoa, dokumentteja, rajapintoja ja työnkulkuja.", category: "ai", idealFor: ["Asiantuntijatiimit", "Asiakastoiminnot", "Säännellyt organisaatiot"], capabilities: ["Yksityinen tiedonhaku", "Työnkulkuautomaatio", "Käyttöoikeudet ja arviointi"], delivery: "6–12 viikkoa", engagement: "Advanced", cta: "Keskustele järjestelmästä" },
+        { title: "Analytiikka- ja valvonta-alustat", description: "Kojelaudat, raportointi, reaaliaikainen valvonta, hälytykset ja päätöksenteon tuki.", category: "intelligence", idealFor: ["Operatiivinen johto", "Tutkimustiimit", "Dataohjatut organisaatiot"], capabilities: ["Dataintegraatiot", "Reaaliaikaiset kojelaudat", "Hälytykset ja raportointi"], delivery: "6–12 viikkoa", engagement: "Advanced", cta: "Katso ominaisuudet" },
+        { title: "Tutkinta- ja evidenssijärjestelmät", description: "Ohjelmistoja tutkimukseen, tapausten hallintaan, evidenssin jäsentämiseen, aikajanoihin ja raportointiin.", category: "intelligence", idealFor: ["Tutkintatiimit", "Tutkijat", "Julkiset organisaatiot"], capabilities: ["Tapaus- ja evidenssihallinta", "Aikajana- ja suhdeanalyysi", "Hallittu raportointi"], delivery: "8–16 viikkoa", engagement: "Enterprise", cta: "Keskustele järjestelmästä" },
+        { title: "Luottamus-, compliance- ja laatujärjestelmät", description: "Hallintoa, auditointia, evidenssiä ja laatujärjestelmiä kontrolloituihin työnkulkuihin.", category: "trust", idealFor: ["Säännellyt yritykset", "Laatutiimit", "Julkiset organisaatiot"], capabilities: ["Kontrollit ja auditointijäljet", "Evidenssipohjaiset päätökset", "Aurora-, QALens- ja AisoSec-integraatiot"], delivery: "8–16 viikkoa", engagement: "Enterprise", cta: "Katso ominaisuudet" },
+        { title: "Räätälöity ohjelmistokehitys", description: "Mittatilausohjelmistoja monimutkaisiin tai poikkeuksellisiin tarpeisiin, joihin vakioratkaisu ei sovi.", category: "custom", idealFor: ["Monimutkaiset toiminnot", "Uudet digitaaliset palvelut", "Erikoisorganisaatiot"], capabilities: ["Määrittely ja arkkitehtuuri", "Räätälöidyt integraatiot", "Tuotantotason toteutus"], delivery: "Laajuuden mukaan", engagement: "Enterprise", cta: "Keskustele järjestelmästä" },
       ],
+      detail: { close: "Sulje", includes: "Mitä ratkaisu sisältää", idealFor: "Sopii erityisesti", capabilities: "Keskeiset ominaisuudet", delivery: "Tyypillinen toimitusaika", engagement: "Yhteistyön taso", contact: "Keskustele projektistasi" },
     },
     technicalFocus: {
       kicker: "Tekninen painopiste",
@@ -798,21 +808,24 @@ export const content = {
       summary: "En visualiserad arkitektur som visar hur systemspecifika granskningsflöden kan dela identitets-, policy-, evidens- och beslutslager.",
     },
     lab: {
-      label: "Tillgängligt nu",
-      bridge: "Produkter och forskningsobjekt från samma laboratorium för tillitsinfrastruktur.",
-      title: "Utforska CAUCO Lab",
-      description: "En växande samling programvara, forskning, UI-system, mallar och experimentella digitala produkter.",
-      filters: { all: "Alla", software: "Programvara", research: "Forskning", ui: "UI", templates: "Mallar", ai: "AI", downloads: "Nedladdningar" },
+      label: "Tillgängligt för kunduppdrag",
+      bridge: "Kommersiell programvaruutveckling för praktisk verksamhet och komplexa institutionella behov.",
+      title: "Programvarusystem för verkliga affärsproblem.",
+      description: "En katalog med webbplatser, plattformar, mobilappar, AI-system, analysverktyg och skräddarsydda tekniska lösningar för organisationer av olika storlek.",
+      filters: { all: "Alla", web: "Webb", commerce: "Handel", operations: "Verksamhet", mobile: "Mobil", ai: "AI", intelligence: "Analys", trust: "Tillit", custom: "Skräddarsytt" },
       products: [
-        { title: "Aurora UI Kit", description: "Gränssnittselement för kontrollerade operationer, evidens och institutionella granskningsflöden.", category: "ui", status: "coming", statusLabel: "Kommer snart", cta: "Förhandsvisa" },
-        { title: "Trust Infrastructure Blueprint", description: "En praktisk arkitekturkarta för identitet, policy, evidens och ansvarsfull automatisering.", category: "research", status: "research", statusLabel: "Forskning", cta: "Förhandsvisa" },
-        { title: "Audit Report Templates", description: "Tydliga, återanvändbara strukturer för fynd, evidens, kontroller och åtgärdsrapportering.", category: "templates", status: "free", statusLabel: "Gratis", cta: "Förhandsvisa" },
-        { title: "Compliance Icons", description: "En precis ikonuppsättning för kontroller, godkännanden, riskstatus och revisionsgränssnitt.", category: "ui", status: "premium", statusLabel: "Premium", cta: "Förhandsvisa" },
-        { title: "AI Prompt Collection", description: "Fokuserade prompter för analys, QA-granskning, strukturerad evidens och leveransflöden.", category: "ai", status: "prototype", statusLabel: "Prototyp", cta: "Förhandsvisa" },
-        { title: "Evidence Pack", description: "Modulära evidenskomponenter för tillförlitlig teknisk dokumentation och compliance.", category: "downloads", status: "coming", statusLabel: "Kommer snart", cta: "Förhandsvisa" },
-        { title: "Risk Matrix Toolkit", description: "Forskningsbaserade skalor och underlag för konsekvent teknisk riskbedömning.", category: "research", status: "research", statusLabel: "Forskning", cta: "Förhandsvisa" },
-        { title: "Developer Starter Kit", description: "En kompakt grund för tydliga, robusta och AI-assisterade produktgränssnitt.", category: "software", status: "free", statusLabel: "Gratis", cta: "Förhandsvisa" },
+        { title: "Företagswebbplatser", description: "Professionella flerspråkiga webbplatser som presenterar företaget tydligt och omvandlar besökare till kunder.", category: "web", idealFor: ["Växande företag", "Expertjänster", "Internationella team"], capabilities: ["Innehållshantering", "Flerspråkig UX", "SEO och konverteringsmätning"], delivery: "2–5 veckor", engagement: "Starter", cta: "Utforska lösningen" },
+        { title: "E-handelsplattformar", description: "Nätbutiker med betalningar, produkthantering, orderflöden, lager och analys.", category: "commerce", idealFor: ["Återförsäljare", "Tillverkare", "Prenumerationstjänster"], capabilities: ["Betalning och kassa", "Lager och order", "Handelsanalys"], delivery: "4–8 veckor", engagement: "Professional", cta: "Se funktioner" },
+        { title: "Boknings- och reservationssystem", description: "Tidsbokning, tillgänglighet, påminnelser, betalningar och administration i ett flöde.", category: "operations", idealFor: ["Kliniker och studior", "Hotell och restaurang", "Fälttjänster"], capabilities: ["Tillgänglighet i realtid", "Automatiska påminnelser", "Betalning och administration"], delivery: "4–8 veckor", engagement: "Professional", cta: "Utforska lösningen" },
+        { title: "Kund- och medlemsportaler", description: "Säkra portaler för kunder, medlemmar, partner eller interna team med dokumentåtkomst.", category: "operations", idealFor: ["Medlemsorganisationer", "B2B-tjänster", "Distribuerade team"], capabilities: ["Identitet och behörighet", "Dokumentflöden", "Självbetjäningsvyer"], delivery: "6–12 veckor", engagement: "Advanced", cta: "Diskutera systemet" },
+        { title: "Mobilapplikationer", description: "Plattformsoberoende appar för iOS och Android med backend, notiser och kontohantering.", category: "mobile", idealFor: ["Digitala tjänster", "Operativa team", "Uppkopplade produkter"], capabilities: ["iOS och Android", "Pushnotiser", "Säker API-integration"], delivery: "8–16 veckor", engagement: "Advanced", cta: "Se funktioner" },
+        { title: "AI-assistenter för företag", description: "Privata AI-assistenter kopplade till företagets kunskap, dokument, API:er och arbetsflöden.", category: "ai", idealFor: ["Kunskapsteam", "Kundverksamhet", "Reglerade organisationer"], capabilities: ["Privat kunskapssökning", "Automatiserade arbetsflöden", "Åtkomstkontroll och utvärdering"], delivery: "6–12 veckor", engagement: "Advanced", cta: "Diskutera systemet" },
+        { title: "Analys- och övervakningsplattformar", description: "Instrumentpaneler, rapportering, realtidsövervakning, larm och beslutsstöd.", category: "intelligence", idealFor: ["Verksamhetsledning", "Forskningsteam", "Datadrivna organisationer"], capabilities: ["Dataintegrationer", "Livepaneler", "Larm och rapportering"], delivery: "6–12 veckor", engagement: "Advanced", cta: "Se funktioner" },
+        { title: "Utrednings- och bevissystem", description: "Programvara för forskning, ärendehantering, bevisstruktur, tidslinjer och utredningsflöden.", category: "intelligence", idealFor: ["Utredningsteam", "Forskare", "Offentliga institutioner"], capabilities: ["Ärende- och bevishantering", "Tidslinje- och relationsanalys", "Kontrollerad rapportering"], delivery: "8–16 veckor", engagement: "Enterprise", cta: "Diskutera systemet" },
+        { title: "System för tillit, compliance och kvalitet", description: "Styrning, revision, evidens och kvalitetsteknik för kontrollerade arbetsflöden.", category: "trust", idealFor: ["Reglerade företag", "Kvalitetsteam", "Offentliga institutioner"], capabilities: ["Kontroller och revisionsspår", "Evidensbaserade beslut", "Aurora-, QALens- och AisoSec-integration"], delivery: "8–16 veckor", engagement: "Enterprise", cta: "Se funktioner" },
+        { title: "Skräddarsydd systemutveckling", description: "Specialbyggd programvara för komplexa eller ovanliga behov som saknar standardlösning.", category: "custom", idealFor: ["Komplex verksamhet", "Nya digitala tjänster", "Specialistorganisationer"], capabilities: ["Förstudie och arkitektur", "Skräddarsydda integrationer", "Produktionsklar utveckling"], delivery: "Enligt omfattning", engagement: "Enterprise", cta: "Diskutera systemet" },
       ],
+      detail: { close: "Stäng", includes: "Det här ingår", idealFor: "Passar särskilt", capabilities: "Centrala funktioner", delivery: "Typisk leveranstid", engagement: "Samarbetsnivå", contact: "Diskutera ditt projekt" },
     },
     technicalFocus: {
       kicker: "Tekniskt fokus",
