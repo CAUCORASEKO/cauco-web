@@ -1074,3 +1074,33 @@ html[lang="fi"] .story-rail li b { font-size: 6.5px; line-height: 1.5; letter-sp
     hyphens: auto;
   }
 }
+
+/* Ecosystem heading — column containment and Swedish long-title handling */
+.ecosystem-heading > * {
+  min-width: 0;
+}
+
+.ecosystem-heading h2 {
+  width: 100%;
+  max-width: 100%;
+  text-wrap: balance;
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
+@media (min-width: 1024px) {
+  html[lang="sv"] .ecosystem-heading {
+    grid-template-columns:
+      minmax(0, 1.22fr)
+      minmax(340px, .78fr);
+    gap: clamp(2.5rem, 5vw, 6rem);
+  }
+
+  html[lang="sv"] .ecosystem-heading h2 {
+    max-width: 13ch;
+    font-size: clamp(4rem, 5.9vw, 6.7rem);
+    line-height: .9;
+    letter-spacing: -.06em;
+    hyphens: auto;
+  }
+}
