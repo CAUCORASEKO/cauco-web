@@ -11,4 +11,8 @@ return [
     'session_name' => 'CAUCOADMIN',
     'content_dir' => dirname(__DIR__) . '/content',
     'backup_dir' => dirname(__DIR__) . '/content/backups',
+    'reset_email' => 'administrator@example.com',
+    'admin_base_url' => 'https://example.com/admin',
+    'runtime_dir' => __DIR__ . '/runtime',
+    'password_version' => 1,
 ];

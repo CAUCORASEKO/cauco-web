@@ -494,22 +494,78 @@
     "copy": "Työ on vahvimmillaan siellä, missä tuoteajattelun, arkkitehtuurin ja toteutuksen laadun pitää kohdata samassa käyttöliittymässä.",
     "areas": [
       {
-        "title": "AI-avusteiset ohjelmistojärjestelmät"
+        "title": "AI-avusteiset ohjelmistojärjestelmät",
+        "description": "Sovellettua tekoälyä todellisten päätösten tueksi niin, että evidenssi, tarkistus ja hallinta säilyvät näkyvinä.",
+        "capabilities": [
+          "Tiedonhaku",
+          "Arviointi",
+          "Ihmisen tarkistus"
+        ],
+        "related": [
+          "QALens",
+          "AisoSec Audit"
+        ]
       },
       {
-        "title": "Fintech- ja vaatimustenmukaisuustyökalut"
+        "title": "Fintech- ja vaatimustenmukaisuustyökalut",
+        "description": "Hallittuja työnkulkuja säänneltyihin toimintoihin, riskianalyysiin ja jäljitettäviin päätöksiin.",
+        "capabilities": [
+          "Käytäntöportit",
+          "Riskikontrollit",
+          "Auditointijäljet"
+        ],
+        "related": [
+          "Aurora",
+          "Market Surveillance AI"
+        ]
       },
       {
-        "title": "Työpöytäsovellukset"
+        "title": "Työpöytäsovellukset",
+        "description": "Kohdennettuja työkaluja analyytikoille ja asiantuntijoille, jotka tarvitsevat tiivistä tietoa ilman käyttöliittymän kitkaa.",
+        "capabilities": [
+          "Monialustainen UI",
+          "Paikalliset työnkulut",
+          "Turvalliset integraatiot"
+        ],
+        "related": [
+          "WhaleScope Desktop"
+        ]
       },
       {
-        "title": "Taustajärjestelmien arkkitehtuuri"
+        "title": "Taustajärjestelmien arkkitehtuuri",
+        "description": "Palveluperustat selkeisiin vastuualueisiin, luotettavaan toimintaan ja hallittuun kasvuun.",
+        "capabilities": [
+          "API-suunnittelu",
+          "Tietomallit",
+          "Havainnoitavuus"
+        ],
+        "related": []
       },
       {
-        "title": "Auditointivalmis raportointi"
+        "title": "Auditointivalmis raportointi",
+        "description": "Rakenteiset tulokset, jotka yhdistävät havainnot evidenssiin, kontrolleihin ja vastuulliseen tarkistukseen.",
+        "capabilities": [
+          "Evidenssin tallennus",
+          "Kontrollikartoitus",
+          "PDF-tulosteet"
+        ],
+        "related": [
+          "AisoSec Audit",
+          "Aurora"
+        ]
       },
       {
-        "title": "Kehittäjätyönkulkujen automaatio"
+        "title": "Kehittäjätyönkulkujen automaatio",
+        "description": "Suojakaiteilla rajattua automaatiota, joka vähentää toistuvaa työtä piilottamatta merkityksellisiä toimia.",
+        "capabilities": [
+          "AI-agentit",
+          "Hyväksyntäportit",
+          "Toimitusevidenssi"
+        ],
+        "related": [
+          "AgentDock",
+          "QALens"
+        ]
       }
     ]
   },

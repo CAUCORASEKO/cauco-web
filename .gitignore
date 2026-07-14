@@ -7,3 +7,6 @@ dist
 *.tsbuildinfo
 .DS_Store
 public/admin/config.php
+public/admin/runtime/*
+!public/admin/runtime/.gitkeep
+!public/admin/runtime/.htaccess

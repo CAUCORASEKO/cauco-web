@@ -494,22 +494,78 @@
     "copy": "The work is strongest where product thinking, architecture and implementation quality need to meet in the same interface.",
     "areas": [
       {
-        "title": "AI-assisted software systems"
+        "title": "AI-assisted software systems",
+        "description": "Applied AI that supports real decisions while keeping evidence, review and control visible.",
+        "capabilities": [
+          "Knowledge retrieval",
+          "Evaluation",
+          "Human review"
+        ],
+        "related": [
+          "QALens",
+          "AisoSec Audit"
+        ]
       },
       {
-        "title": "Fintech and compliance tooling"
+        "title": "Fintech and compliance tooling",
+        "description": "Controlled workflows for regulated operations, risk analysis and traceable decisions.",
+        "capabilities": [
+          "Policy gates",
+          "Risk controls",
+          "Audit trails"
+        ],
+        "related": [
+          "Aurora",
+          "Market Surveillance AI"
+        ]
       },
       {
-        "title": "Desktop applications"
+        "title": "Desktop applications",
+        "description": "Focused tools for analysts and specialists who need dense information without interface friction.",
+        "capabilities": [
+          "Cross-platform UI",
+          "Local workflows",
+          "Secure integration"
+        ],
+        "related": [
+          "WhaleScope Desktop"
+        ]
       },
       {
-        "title": "Backend architecture"
+        "title": "Backend architecture",
+        "description": "Service foundations designed for clear boundaries, reliable operations and measured growth.",
+        "capabilities": [
+          "API design",
+          "Data models",
+          "Observability"
+        ],
+        "related": []
       },
       {
-        "title": "Audit-ready reporting"
+        "title": "Audit-ready reporting",
+        "description": "Structured outputs that connect findings to evidence, controls and accountable review.",
+        "capabilities": [
+          "Evidence capture",
+          "Control mapping",
+          "PDF outputs"
+        ],
+        "related": [
+          "AisoSec Audit",
+          "Aurora"
+        ]
       },
       {
-        "title": "Developer workflow automation"
+        "title": "Developer workflow automation",
+        "description": "Guardrailed automation that reduces repetitive work without hiding consequential actions.",
+        "capabilities": [
+          "AI agents",
+          "Approval gates",
+          "Delivery evidence"
+        ],
+        "related": [
+          "AgentDock",
+          "QALens"
+        ]
       }
     ]
   },

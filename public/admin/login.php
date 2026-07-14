@@ -36,6 +36,7 @@ if (($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'POST') {
     ) {
         session_regenerate_id(true);
         $_SESSION['authenticated'] = true;
+        $_SESSION['password_version'] = password_version($config);
         $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
         unset($_SESSION['login_failures'], $_SESSION['login_locked_until']);
         header('Location: index.php', true, 303);
@@ -76,12 +77,17 @@ if (($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'POST') {
         <p class="alert alert-error" role="alert">Administrator configuration is unavailable.</p>
       <?php endif; ?>
 
+      <?php if (isset($_GET['changed']) || isset($_GET['reset'])): ?>
+        <p class="alert alert-success" role="status">Your password was updated. Sign in with the new password.</p>
+      <?php endif; ?>
+
       <form method="post" action="login.php" class="login-form" autocomplete="on">
         <input type="hidden" name="csrf_token" value="<?= e((string) $_SESSION['csrf_token']) ?>">
         <label for="password">Password</label>
         <input id="password" name="password" type="password" autocomplete="current-password" required autofocus>
         <button type="submit" class="button button-primary"<?= !$configReady ? ' disabled' : '' ?>>Sign in</button>
       </form>
+      <p class="auth-link"><a href="forgot-password.php">Forgot password?</a></p>
     </section>
   </main>
 </body>

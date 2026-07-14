@@ -53,10 +53,13 @@ $previewLabels = [
       <p class="eyebrow">Private content workspace</p>
       <h1>CAUCO Admin</h1>
     </div>
-    <form id="logout-form" method="post" action="logout.php">
-      <input type="hidden" name="csrf_token" value="<?= e((string) $_SESSION['csrf_token']) ?>">
-      <button type="submit" class="button button-secondary">Log out</button>
-    </form>
+    <div class="admin-header-actions">
+      <a class="button button-secondary" href="change-password.php">Change password</a>
+      <form id="logout-form" method="post" action="logout.php">
+        <input type="hidden" name="csrf_token" value="<?= e((string) $_SESSION['csrf_token']) ?>">
+        <button type="submit" class="button button-secondary">Log out</button>
+      </form>
+    </div>
   </header>
 
   <main class="admin-main">

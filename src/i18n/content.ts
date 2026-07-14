@@ -26,6 +26,9 @@ export type SystemContent = {
 
 export type FocusAreaContent = {
   title: string;
+  description: string;
+  capabilities: string[];
+  related?: string[];
 };
 
 export type PrincipleContent = {
@@ -336,12 +339,12 @@ export const content = {
       copy:
         "The work is strongest where product thinking, architecture and implementation quality need to meet in the same interface.",
       areas: [
-        { title: "AI-assisted software systems" },
-        { title: "Fintech and compliance tooling" },
-        { title: "Desktop applications" },
-        { title: "Backend architecture" },
-        { title: "Audit-ready reporting" },
-        { title: "Developer workflow automation" },
+        { title: "AI-assisted software systems", description: "Applied AI that supports real decisions while keeping evidence, review and control visible.", capabilities: ["Knowledge retrieval", "Evaluation", "Human review"], related: ["QALens", "AisoSec Audit"] },
+        { title: "Fintech and compliance tooling", description: "Controlled workflows for regulated operations, risk analysis and traceable decisions.", capabilities: ["Policy gates", "Risk controls", "Audit trails"], related: ["Aurora", "Market Surveillance AI"] },
+        { title: "Desktop applications", description: "Focused tools for analysts and specialists who need dense information without interface friction.", capabilities: ["Cross-platform UI", "Local workflows", "Secure integration"], related: ["WhaleScope Desktop"] },
+        { title: "Backend architecture", description: "Service foundations designed for clear boundaries, reliable operations and measured growth.", capabilities: ["API design", "Data models", "Observability"], related: [] },
+        { title: "Audit-ready reporting", description: "Structured outputs that connect findings to evidence, controls and accountable review.", capabilities: ["Evidence capture", "Control mapping", "PDF outputs"], related: ["AisoSec Audit", "Aurora"] },
+        { title: "Developer workflow automation", description: "Guardrailed automation that reduces repetitive work without hiding consequential actions.", capabilities: ["AI agents", "Approval gates", "Delivery evidence"], related: ["AgentDock", "QALens"] },
       ],
     },
     engineeringPrinciples: {
@@ -584,12 +587,12 @@ export const content = {
       copy:
         "Työ on vahvimmillaan siellä, missä tuoteajattelun, arkkitehtuurin ja toteutuksen laadun pitää kohdata samassa käyttöliittymässä.",
       areas: [
-        { title: "AI-avusteiset ohjelmistojärjestelmät" },
-        { title: "Fintech- ja vaatimustenmukaisuustyökalut" },
-        { title: "Työpöytäsovellukset" },
-        { title: "Taustajärjestelmien arkkitehtuuri" },
-        { title: "Auditointivalmis raportointi" },
-        { title: "Kehittäjätyönkulkujen automaatio" },
+        { title: "AI-avusteiset ohjelmistojärjestelmät", description: "Sovellettua tekoälyä todellisten päätösten tueksi niin, että evidenssi, tarkistus ja hallinta säilyvät näkyvinä.", capabilities: ["Tiedonhaku", "Arviointi", "Ihmisen tarkistus"], related: ["QALens", "AisoSec Audit"] },
+        { title: "Fintech- ja vaatimustenmukaisuustyökalut", description: "Hallittuja työnkulkuja säänneltyihin toimintoihin, riskianalyysiin ja jäljitettäviin päätöksiin.", capabilities: ["Käytäntöportit", "Riskikontrollit", "Auditointijäljet"], related: ["Aurora", "Market Surveillance AI"] },
+        { title: "Työpöytäsovellukset", description: "Kohdennettuja työkaluja analyytikoille ja asiantuntijoille, jotka tarvitsevat tiivistä tietoa ilman käyttöliittymän kitkaa.", capabilities: ["Monialustainen UI", "Paikalliset työnkulut", "Turvalliset integraatiot"], related: ["WhaleScope Desktop"] },
+        { title: "Taustajärjestelmien arkkitehtuuri", description: "Palveluperustat selkeisiin vastuualueisiin, luotettavaan toimintaan ja hallittuun kasvuun.", capabilities: ["API-suunnittelu", "Tietomallit", "Havainnoitavuus"], related: [] },
+        { title: "Auditointivalmis raportointi", description: "Rakenteiset tulokset, jotka yhdistävät havainnot evidenssiin, kontrolleihin ja vastuulliseen tarkistukseen.", capabilities: ["Evidenssin tallennus", "Kontrollikartoitus", "PDF-tulosteet"], related: ["AisoSec Audit", "Aurora"] },
+        { title: "Kehittäjätyönkulkujen automaatio", description: "Suojakaiteilla rajattua automaatiota, joka vähentää toistuvaa työtä piilottamatta merkityksellisiä toimia.", capabilities: ["AI-agentit", "Hyväksyntäportit", "Toimitusevidenssi"], related: ["AgentDock", "QALens"] },
       ],
     },
     engineeringPrinciples: {
@@ -833,12 +836,12 @@ export const content = {
       copy:
         "Arbetet är starkast där produkttänkande, arkitektur och genomförandekvalitet behöver mötas i samma gränssnitt.",
       areas: [
-        { title: "AI-assisterade programvarusystem" },
-        { title: "Fintech- och regelefterlevnadsverktyg" },
-        { title: "Skrivbordsapplikationer" },
-        { title: "Backendarkitektur" },
-        { title: "Revisionsklar rapportering" },
-        { title: "Automatisering av utvecklarflöden" },
+        { title: "AI-assisterade programvarusystem", description: "Tillämpad AI som stöder verkliga beslut samtidigt som evidens, granskning och kontroll förblir synliga.", capabilities: ["Kunskapssökning", "Utvärdering", "Mänsklig granskning"], related: ["QALens", "AisoSec Audit"] },
+        { title: "Fintech- och regelefterlevnadsverktyg", description: "Kontrollerade arbetsflöden för reglerad verksamhet, riskanalys och spårbara beslut.", capabilities: ["Policygrindar", "Riskkontroller", "Revisionsspår"], related: ["Aurora", "Market Surveillance AI"] },
+        { title: "Skrivbordsapplikationer", description: "Fokuserade verktyg för analytiker och specialister som behöver tät information utan gränssnittsfriktion.", capabilities: ["Plattformsoberoende UI", "Lokala arbetsflöden", "Säker integration"], related: ["WhaleScope Desktop"] },
+        { title: "Backendarkitektur", description: "Tjänstegrunder utformade för tydliga gränser, tillförlitlig drift och kontrollerad tillväxt.", capabilities: ["API-design", "Datamodeller", "Observerbarhet"], related: [] },
+        { title: "Revisionsklar rapportering", description: "Strukturerade resultat som kopplar fynd till evidens, kontroller och ansvarig granskning.", capabilities: ["Evidensinsamling", "Kontrollmappning", "PDF-utdata"], related: ["AisoSec Audit", "Aurora"] },
+        { title: "Automatisering av utvecklarflöden", description: "Skyddad automation som minskar repetitivt arbete utan att dölja betydelsefulla åtgärder.", capabilities: ["AI-agenter", "Godkännandegrindar", "Leveransevidens"], related: ["AgentDock", "QALens"] },
       ],
     },
     engineeringPrinciples: {

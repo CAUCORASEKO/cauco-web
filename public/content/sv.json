@@ -494,22 +494,78 @@
     "copy": "Arbetet är starkast där produkttänkande, arkitektur och genomförandekvalitet behöver mötas i samma gränssnitt.",
     "areas": [
       {
-        "title": "AI-assisterade programvarusystem"
+        "title": "AI-assisterade programvarusystem",
+        "description": "Tillämpad AI som stöder verkliga beslut samtidigt som evidens, granskning och kontroll förblir synliga.",
+        "capabilities": [
+          "Kunskapssökning",
+          "Utvärdering",
+          "Mänsklig granskning"
+        ],
+        "related": [
+          "QALens",
+          "AisoSec Audit"
+        ]
       },
       {
-        "title": "Fintech- och regelefterlevnadsverktyg"
+        "title": "Fintech- och regelefterlevnadsverktyg",
+        "description": "Kontrollerade arbetsflöden för reglerad verksamhet, riskanalys och spårbara beslut.",
+        "capabilities": [
+          "Policygrindar",
+          "Riskkontroller",
+          "Revisionsspår"
+        ],
+        "related": [
+          "Aurora",
+          "Market Surveillance AI"
+        ]
       },
       {
-        "title": "Skrivbordsapplikationer"
+        "title": "Skrivbordsapplikationer",
+        "description": "Fokuserade verktyg för analytiker och specialister som behöver tät information utan gränssnittsfriktion.",
+        "capabilities": [
+          "Plattformsoberoende UI",
+          "Lokala arbetsflöden",
+          "Säker integration"
+        ],
+        "related": [
+          "WhaleScope Desktop"
+        ]
       },
       {
-        "title": "Backendarkitektur"
+        "title": "Backendarkitektur",
+        "description": "Tjänstegrunder utformade för tydliga gränser, tillförlitlig drift och kontrollerad tillväxt.",
+        "capabilities": [
+          "API-design",
+          "Datamodeller",
+          "Observerbarhet"
+        ],
+        "related": []
       },
       {
-        "title": "Revisionsklar rapportering"
+        "title": "Revisionsklar rapportering",
+        "description": "Strukturerade resultat som kopplar fynd till evidens, kontroller och ansvarig granskning.",
+        "capabilities": [
+          "Evidensinsamling",
+          "Kontrollmappning",
+          "PDF-utdata"
+        ],
+        "related": [
+          "AisoSec Audit",
+          "Aurora"
+        ]
       },
       {
-        "title": "Automatisering av utvecklarflöden"
+        "title": "Automatisering av utvecklarflöden",
+        "description": "Skyddad automation som minskar repetitivt arbete utan att dölja betydelsefulla åtgärder.",
+        "capabilities": [
+          "AI-agenter",
+          "Godkännandegrindar",
+          "Leveransevidens"
+        ],
+        "related": [
+          "AgentDock",
+          "QALens"
+        ]
       }
     ]
   },

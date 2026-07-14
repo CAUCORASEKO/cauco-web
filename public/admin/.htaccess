@@ -20,7 +20,7 @@ DirectoryIndex index.php
   </IfModule>
 </FilesMatch>
 
-<FilesMatch "^(?!(?:index|login|logout|save)\.php$).+\.(?:php[0-9]?|phtml|phar)$">
+<FilesMatch "^(?!(?:index|login|logout|save|change-password|forgot-password|request-reset|reset-password)\.php$).+\.(?:php[0-9]?|phtml|phar)$">
   <IfModule mod_authz_core.c>
     Require all denied
   </IfModule>
