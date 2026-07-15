@@ -56,18 +56,56 @@
       "AI-SYSTEMBYGGARE",
       "KOMPLETTA PRODUKTER"
     ],
-    "phaseLabels": ["Förmågor", "Bevis", "Teknik"],
+    "phaseLabels": [
+      "Förmågor",
+      "Bevis",
+      "Teknik"
+    ],
     "question": "VAD KAN DEN HÄR PERSONEN BYGGA?",
-    "capabilities": ["AI-system", "Backendarkitektur", "Utvecklarverktyg", "Skrivbordsapplikationer", "Fintech", "Regelefterlevnad", "Digital tillit", "Automation", "Produktutveckling"],
+    "capabilities": [
+      "AI-system",
+      "Backendarkitektur",
+      "Utvecklarverktyg",
+      "Skrivbordsapplikationer",
+      "Fintech",
+      "Regelefterlevnad",
+      "Digital tillit",
+      "Automation",
+      "Produktutveckling"
+    ],
     "capabilityStatement": "FRÅN KOMPLEXT PROBLEM TILL FUNGERANDE PRODUKT.",
     "buildLabel": "Helhetsansvar",
-    "buildSpan": ["Produkttänkande", "Systemarkitektur", "Produktionsmjukvara"],
+    "buildSpan": [
+      "Produkttänkande",
+      "Systemarkitektur",
+      "Produktionsmjukvara"
+    ],
     "buildStatement": "EN INGENJÖR. HELA SYSTEMET.",
-    "projects": ["Aurora", "QALens", "AisoSec Audit", "WhaleScope", "Market Surveillance AI", "KümeVet", "Streakly", "AisoFlow"],
-    "evidenceStatement": "ÅTTA PRODUKTER. ETT ARBETSSÄTT: BYGG HELHETEN.",
+    "projects": [
+      "Aurora",
+      "QALens",
+      "AisoSec Audit",
+      "WhaleScope",
+      "Market Surveillance AI",
+      "KümeVet",
+      "Streakly",
+      "AisoFlow"
+    ],
+    "evidenceStatement": "ÅTTA PRODUKTER ETT ARBETSSÄTT  BYGG HELHETEN.",
     "architectureLabel": "Den förenande disciplinen",
     "architectureStatement": "GRÄNSSNITT, INTELLIGENS, INFRASTRUKTUR OCH TILLIT — UTFORMADE SOM EN HELHET.",
-    "technology": ["TypeScript", "React", "Node.js", "Python", "FastAPI", "Flutter", "PostgreSQL", "Docker", "Git", "AI"],
+    "technology": [
+      "TypeScript",
+      "React",
+      "Node.js",
+      "Python",
+      "FastAPI",
+      "Flutter",
+      "PostgreSQL",
+      "Docker",
+      "Git",
+      "AI"
+    ],
     "technologyStatement": "VERKTYG FÖRÄNDRAS. INGENJÖRSOMDÖME SKALAR.",
     "closing": "JAG BYGGER PROGRAMVARA DÄR ARKITEKTUR, AI OCH TILLIT MÖTS.",
     "chapters": [
