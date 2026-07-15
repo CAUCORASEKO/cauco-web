@@ -119,8 +119,11 @@ export function PlayReel({ copy, onClose, onExplore }: PlayReelProps) {
 
   const scene = sceneAt(elapsed);
   const sceneProgress = Math.max(0, Math.min(1, (elapsed - scene.start) / (scene.end - scene.start)));
-  const transitionIn = Math.max(0, Math.min(1, sceneProgress / .055));
-  const transitionOut = scene.id === "end" ? 1 : Math.max(0, Math.min(1, (1 - sceneProgress) / .055));
+  const sceneDuration = scene.end - scene.start;
+  const transitionShare = 0.65 / sceneDuration;
+  const transitionIn = Math.max(0, Math.min(1, sceneProgress / transitionShare));
+  const transitionOut = scene.id === "end" ? 1 : Math.max(0, Math.min(1, (1 - sceneProgress) / transitionShare));
+  const sceneVisibility = Math.min(transitionIn, transitionOut);
 
   return (
     <motion.div role="dialog" aria-modal="true" aria-labelledby="reel-title" className="play-reel" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
@@ -128,7 +131,7 @@ export function PlayReel({ copy, onClose, onExplore }: PlayReelProps) {
       {!reduced && (
         <audio
           ref={audioRef}
-          src="/audio/midnight-lab-loop-45s.mp3"
+          src="/audio/midnight-lab-loop-60s.mp3"
           preload="auto"
           aria-hidden="true"
           tabIndex={-1}
@@ -137,8 +140,18 @@ export function PlayReel({ copy, onClose, onExplore }: PlayReelProps) {
       <div className="reel-texture" aria-hidden="true" />
       <ReelControls copy={copy} elapsed={reduced ? 0 : elapsed} duration={REEL_DURATION} paused={reduced || paused} onToggle={toggle} onRestart={restart} onClose={onClose} />
       <main className="reel-stage">
-        {reduced ? <><p className="reel-reduced-label">{copy.reduced}</p><ReelScene id="entry" copy={copy} reduced /></> : (
-          <div className={`reel-scene reel-scene-${scene.id}`} style={{ clipPath: `inset(0 ${100 * (1 - transitionIn)}% 0 ${100 * (1 - transitionOut)}%)` }}><ReelScene id={scene.id} copy={copy} progress={sceneProgress} paused={paused} /></div>
+        {reduced ? <><p className="reel-reduced-label">{copy.reduced}</p><ReelScene id="boot" copy={copy} reduced /></> : (
+          <div
+            key={scene.id}
+            className={`reel-scene reel-scene-${scene.id}`}
+            style={{
+              opacity: sceneVisibility,
+              visibility: sceneVisibility <= .001 ? "hidden" : "visible",
+              transform: `translateY(${(1 - transitionIn) * 8 - (1 - transitionOut) * 6}px) scale(${.985 + sceneVisibility * .015})`,
+            }}
+          >
+            <ReelScene id={scene.id} copy={copy} progress={sceneProgress} paused={paused} />
+          </div>
         )}
       </main>
       {showFinalActions && <motion.div className="reel-final-actions" initial={reduced ? false : { opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }}>

@@ -68,7 +68,7 @@ export type SiteContent = {
   };
   reel: {
     title: string; play: string; close: string; pause: string; resume: string; restart: string; replay: string; explore: string; back: string; controls: string; progress: string; reduced: string;
-    entry: string[]; problemItems: string[]; problemStatement: string; aurora: string[]; qalens: string[]; aisosec: string[]; sharedCore: string; layers: string[]; revelation: string; lab: string[]; unlocked: string; end: string; chapters: string[];
+    phaseLabels: string[]; entry: string[]; question: string; capabilities: string[]; capabilityStatement: string; buildLabel: string; buildSpan: string[]; buildStatement: string; projects: string[]; evidenceStatement: string; architectureLabel: string; architectureStatement: string; technology: string[]; technologyStatement: string; closing: string; chapters: string[];
   };
   featuredSystems: {
     kicker: string;
@@ -143,18 +143,21 @@ export type SiteContent = {
 const nav = {
   en: [
     { label: "Systems", href: "#systems" },
+    { label: "Projects", href: "#lab" },
     { label: "Focus", href: "#focus" },
     { label: "Principles", href: "#principles" },
     { label: "Contact", href: "#contact" },
   ],
   fi: [
     { label: "Järjestelmät", href: "#systems" },
+    { label: "Projektit", href: "#lab" },
     { label: "Painopisteet", href: "#focus" },
     { label: "Periaatteet", href: "#principles" },
     { label: "Yhteys", href: "#contact" },
   ],
   sv: [
     { label: "System", href: "#systems" },
+    { label: "Projekt", href: "#lab" },
     { label: "Fokus", href: "#focus" },
     { label: "Principer", href: "#principles" },
     { label: "Kontakt", href: "#contact" },
@@ -183,15 +186,14 @@ export const content = {
       secondaryCta: "Contact",
     },
     reel: {
-      title: "CAUCO systems reel", play: "Play reel", close: "Close reel", pause: "Pause reel", resume: "Resume reel", restart: "Restart reel", replay: "Replay", explore: "Explore the ecosystem", back: "Back to site", controls: "Reel controls", progress: "Reel progress", reduced: "Motion-reduced reel summary",
-      entry: ["BUILDING SYSTEMS", "FOR A TRUSTED", "DIGITAL ECONOMY"],
-      problemItems: ["IDENTITY", "PERMISSIONS", "RISK", "QUALITY", "COMPLIANCE", "EVIDENCE", "DECISIONS"], problemStatement: "DISCONNECTED SYSTEMS CREATE UNTRUSTED OUTCOMES",
-      aurora: ["Request", "Identity", "Permission", "Policy", "Evidence", "Human Review", "Controlled Decision"],
-      qalens: ["Issue", "QA Risk", "Suggested Improvement", "Test Cases", "Delivery Evidence"],
-      aisosec: ["Finding", "Evidence", "Severity", "OWASP / NIST / ISO mapping", "Compliance Gap", "Audit Output"],
-      sharedCore: "Shared trust core", layers: ["Identity", "Policy", "Evidence", "Decisions"], revelation: "NOT SEPARATE PRODUCTS. ONE TRUST INFRASTRUCTURE.",
-      lab: ["Aurora UI Kit", "Trust Infrastructure Blueprint", "Audit Report Templates", "Risk Matrix Toolkit", "Developer Starter Kit"], unlocked: "UNLOCKED", end: "SYSTEMS FOR TRUST",
-      chapters: ["Trusted digital economy", "Disconnected systems", "Aurora controlled operations", "QALens quality intelligence", "AisoSec audit evidence", "One trust infrastructure", "CAUCO Lab", "Systems for trust"],
+      title: "CAUCO engineering reel", play: "Play reel", close: "Close reel", pause: "Pause reel", resume: "Resume reel", restart: "Restart reel", replay: "Replay", explore: "Explore the work", back: "Back to site", controls: "Reel controls", progress: "Reel progress", reduced: "Motion-reduced reel summary",
+      phaseLabels: ["Capabilities", "Evidence", "Technology"], entry: ["SOFTWARE ARCHITECT", "AI SYSTEMS BUILDER", "COMPLETE PRODUCTS"], question: "WHAT CAN THIS PERSON BUILD?",
+      capabilities: ["AI Systems", "Backend Architecture", "Developer Tools", "Desktop Applications", "Fintech", "Compliance", "Digital Trust", "Automation", "Product Engineering"], capabilityStatement: "FROM COMPLEX PROBLEM TO WORKING PRODUCT.",
+      buildLabel: "End-to-end engineering", buildSpan: ["Product thinking", "System architecture", "Production software"], buildStatement: "ONE ENGINEER. THE COMPLETE SYSTEM.",
+      projects: ["Aurora", "QALens", "AisoSec Audit", "WhaleScope", "Market Surveillance AI", "KümeVet", "Streakly", "AisoFlow"], evidenceStatement: "EIGHT PRODUCTS. ONE PRACTICE: BUILD THE WHOLE THING.",
+      architectureLabel: "The connecting discipline", architectureStatement: "INTERFACES, INTELLIGENCE, INFRASTRUCTURE AND TRUST — DESIGNED AS ONE.",
+      technology: ["TypeScript", "React", "Node.js", "Python", "FastAPI", "Flutter", "PostgreSQL", "Docker", "Git", "AI"], technologyStatement: "TOOLS CHANGE. ENGINEERING JUDGMENT SCALES.",
+      closing: "I BUILD SOFTWARE WHERE ARCHITECTURE, AI AND TRUST MEET.", chapters: ["Software architect and product builder", "Capabilities across product engineering", "End-to-end engineering", "Eight shipped product directions", "Architecture as the connecting discipline", "A versatile technology stack", "Architecture, AI and trust"],
     },
     featuredSystems: {
       kicker: "Featured Systems",
@@ -431,15 +433,14 @@ export const content = {
       secondaryCta: "Yhteys",
     },
     reel: {
-      title: "CAUCO-järjestelmien reel", play: "Katso reel", close: "Sulje reel", pause: "Keskeytä reel", resume: "Jatka reeliä", restart: "Aloita reel alusta", replay: "Katso uudelleen", explore: "Tutustu ekosysteemiin", back: "Takaisin sivustolle", controls: "Reelin ohjaimet", progress: "Reelin eteneminen", reduced: "Liikettä vähentävä reelin yhteenveto",
-      entry: ["RAKENNAMME JÄRJESTELMIÄ", "LUOTETTAVAAN", "DIGITAALITALOUTEEN"],
-      problemItems: ["IDENTITEETTI", "KÄYTTÖOIKEUDET", "RISKI", "LAATU", "VAATIMUSTENMUKAISUUS", "EVIDENSSI", "PÄÄTÖKSET"], problemStatement: "IRRALLISET JÄRJESTELMÄT TUOTTAVAT EPÄLUOTETTAVIA TULOKSIA",
-      aurora: ["Pyyntö", "Identiteetti", "Käyttöoikeus", "Politiikka", "Evidenssi", "Ihmisen tarkistus", "Hallittu päätös"],
-      qalens: ["Ongelma", "QA-riski", "Parannusehdotus", "Testitapaukset", "Toimitusevidenssi"],
-      aisosec: ["Havainto", "Evidenssi", "Vakavuus", "OWASP / NIST / ISO -kartoitus", "Compliance-puute", "Auditointitulos"],
-      sharedCore: "Jaettu luottamusydin", layers: ["Identiteetti", "Politiikka", "Evidenssi", "Päätökset"], revelation: "EI ERILLISIÄ TUOTTEITA. YKSI LUOTTAMUSINFRASTRUKTUURI.",
-      lab: ["Aurora UI Kit", "Trust Infrastructure Blueprint", "Audit Report Templates", "Risk Matrix Toolkit", "Developer Starter Kit"], unlocked: "AVATTU", end: "JÄRJESTELMIÄ LUOTTAMUKSELLE",
-      chapters: ["Luotettava digitaalitalous", "Irralliset järjestelmät", "Auroran hallitut operaatiot", "QALensin laatuäly", "AisoSecin auditointievidenssi", "Yksi luottamusinfrastruktuuri", "CAUCO Lab", "Järjestelmiä luottamukselle"],
+      title: "CAUCO engineering reel", play: "Katso reel", close: "Sulje reel", pause: "Keskeytä reel", resume: "Jatka reeliä", restart: "Aloita reel alusta", replay: "Katso uudelleen", explore: "Tutustu töihin", back: "Takaisin sivustolle", controls: "Reelin ohjaimet", progress: "Reelin eteneminen", reduced: "Liikettä vähentävä reelin yhteenveto",
+      phaseLabels: ["Osaaminen", "Näytöt", "Teknologia"], entry: ["OHJELMISTOARKKITEHTI", "AI-JÄRJESTELMIEN RAKENTAJA", "KOKONAISIA TUOTTEITA"], question: "MITÄ TÄMÄ HENKILÖ OSAA RAKENTAA?",
+      capabilities: ["AI-järjestelmät", "Backend-arkkitehtuuri", "Kehittäjätyökalut", "Työpöytäsovellukset", "Fintech", "Vaatimustenmukaisuus", "Digitaalinen luottamus", "Automaatio", "Tuotekehitys"], capabilityStatement: "MONIMUTKAISESTA ONGELMASTA TOIMIVAKSI TUOTTEEKSI.",
+      buildLabel: "Kokonaisvaltainen toteutus", buildSpan: ["Tuoteajattelu", "Järjestelmäarkkitehtuuri", "Tuotantovalmis ohjelmisto"], buildStatement: "YKSI TEKIJÄ. KOKO JÄRJESTELMÄ.",
+      projects: ["Aurora", "QALens", "AisoSec Audit", "WhaleScope", "Market Surveillance AI", "KümeVet", "Streakly", "AisoFlow"], evidenceStatement: "KAHDEKSAN TUOTETTA. YKSI TAPA TOIMIA: RAKENNA KOKONAISUUS.",
+      architectureLabel: "Yhdistävä osaaminen", architectureStatement: "KÄYTTÖLIITTYMÄT, ÄLY, INFRASTRUKTUURI JA LUOTTAMUS — YHTENÄ KOKONAISUUTENA.",
+      technology: ["TypeScript", "React", "Node.js", "Python", "FastAPI", "Flutter", "PostgreSQL", "Docker", "Git", "AI"], technologyStatement: "TYÖKALUT VAIHTUVAT. INSINÖÖRIOSAAMINEN SKAALAUTUU.",
+      closing: "RAKENNAN OHJELMISTOJA ARKKITEHTUURIN, TEKOÄLYN JA LUOTTAMUKSEN RAJAPINTAAN.", chapters: ["Ohjelmistoarkkitehti ja tuoterakentaja", "Laaja-alainen tuotekehitysosaaminen", "Kokonaisvaltainen toteutus", "Kahdeksan tuotesuuntaa näyttönä", "Arkkitehtuuri yhdistävänä osaamisena", "Monipuolinen teknologiapino", "Arkkitehtuuri, tekoäly ja luottamus"],
     },
     featuredSystems: {
       kicker: "Valitut järjestelmät",
@@ -680,15 +681,14 @@ export const content = {
       secondaryCta: "Kontakt",
     },
     reel: {
-      title: "CAUCO systemreel", play: "Spela reel", close: "Stäng reel", pause: "Pausa reel", resume: "Fortsätt reel", restart: "Starta om reel", replay: "Spela igen", explore: "Utforska ekosystemet", back: "Tillbaka till webbplatsen", controls: "Reelkontroller", progress: "Reelens förlopp", reduced: "Reelsammanfattning med minskad rörelse",
-      entry: ["VI BYGGER SYSTEM", "FÖR EN BETRODD", "DIGITAL EKONOMI"],
-      problemItems: ["IDENTITET", "BEHÖRIGHETER", "RISK", "KVALITET", "REGELEFTERLEVNAD", "EVIDENS", "BESLUT"], problemStatement: "FRÅNKOPPLADE SYSTEM SKAPAR OTILLFÖRLITLIGA RESULTAT",
-      aurora: ["Begäran", "Identitet", "Behörighet", "Policy", "Evidens", "Mänsklig granskning", "Kontrollerat beslut"],
-      qalens: ["Problem", "QA-risk", "Förbättringsförslag", "Testfall", "Leveransevidens"],
-      aisosec: ["Fynd", "Evidens", "Allvarlighet", "OWASP / NIST / ISO-mappning", "Compliance-gap", "Revisionsunderlag"],
-      sharedCore: "Gemensam tillitskärna", layers: ["Identitet", "Policy", "Evidens", "Beslut"], revelation: "INTE SEPARATA PRODUKTER. EN TILLITSINFRASTRUKTUR.",
-      lab: ["Aurora UI Kit", "Trust Infrastructure Blueprint", "Audit Report Templates", "Risk Matrix Toolkit", "Developer Starter Kit"], unlocked: "UPPLÅST", end: "SYSTEM FÖR TILLIT",
-      chapters: ["Betrodd digital ekonomi", "Frånkopplade system", "Auroras kontrollerade operationer", "QALens kvalitetsintelligens", "AisoSec revisionsevidens", "En tillitsinfrastruktur", "CAUCO Lab", "System för tillit"],
+      title: "CAUCO engineering reel", play: "Spela reel", close: "Stäng reel", pause: "Pausa reel", resume: "Fortsätt reel", restart: "Starta om reel", replay: "Spela igen", explore: "Utforska arbetet", back: "Tillbaka till webbplatsen", controls: "Reelkontroller", progress: "Reelens förlopp", reduced: "Reelsammanfattning med minskad rörelse",
+      phaseLabels: ["Förmågor", "Bevis", "Teknik"], entry: ["PROGRAMVARUARKITEKT", "AI-SYSTEMBYGGARE", "KOMPLETTA PRODUKTER"], question: "VAD KAN DEN HÄR PERSONEN BYGGA?",
+      capabilities: ["AI-system", "Backendarkitektur", "Utvecklarverktyg", "Skrivbordsapplikationer", "Fintech", "Regelefterlevnad", "Digital tillit", "Automation", "Produktutveckling"], capabilityStatement: "FRÅN KOMPLEXT PROBLEM TILL FUNGERANDE PRODUKT.",
+      buildLabel: "Helhetsansvar", buildSpan: ["Produkttänkande", "Systemarkitektur", "Produktionsmjukvara"], buildStatement: "EN INGENJÖR. HELA SYSTEMET.",
+      projects: ["Aurora", "QALens", "AisoSec Audit", "WhaleScope", "Market Surveillance AI", "KümeVet", "Streakly", "AisoFlow"], evidenceStatement: "ÅTTA PRODUKTER. ETT ARBETSSÄTT: BYGG HELHETEN.",
+      architectureLabel: "Den förenande disciplinen", architectureStatement: "GRÄNSSNITT, INTELLIGENS, INFRASTRUKTUR OCH TILLIT — UTFORMADE SOM EN HELHET.",
+      technology: ["TypeScript", "React", "Node.js", "Python", "FastAPI", "Flutter", "PostgreSQL", "Docker", "Git", "AI"], technologyStatement: "VERKTYG FÖRÄNDRAS. INGENJÖRSOMDÖME SKALAR.",
+      closing: "JAG BYGGER PROGRAMVARA DÄR ARKITEKTUR, AI OCH TILLIT MÖTS.", chapters: ["Programvaruarkitekt och produktbyggare", "Förmågor inom hela produktutvecklingen", "Helhetsansvar", "Åtta produktriktningar som bevis", "Arkitektur som förenande disciplin", "En mångsidig teknikstack", "Arkitektur, AI och tillit"],
     },
     featuredSystems: {
       kicker: "Utvalda system",

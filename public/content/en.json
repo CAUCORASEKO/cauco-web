@@ -8,6 +8,10 @@
         "href": "#systems"
       },
       {
+        "label": "Projects",
+        "href": "#lab"
+      },
+      {
         "label": "Focus",
         "href": "#focus"
       },
@@ -35,83 +39,45 @@
     "secondaryCta": "Contact"
   },
   "reel": {
-    "title": "CAUCO systems reel",
+    "title": "CAUCO engineering reel",
     "play": "Play reel",
     "close": "Close reel",
     "pause": "Pause reel",
     "resume": "Resume reel",
     "restart": "Restart reel",
     "replay": "Replay",
-    "explore": "Explore the ecosystem",
+    "explore": "Explore the work",
     "back": "Back to site",
     "controls": "Reel controls",
     "progress": "Reel progress",
     "reduced": "Motion-reduced reel summary",
     "entry": [
-      "BUILDING SYSTEMS",
-      "FOR A TRUSTED",
-      "DIGITAL ECONOMY"
+      "SOFTWARE ARCHITECT",
+      "AI SYSTEMS BUILDER",
+      "COMPLETE PRODUCTS"
     ],
-    "problemItems": [
-      "IDENTITY",
-      "PERMISSIONS",
-      "RISK",
-      "QUALITY",
-      "COMPLIANCE",
-      "EVIDENCE",
-      "DECISIONS"
-    ],
-    "problemStatement": "DISCONNECTED SYSTEMS CREATE UNTRUSTED OUTCOMES",
-    "aurora": [
-      "Request",
-      "Identity",
-      "Permission",
-      "Policy",
-      "Evidence",
-      "Human Review",
-      "Controlled Decision"
-    ],
-    "qalens": [
-      "Issue",
-      "QA Risk",
-      "Suggested Improvement",
-      "Test Cases",
-      "Delivery Evidence"
-    ],
-    "aisosec": [
-      "Finding",
-      "Evidence",
-      "Severity",
-      "OWASP / NIST / ISO mapping",
-      "Compliance Gap",
-      "Audit Output"
-    ],
-    "sharedCore": "Shared trust core",
-    "layers": [
-      "Identity",
-      "Policy",
-      "Evidence",
-      "Decisions"
-    ],
-    "revelation": "NOT SEPARATE PRODUCTS. ONE TRUST INFRASTRUCTURE.",
-    "lab": [
-      "Aurora UI Kit",
-      "Trust Infrastructure Blueprint",
-      "Audit Report Templates",
-      "Risk Matrix Toolkit",
-      "Developer Starter Kit"
-    ],
-    "unlocked": "UNLOCKED",
-    "end": "SYSTEMS FOR TRUST",
+    "phaseLabels": ["Capabilities", "Evidence", "Technology"],
+    "question": "WHAT CAN THIS PERSON BUILD?",
+    "capabilities": ["AI Systems", "Backend Architecture", "Developer Tools", "Desktop Applications", "Fintech", "Compliance", "Digital Trust", "Automation", "Product Engineering"],
+    "capabilityStatement": "FROM COMPLEX PROBLEM TO WORKING PRODUCT.",
+    "buildLabel": "End-to-end engineering",
+    "buildSpan": ["Product thinking", "System architecture", "Production software"],
+    "buildStatement": "ONE ENGINEER. THE COMPLETE SYSTEM.",
+    "projects": ["Aurora", "QALens", "AisoSec Audit", "WhaleScope", "Market Surveillance AI", "KümeVet", "Streakly", "AisoFlow"],
+    "evidenceStatement": "EIGHT PRODUCTS. ONE PRACTICE: BUILD THE WHOLE THING.",
+    "architectureLabel": "The connecting discipline",
+    "architectureStatement": "INTERFACES, INTELLIGENCE, INFRASTRUCTURE AND TRUST — DESIGNED AS ONE.",
+    "technology": ["TypeScript", "React", "Node.js", "Python", "FastAPI", "Flutter", "PostgreSQL", "Docker", "Git", "AI"],
+    "technologyStatement": "TOOLS CHANGE. ENGINEERING JUDGMENT SCALES.",
+    "closing": "I BUILD SOFTWARE WHERE ARCHITECTURE, AI AND TRUST MEET.",
     "chapters": [
-      "Trusted digital economy",
-      "Disconnected systems",
-      "Aurora controlled operations",
-      "QALens quality intelligence",
-      "AisoSec audit evidence",
-      "One trust infrastructure",
-      "CAUCO Lab",
-      "Systems for trust"
+      "Software architect and product builder",
+      "Capabilities across product engineering",
+      "End-to-end engineering",
+      "Eight shipped product directions",
+      "Architecture as the connecting discipline",
+      "A versatile technology stack",
+      "Architecture, AI and trust"
     ]
   },
   "featuredSystems": {

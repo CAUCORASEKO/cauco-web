@@ -8,6 +8,10 @@
         "href": "#systems"
       },
       {
+        "label": "Projekt",
+        "href": "#lab"
+      },
+      {
         "label": "Fokus",
         "href": "#focus"
       },
@@ -35,83 +39,45 @@
     "secondaryCta": "Kontakt"
   },
   "reel": {
-    "title": "CAUCO systemreel",
+    "title": "CAUCO engineering reel",
     "play": "Spela reel",
     "close": "Stäng reel",
     "pause": "Pausa reel",
     "resume": "Fortsätt reel",
     "restart": "Starta om reel",
     "replay": "Spela igen",
-    "explore": "Utforska ekosystemet",
+    "explore": "Utforska arbetet",
     "back": "Tillbaka till webbplatsen",
     "controls": "Reelkontroller",
     "progress": "Reelens förlopp",
     "reduced": "Reelsammanfattning med minskad rörelse",
     "entry": [
-      "VI BYGGER SYSTEM",
-      "FÖR EN BETRODD",
-      "DIGITAL EKONOMI"
+      "PROGRAMVARUARKITEKT",
+      "AI-SYSTEMBYGGARE",
+      "KOMPLETTA PRODUKTER"
     ],
-    "problemItems": [
-      "IDENTITET",
-      "BEHÖRIGHETER",
-      "RISK",
-      "KVALITET",
-      "REGELEFTERLEVNAD",
-      "EVIDENS",
-      "BESLUT"
-    ],
-    "problemStatement": "FRÅNKOPPLADE SYSTEM SKAPAR OTILLFÖRLITLIGA RESULTAT",
-    "aurora": [
-      "Begäran",
-      "Identitet",
-      "Behörighet",
-      "Policy",
-      "Evidens",
-      "Mänsklig granskning",
-      "Kontrollerat beslut"
-    ],
-    "qalens": [
-      "Problem",
-      "QA-risk",
-      "Förbättringsförslag",
-      "Testfall",
-      "Leveransevidens"
-    ],
-    "aisosec": [
-      "Fynd",
-      "Evidens",
-      "Allvarlighet",
-      "OWASP / NIST / ISO-mappning",
-      "Compliance-gap",
-      "Revisionsunderlag"
-    ],
-    "sharedCore": "Gemensam tillitskärna",
-    "layers": [
-      "Identitet",
-      "Policy",
-      "Evidens",
-      "Beslut"
-    ],
-    "revelation": "INTE SEPARATA PRODUKTER. EN TILLITSINFRASTRUKTUR.",
-    "lab": [
-      "Aurora UI Kit",
-      "Trust Infrastructure Blueprint",
-      "Audit Report Templates",
-      "Risk Matrix Toolkit",
-      "Developer Starter Kit"
-    ],
-    "unlocked": "UPPLÅST",
-    "end": "SYSTEM FÖR TILLIT",
+    "phaseLabels": ["Förmågor", "Bevis", "Teknik"],
+    "question": "VAD KAN DEN HÄR PERSONEN BYGGA?",
+    "capabilities": ["AI-system", "Backendarkitektur", "Utvecklarverktyg", "Skrivbordsapplikationer", "Fintech", "Regelefterlevnad", "Digital tillit", "Automation", "Produktutveckling"],
+    "capabilityStatement": "FRÅN KOMPLEXT PROBLEM TILL FUNGERANDE PRODUKT.",
+    "buildLabel": "Helhetsansvar",
+    "buildSpan": ["Produkttänkande", "Systemarkitektur", "Produktionsmjukvara"],
+    "buildStatement": "EN INGENJÖR. HELA SYSTEMET.",
+    "projects": ["Aurora", "QALens", "AisoSec Audit", "WhaleScope", "Market Surveillance AI", "KümeVet", "Streakly", "AisoFlow"],
+    "evidenceStatement": "ÅTTA PRODUKTER. ETT ARBETSSÄTT: BYGG HELHETEN.",
+    "architectureLabel": "Den förenande disciplinen",
+    "architectureStatement": "GRÄNSSNITT, INTELLIGENS, INFRASTRUKTUR OCH TILLIT — UTFORMADE SOM EN HELHET.",
+    "technology": ["TypeScript", "React", "Node.js", "Python", "FastAPI", "Flutter", "PostgreSQL", "Docker", "Git", "AI"],
+    "technologyStatement": "VERKTYG FÖRÄNDRAS. INGENJÖRSOMDÖME SKALAR.",
+    "closing": "JAG BYGGER PROGRAMVARA DÄR ARKITEKTUR, AI OCH TILLIT MÖTS.",
     "chapters": [
-      "Betrodd digital ekonomi",
-      "Frånkopplade system",
-      "Auroras kontrollerade operationer",
-      "QALens kvalitetsintelligens",
-      "AisoSec revisionsevidens",
-      "En tillitsinfrastruktur",
-      "CAUCO Lab",
-      "System för tillit"
+      "Programvaruarkitekt och produktbyggare",
+      "Förmågor inom hela produktutvecklingen",
+      "Helhetsansvar",
+      "Åtta produktriktningar som bevis",
+      "Arkitektur som förenande disciplin",
+      "En mångsidig teknikstack",
+      "Arkitektur, AI och tillit"
     ]
   },
   "featuredSystems": {
